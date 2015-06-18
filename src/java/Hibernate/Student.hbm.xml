@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-Jun-2015 13:49:14 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.Student" table="student" catalog="practicesql" optimistic-lock="version">
+        <id name="studentId" type="int">
+            <column name="StudentID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="classes" class="Hibernate.Classes" fetch="select">
+            <column name="ClassEnrolled" not-null="true" />
+        </many-to-one>
+        <property name="firstName" type="string">
+            <column name="FirstName" length="250" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LastName" length="250" not-null="true" />
+        </property>
+        <property name="dob" type="date">
+            <column name="DOB" length="10" not-null="true" />
+        </property>
+        <property name="year" type="int">
+            <column name="Year" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

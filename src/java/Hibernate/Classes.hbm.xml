@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-Jun-2015 13:49:14 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.Classes" table="classes" catalog="practicesql" optimistic-lock="version">
+        <id name="classId" type="java.lang.Integer">
+            <column name="ClassID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="teacher" class="Hibernate.Teacher" fetch="select">
+            <column name="TeacherID" not-null="true" />
+        </many-to-one>
+        <property name="className" type="string">
+            <column name="ClassName" length="250" not-null="true" />
+        </property>
+        <property name="credits" type="int">
+            <column name="Credits" not-null="true" />
+        </property>
+        <set name="students" table="student" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ClassEnrolled" not-null="true" />
+            </key>
+            <one-to-many class="Hibernate.Student" />
+        </set>
+    </class>
+</hibernate-mapping>
