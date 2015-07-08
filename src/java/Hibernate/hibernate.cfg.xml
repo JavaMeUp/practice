@@ -12,6 +12,5 @@
     <mapping resource="Hibernate/Visitors.hbm.xml"/>
     <mapping resource="Hibernate/Users.hbm.xml"/>
     <mapping resource="Hibernate/Classes.hbm.xml"/>
-
   </session-factory>
 </hibernate-configuration>
