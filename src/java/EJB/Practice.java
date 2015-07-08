@@ -40,7 +40,7 @@ public class Practice implements IPractice
     public String getTeacher()
     {
         Teacher Rteacher = null;
-        this.sess =  HibernateUtil.getSessionFactory().getCurrentSession();
+        this.sess =  HibernateUtil.getSessionFactory().openSession();
         try
         {
             Transaction tx = this.sess.beginTransaction();
