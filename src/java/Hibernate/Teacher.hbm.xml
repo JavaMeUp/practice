@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-Jun-2015 08:25:22 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.Teacher" table="teacher" catalog="practicesql" optimistic-lock="version">
+        <id name="teacherId" type="int">
+            <column name="TeacherID" />
+            <generator class="assigned" />
+        </id>
+        <property name="recordDate" type="date">
+            <column name="RecordDate" length="10" not-null="true" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="FirstName" length="250" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LastName" length="250" not-null="true" />
+        </property>
+        <property name="specialSubject" type="string">
+            <column name="SpecialSubject" length="250" not-null="true" />
+        </property>
+        <set name="classeses" table="classes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TeacherID" not-null="true" />
+            </key>
+            <one-to-many class="Hibernate.Classes" />
+        </set>
+    </class>
+</hibernate-mapping>
