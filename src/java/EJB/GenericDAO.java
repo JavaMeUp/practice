@@ -17,8 +17,8 @@ import org.hibernate.cfg.Configuration;
  */
 public abstract class GenericDAO 
 {
-    protected Transaction currentTransaction;
-    protected Session currentSession;
+    private Transaction currentTransaction;
+    private  Session currentSession;
     
     private static SessionFactory getSessionFactory()
     {

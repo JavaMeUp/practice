@@ -7,6 +7,8 @@ package EJB;
 
 import Hibernate.Teacher;
 import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 
 /**
@@ -15,10 +17,24 @@ import java.util.List;
  */
 public class TeacherDAO extends GenericDAO  implements IDAO <Teacher ,String>
 {
+    private Session session;
+    private Transaction transaction;
+    
     
     @Override
-    public void persist(Teacher entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void persist(Teacher entity) 
+    {
+        try
+        {
+            this.transaction = super.openCurrentTransaction();
+            this.session = super.getCurrentSession();
+            this.session.persist(entity);
+            super.closeCurrentTransaction();
+        }
+        catch(Exception e )
+        {
+            System.out.format("Thre was an error in persisting the Teacher Object %s", e.getMessage());
+        }
     }
 
     @Override
