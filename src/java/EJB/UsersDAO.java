@@ -86,7 +86,7 @@ public class UsersDAO implements IDAO <Users,String>
     }
 
     @Override
-    public Users findById(int id) {
+    public Users findById(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

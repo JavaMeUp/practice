@@ -87,7 +87,7 @@ public class VisitorsDAO implements IDAO <Visitors,String>
     }
 
     @Override
-    public Visitors findById(int id) {
+    public Visitors findById(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

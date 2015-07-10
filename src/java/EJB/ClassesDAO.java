@@ -86,7 +86,7 @@ public class ClassesDAO implements IDAO <Classes,String>
     }
 
     @Override
-    public Classes findById(int id) {
+    public Classes findById(String id) {
         Classes singleClass = (Classes) getCurrentSession().get(Classes.class, id);
         return singleClass;
     }

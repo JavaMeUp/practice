@@ -86,7 +86,7 @@ public class StudentDAO implements IDAO <Student,String>
     }
 
     @Override
-    public Student findById(int id) {
+    public Student findById(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
