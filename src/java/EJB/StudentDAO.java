@@ -5,18 +5,19 @@
  */
 package EJB;
 
-import Hibernate.Teacher;
+import Hibernate.Student;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+
 /**
  *
- * @author wilton
+ * @author wilson.li
  */
-public class TeacherDAO implements IDAO <Teacher ,String>
+public class StudentDAO implements IDAO <Student,String>
 {
     private Transaction currentTransaction;
     private Session currentSession;
@@ -75,33 +76,32 @@ public class TeacherDAO implements IDAO <Teacher ,String>
     }
     
     @Override
-    public void persist(Teacher entity) 
-    {
-    }
-
-    @Override
-    public void update(Teacher entity) {
+    public void persist(Student entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Teacher findById(String id) {
+    public void update(Student entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(Teacher entity) {
+    public Student findById(String id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Teacher> findAll() {
+    public void delete(Student entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Student> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void deleteAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }    
 }

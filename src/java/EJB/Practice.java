@@ -55,7 +55,7 @@ public class Practice implements IPractice
             System.out.println("There was an error "+ e.getMessage());
         }
         
-       return Rteacher.toString();
+       return Rteacher.getFirstName();
     }
     
     
