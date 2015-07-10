@@ -5,18 +5,20 @@
  */
 package EJB;
 
-import Hibernate.Teacher;
+import Hibernate.Visitors;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+
 /**
  *
- * @author wilton
+ * @author wilson.li
  */
-public class TeacherDAO implements IDAO <Teacher ,String>
+
+public class VisitorsDAO implements IDAO <Visitors,String>
 {
     private Transaction currentTransaction;
     private Session currentSession;
@@ -75,33 +77,32 @@ public class TeacherDAO implements IDAO <Teacher ,String>
     }
     
     @Override
-    public void persist(Teacher entity) {
+    public void persist(Visitors entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void update(Teacher entity) {
+    public void update(Visitors entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Teacher findById(int id) {
+    public Visitors findById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void delete(Teacher entity) {
+    public void delete(Visitors entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Teacher> findAll() {
+    public List<Visitors> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void deleteAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }    
 }

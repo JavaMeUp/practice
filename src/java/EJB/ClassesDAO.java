@@ -5,18 +5,19 @@
  */
 package EJB;
 
-import Hibernate.Teacher;
+import Hibernate.Classes;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+
 /**
  *
- * @author wilton
+ * @author wilson.li
  */
-public class TeacherDAO implements IDAO <Teacher ,String>
+public class ClassesDAO implements IDAO <Classes,String>
 {
     private Transaction currentTransaction;
     private Session currentSession;
@@ -75,33 +76,43 @@ public class TeacherDAO implements IDAO <Teacher ,String>
     }
     
     @Override
-    public void persist(Teacher entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void persist(Classes entity) {
+        getCurrentSession().save(entity);
     }
 
     @Override
-    public void update(Teacher entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Classes entity) {
+        getCurrentSession().update(entity);
     }
 
     @Override
-    public Teacher findById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Classes findById(int id) {
+        Classes singleClass = (Classes) getCurrentSession().get(Classes.class, id);
+        return singleClass;
     }
 
     @Override
-    public void delete(Teacher entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Classes entity) {
+        getCurrentSession().delete (entity);
     }
 
     @Override
-    public List<Teacher> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Classes> findAll() 
+    {
+        List<Classes> Class;
+        Class = (List<Classes>) getCurrentSession().createQuery("From Classes").list();
+        return Class;        
     }
 
     @Override
-    public void deleteAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteAll() 
+    {
+        List<Classes> allClass = findAll();
+        
+        for(Classes singleClass :allClass)
+        {
+            getCurrentSession().delete(singleClass);
+        }    
     }
     
 }
