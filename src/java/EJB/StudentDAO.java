@@ -77,31 +77,41 @@ public class StudentDAO implements IDAO <Student,String>
     
     @Override
     public void persist(Student entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().save(entity);
     }
 
     @Override
     public void update(Student entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().update(entity);
     }
 
     @Override
     public Student findById(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Student student = (Student) getCurrentSession().get(Student.class, id);
+        return student;
     }
 
     @Override
     public void delete(Student entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().delete (entity);
     }
 
     @Override
-    public List<Student> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Student> findAll() 
+    {
+        List<Student> students;
+        students = (List<Student>) getCurrentSession().createQuery("From Student").list();
+        return students;        
     }
 
     @Override
-    public void deleteAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }    
+    public void deleteAll() 
+    {
+        List<Student> allClass = findAll();
+        
+        for(Student singleClass :allClass)
+        {
+            getCurrentSession().delete(singleClass);
+        }    
+    }
 }

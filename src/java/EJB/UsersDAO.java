@@ -77,31 +77,41 @@ public class UsersDAO implements IDAO <Users,String>
     
     @Override
     public void persist(Users entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().save(entity);
     }
 
     @Override
     public void update(Users entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().update(entity);
     }
 
     @Override
     public Users findById(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Users user = (Users) getCurrentSession().get(Users.class, id);
+        return user;
     }
 
     @Override
     public void delete(Users entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().delete (entity);
     }
 
     @Override
-    public List<Users> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Users> findAll() 
+    {
+        List<Users> users;
+        users = (List<Users>) getCurrentSession().createQuery("From Users").list();
+        return users;        
     }
 
     @Override
-    public void deleteAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }    
+    public void deleteAll() 
+    {
+        List<Users> allUsers = findAll();
+        
+        for(Users user :allUsers)
+        {
+            getCurrentSession().delete(user);
+        }    
+    }
 }

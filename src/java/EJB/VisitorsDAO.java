@@ -5,6 +5,7 @@
  */
 package EJB;
 
+import Hibernate.Classes;
 import Hibernate.Visitors;
 import java.util.List;
 import org.hibernate.Session;
@@ -78,31 +79,41 @@ public class VisitorsDAO implements IDAO <Visitors,String>
     
     @Override
     public void persist(Visitors entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().save(entity);
     }
 
     @Override
     public void update(Visitors entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().update(entity);
     }
 
     @Override
     public Visitors findById(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Visitors visitors = (Visitors) getCurrentSession().get(Visitors.class, id);
+        return visitors;
     }
 
     @Override
     public void delete(Visitors entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().delete (entity);
     }
 
     @Override
-    public List<Visitors> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Visitors> findAll() 
+    {
+        List<Visitors> visitors;
+        visitors = (List<Visitors>) getCurrentSession().createQuery("From Visitors").list();
+        return visitors;        
     }
 
     @Override
-    public void deleteAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }    
+    public void deleteAll() 
+    {
+        List<Visitors> allVisitors = findAll();
+        
+        for(Visitors singleVisitors :allVisitors)
+        {
+            getCurrentSession().delete(singleVisitors);
+        }    
+    }
 }

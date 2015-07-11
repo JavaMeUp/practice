@@ -5,6 +5,7 @@
  */
 package EJB;
 
+import Hibernate.Classes;
 import Hibernate.Teacher;
 import java.util.List;
 import org.hibernate.Session;
@@ -75,33 +76,43 @@ public class TeacherDAO implements IDAO <Teacher ,String>
     }
     
     @Override
-    public void persist(Teacher entity) 
-    {
+    public void persist(Teacher entity) {
+        getCurrentSession().save(entity);
     }
 
     @Override
     public void update(Teacher entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().update(entity);
     }
 
     @Override
     public Teacher findById(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Teacher teacher = (Teacher) getCurrentSession().get(Teacher.class, id);
+        return teacher;
     }
 
     @Override
     public void delete(Teacher entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCurrentSession().delete (entity);
     }
 
     @Override
-    public List<Teacher> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Teacher> findAll() 
+    {
+        List<Teacher> teachers;
+        teachers = (List<Teacher>) getCurrentSession().createQuery("From Teacher").list();
+        return teachers;        
     }
 
     @Override
-    public void deleteAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void deleteAll() 
+    {
+        List<Teacher> allTeachers = findAll();
+        
+        for(Teacher teacher :allTeachers)
+        {
+            getCurrentSession().delete(teacher);
+        }    
     }
     
 }
