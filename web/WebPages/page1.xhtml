@@ -9,6 +9,7 @@ and open the template in the editor.
    xmlns:h="http://java.sun.com/jsf/html"
    xmlns:ui="http://java.sun.com/jsf/facelets">
    <h:body> 
+       
       <ui:composition template="../Templates/Common.xhtml">
          <ui:define name="Header">
             <h2>Page1 header</h2>
@@ -17,9 +18,12 @@ and open the template in the editor.
             <h2>Page1 content</h2>
              <h:link value="Back To Home" outcome="Home" />
          </ui:define> 
-         <ui:define name="Footer">
-            <h2>Page1 Footer</h2>
+          
+          
+         <ui:define name="Footer">  
          </ui:define>			
       </ui:composition> 
+       
+       
    </h:body> 
 </html>	
