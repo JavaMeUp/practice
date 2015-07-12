@@ -13,11 +13,11 @@ import java.util.List;
  *
  * @author wilson.li
  */
-public class UsersService 
+public class UsersService implements IGenericService <Users,String,UsersDAO>
 {
     private static UsersDAO UsersDAO;
     
-    public UsersService()
+    protected UsersService()
     {
         UsersDAO = new UsersDAO();
     }

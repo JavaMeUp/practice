@@ -8,20 +8,23 @@ package EJB.Services;
 import EJB.ClassesDAO;
 import Hibernate.Classes;
 import java.util.List;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author wilson.li
  */
-public class ClassesService 
+@Stateless
+public class ClassesService implements IGenericService <Classes,String,ClassesDAO>
 {
     private static ClassesDAO classesDAO;
     
-    public ClassesService()
+    protected ClassesService()
     {
         classesDAO = new ClassesDAO();
     }
     
+    @Override
     public void persist(Classes entity)
     {
         classesDAO.openCurrentSession();
@@ -29,6 +32,10 @@ public class ClassesService
         classesDAO.closeCurrentTransaction();
     }
     
+    /**
+     *
+     * @param entity
+     */
     public void update (Classes entity)
     {
         classesDAO.openCurrentSession();

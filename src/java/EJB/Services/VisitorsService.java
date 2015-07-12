@@ -14,11 +14,11 @@ import java.util.List;
  * @author wilson.li
  */
 
-public class VisitorsService 
+public class VisitorsService implements IGenericService <Visitors,String,VisitorsDAO>
 {
     private static VisitorsDAO VisitorsDAO;
     
-    public VisitorsService()
+    protected VisitorsService()
     {
         VisitorsDAO = new VisitorsDAO();
     }

@@ -14,11 +14,11 @@ import java.util.List;
  * @author wilson.li
  */
 
-public class TeacherService 
+public class TeacherService implements IGenericService <Teacher,String,TeacherDAO>
 {
     private static TeacherDAO TeacherDAO;
     
-    public TeacherService()
+    protected TeacherService()
     {
         TeacherDAO = new TeacherDAO();
     }

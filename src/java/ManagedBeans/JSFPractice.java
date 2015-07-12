@@ -6,6 +6,7 @@
 package ManagedBeans;
 
 import EJB.IPractice;
+import EJB.Services.IGenericService;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -26,6 +27,8 @@ public class JSFPractice {
     private String  Teacher;
     @EJB
     private IPractice EJB;
+    @EJB
+    private IGenericService service;
     
     
     /**
@@ -41,7 +44,7 @@ public class JSFPractice {
     }
     
     public String getMessage() {
-        return Message;
+        return "HI";
     }
 
     public void setMessage(String Message) {
