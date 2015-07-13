@@ -14,7 +14,7 @@ import javax.ejb.Local;
  * @author wilton
  */
 @Local
-public interface IGenericService <T,id extends Serializable,O>
+public interface IService <T,id extends Serializable,O>
 {
     
     public void persist(T entity);

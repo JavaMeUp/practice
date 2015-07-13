@@ -15,7 +15,7 @@ import javax.ejb.Stateless;
  * @author wilson.li
  */
 @Stateless
-public class ClassesService implements IGenericService <Classes,String,ClassesDAO>
+public class ClassesService implements IService <Classes,String,ClassesDAO>
 {
     private static ClassesDAO classesDAO;
     
@@ -36,6 +36,7 @@ public class ClassesService implements IGenericService <Classes,String,ClassesDA
      *
      * @param entity
      */
+    @Override
     public void update (Classes entity)
     {
         classesDAO.openCurrentSession();
@@ -43,6 +44,7 @@ public class ClassesService implements IGenericService <Classes,String,ClassesDA
         classesDAO.closeCurrentTransaction();
     }
     
+    @Override
     public Classes findByID(String id)
     {
         classesDAO.getCurrentSession();
@@ -51,6 +53,7 @@ public class ClassesService implements IGenericService <Classes,String,ClassesDA
         return singleClass;
     }
     
+    @Override
     public void deleteAll()
     {
         classesDAO.openCurrentSession();
@@ -58,6 +61,7 @@ public class ClassesService implements IGenericService <Classes,String,ClassesDA
         classesDAO.closeCurrentTransaction();
     }
     
+    @Override
     public void deleteByID(String ID)
     {
         classesDAO.openCurrentTransaction();
@@ -66,6 +70,7 @@ public class ClassesService implements IGenericService <Classes,String,ClassesDA
         classesDAO.closeCurrentTransaction();
     }
     
+    @Override
     public List<Classes> listAll()
     {
         classesDAO.openCurrentTransaction();
@@ -74,6 +79,7 @@ public class ClassesService implements IGenericService <Classes,String,ClassesDA
         return listClasses;
     }
     
+    @Override
     public ClassesDAO getClassesDAO()
     {
         

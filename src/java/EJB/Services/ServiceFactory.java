@@ -26,7 +26,7 @@ public class ServiceFactory
         
     }
     
-    public IGenericService getService()
+    public IService getService()
     {
         return this.classesService;
     }

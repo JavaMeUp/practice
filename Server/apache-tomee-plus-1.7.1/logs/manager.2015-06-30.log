@@ -1,0 +1,123 @@
+Jun 30, 2015 9:13:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Jun 30, 2015 9:13:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Jun 30, 2015 9:13:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 9:13:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 9:13:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/WebPractice'
+Jun 30, 2015 9:13:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/wilson.li/AppData/Local/Temp/context1356828821887823220.xml'
+Jun 30, 2015 9:13:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/WebPractice'
+Jun 30, 2015 9:19:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 9:19:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 9:19:35 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 30, 2015 9:25:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Jun 30, 2015 9:25:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Jun 30, 2015 9:25:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 9:25:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 9:25:02 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 30, 2015 10:39:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Jun 30, 2015 10:39:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Jun 30, 2015 10:39:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:39:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:39:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 30, 2015 10:44:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:44:50 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:44:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:44:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 30, 2015 10:45:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:45:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 30, 2015 10:45:15 AM org.apache.catalina.core.ApplicationContext log
+SEVERE: Manager: ManagerServlet.reload[/WebPractice]
+java.lang.IllegalStateException: Context with name [/WebPractice] has not yet been started
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3989)
+	at org.apache.catalina.manager.ManagerServlet.reload(ManagerServlet.java:982)
+	at org.apache.catalina.manager.ManagerServlet.doGet(ManagerServlet.java:378)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:620)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.filters.SetCharacterEncodingFilter.doFilter(SetCharacterEncodingFilter.java:108)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:220)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.tomee.catalina.OpenEJBValve.invoke(OpenEJBValve.java:44)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:610)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:950)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1070)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:611)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:316)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+
+Jun 30, 2015 10:45:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:45:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:45:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/WebPractice'
+Jun 30, 2015 10:45:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/wilson.li/AppData/Local/Temp/context7989286662675324383.xml'
+Jun 30, 2015 10:45:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:45:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:45:19 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/wilson.li/AppData/Local/Temp/context2214031168360869816.xml'
+Jun 30, 2015 10:45:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:45:38 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:45:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 30, 2015 10:50:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:50:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:50:55 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/WebPractice'
+Jun 30, 2015 10:50:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:50:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/WebPractice'
+Jun 30, 2015 10:50:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/wilson.li/AppData/Local/Temp/context7537797304468420761.xml'
+Jun 30, 2015 10:50:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/WebPractice'
+Jun 30, 2015 10:51:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 30, 2015 10:51:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/WebPractice'

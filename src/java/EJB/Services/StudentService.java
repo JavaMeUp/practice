@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author wilson.li
  */
-public class StudentService implements IGenericService <Student,String,StudentDAO>
+public class StudentService implements IService <Student,String,StudentDAO>
 {
     private static StudentDAO StudentDAO;
     
@@ -22,6 +22,7 @@ public class StudentService implements IGenericService <Student,String,StudentDA
         StudentDAO = new StudentDAO();
     }
     
+    @Override
     public void persist(Student entity)
     {
         StudentDAO.openCurrentSession();
@@ -29,6 +30,7 @@ public class StudentService implements IGenericService <Student,String,StudentDA
         StudentDAO.closeCurrentTransaction();
     }
     
+    @Override
     public void update (Student entity)
     {
         StudentDAO.openCurrentSession();
@@ -36,6 +38,7 @@ public class StudentService implements IGenericService <Student,String,StudentDA
         StudentDAO.closeCurrentTransaction();
     }
     
+    @Override
     public Student findByID(String id)
     {
         StudentDAO.getCurrentSession();
@@ -44,6 +47,7 @@ public class StudentService implements IGenericService <Student,String,StudentDA
         return student;
     }
     
+    @Override
     public void deleteAll()
     {
         StudentDAO.openCurrentSession();
@@ -51,6 +55,7 @@ public class StudentService implements IGenericService <Student,String,StudentDA
         StudentDAO.closeCurrentTransaction();
     }
     
+    @Override
     public void deleteByID(String ID)
     {
         StudentDAO.openCurrentTransaction();
@@ -59,6 +64,7 @@ public class StudentService implements IGenericService <Student,String,StudentDA
         StudentDAO.closeCurrentTransaction();
     }
     
+    @Override
     public List<Student> listAll()
     {
         StudentDAO.openCurrentTransaction();
@@ -67,6 +73,7 @@ public class StudentService implements IGenericService <Student,String,StudentDA
         return listStudents;
     }
     
+    @Override
     public StudentDAO getClassesDAO()
     {
         

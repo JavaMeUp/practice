@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author wilson.li
  */
-public class UsersService implements IGenericService <Users,String,UsersDAO>
+public class UsersService implements IService <Users,String,UsersDAO>
 {
     private static UsersDAO UsersDAO;
     
@@ -22,6 +22,7 @@ public class UsersService implements IGenericService <Users,String,UsersDAO>
         UsersDAO = new UsersDAO();
     }
     
+    @Override
     public void persist(Users entity)
     {
         UsersDAO.openCurrentSession();
@@ -29,6 +30,7 @@ public class UsersService implements IGenericService <Users,String,UsersDAO>
         UsersDAO.closeCurrentTransaction();
     }
     
+    @Override
     public void update (Users entity)
     {
         UsersDAO.openCurrentSession();
@@ -36,6 +38,7 @@ public class UsersService implements IGenericService <Users,String,UsersDAO>
         UsersDAO.closeCurrentTransaction();
     }
     
+    @Override
     public Users findByID(String id)
     {
         UsersDAO.getCurrentSession();
@@ -44,6 +47,7 @@ public class UsersService implements IGenericService <Users,String,UsersDAO>
         return Users;
     }
     
+    @Override
     public void deleteAll()
     {
         UsersDAO.openCurrentSession();
@@ -51,6 +55,7 @@ public class UsersService implements IGenericService <Users,String,UsersDAO>
         UsersDAO.closeCurrentTransaction();
     }
     
+    @Override
     public void deleteByID(String ID)
     {
         UsersDAO.openCurrentTransaction();
@@ -59,6 +64,7 @@ public class UsersService implements IGenericService <Users,String,UsersDAO>
         UsersDAO.closeCurrentTransaction();
     }
     
+    @Override
     public List<Users> listAll()
     {
         UsersDAO.openCurrentTransaction();
@@ -67,6 +73,7 @@ public class UsersService implements IGenericService <Users,String,UsersDAO>
         return listUserss;
     }
     
+    @Override
     public UsersDAO getClassesDAO()
     {
         

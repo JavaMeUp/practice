@@ -6,7 +6,7 @@
 package ManagedBeans;
 
 import EJB.IPractice;
-import EJB.Services.IGenericService;
+import EJB.Services.IService;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -28,7 +28,7 @@ public class JSFPractice {
     @EJB
     private IPractice EJB;
     @EJB
-    private IGenericService service;
+    private IService service;
     
     
     /**
