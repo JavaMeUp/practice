@@ -6,6 +6,7 @@
 package EJB.Services;
 
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 /**
@@ -16,6 +17,8 @@ import javax.ejb.Stateless;
 public class ServiceFactory 
 {
     private List<IGenericService> genericServices;
+    
+    @EJB
     private ClassesService classesService;
     
     public ServiceFactory()
