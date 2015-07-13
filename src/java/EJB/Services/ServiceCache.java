@@ -16,23 +16,23 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiceCache 
 {
-    private List<IGenericService> services;
+    private List<IService> services;
     
     public ServiceCache()
     {
-        services = new ArrayList<IGenericService>();
+        services = new ArrayList<IService>();
     }
     
-    public IGenericService getService(String serviceName)
+    public IService getService(Object serviceName)
     {
         
-        for(IGenericService service : services)
+        for(IService service : services)
         {
             //WL TODO; Need to place in service where name of the 
             // Service is known 
-            if(  service.getClass().isInstance(StudentService.class))
+            if(  serviceName.getClass().isInstance(StudentService.class))
             {
-                return (IGenericService) new StudentService();
+                return (IService) new StudentService();
             }
             
             
@@ -41,11 +41,11 @@ public class ServiceCache
         return null;
     }
     
-    public void addService(IGenericService newService)
+    public void addService(IService newService)
     {
         boolean exists =false;
         
-        for(IGenericService service : services)
+        for(IService service : services)
         {
             //WL:TODO
             if(1<2)

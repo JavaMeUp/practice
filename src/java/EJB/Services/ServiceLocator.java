@@ -18,9 +18,9 @@ public class ServiceLocator
         cache = new ServiceCache();
     }
     
-    public static IGenericService getService(String ServiceName)
+    public static IService getService(String ServiceName)
     {
-        IGenericService service = cache.getService(ServiceName);
+        IService service = cache.getService(ServiceName);
         
         if(service != null)
         {
@@ -28,7 +28,7 @@ public class ServiceLocator
         }
         
         ServiceContext context = new ServiceContext();
-        IGenericService service1 = (IGenericService) context.lookUp(ServiceName);
+        IService service1 = (IService) context.lookUp(ServiceName);
         cache.addService(service1);
         return service1;
         

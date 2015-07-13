@@ -14,7 +14,7 @@ import java.util.List;
  * @author wilson.li
  */
 
-public class VisitorsService implements IGenericService <Visitors,String,VisitorsDAO>
+public class VisitorsService implements IService <Visitors,String,VisitorsDAO>
 {
     private static VisitorsDAO VisitorsDAO;
     
@@ -23,6 +23,7 @@ public class VisitorsService implements IGenericService <Visitors,String,Visitor
         VisitorsDAO = new VisitorsDAO();
     }
     
+    @Override
     public void persist(Visitors entity)
     {
         VisitorsDAO.openCurrentSession();
@@ -30,6 +31,7 @@ public class VisitorsService implements IGenericService <Visitors,String,Visitor
         VisitorsDAO.closeCurrentTransaction();
     }
     
+    @Override
     public void update (Visitors entity)
     {
         VisitorsDAO.openCurrentSession();
@@ -37,6 +39,7 @@ public class VisitorsService implements IGenericService <Visitors,String,Visitor
         VisitorsDAO.closeCurrentTransaction();
     }
     
+    @Override
     public Visitors findByID(String id)
     {
         VisitorsDAO.getCurrentSession();
@@ -45,6 +48,7 @@ public class VisitorsService implements IGenericService <Visitors,String,Visitor
         return Visitors;
     }
     
+    @Override
     public void deleteAll()
     {
         VisitorsDAO.openCurrentSession();
@@ -52,6 +56,7 @@ public class VisitorsService implements IGenericService <Visitors,String,Visitor
         VisitorsDAO.closeCurrentTransaction();
     }
     
+    @Override
     public void deleteByID(String ID)
     {
         VisitorsDAO.openCurrentTransaction();
@@ -60,6 +65,7 @@ public class VisitorsService implements IGenericService <Visitors,String,Visitor
         VisitorsDAO.closeCurrentTransaction();
     }
     
+    @Override
     public List<Visitors> listAll()
     {
         VisitorsDAO.openCurrentTransaction();
@@ -68,6 +74,7 @@ public class VisitorsService implements IGenericService <Visitors,String,Visitor
         return listVisitorss;
     }
     
+    @Override
     public VisitorsDAO getClassesDAO()
     {
         

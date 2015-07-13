@@ -15,7 +15,7 @@ import javax.ejb.Stateless;
 @Stateless 
 public class ServiceFactory 
 {
-    private List<IGenericService> genericServices;
+    private List<IService> genericServices;
     private ClassesService classesService;
     
     public ServiceFactory()
@@ -23,7 +23,7 @@ public class ServiceFactory
         
     }
     
-    public IGenericService getService()
+    public IService getService()
     {
         return this.classesService;
     }

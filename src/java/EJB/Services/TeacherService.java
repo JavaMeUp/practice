@@ -14,7 +14,7 @@ import java.util.List;
  * @author wilson.li
  */
 
-public class TeacherService implements IGenericService <Teacher,String,TeacherDAO>
+public class TeacherService implements IService <Teacher,String,TeacherDAO>
 {
     private static TeacherDAO TeacherDAO;
     
@@ -23,6 +23,7 @@ public class TeacherService implements IGenericService <Teacher,String,TeacherDA
         TeacherDAO = new TeacherDAO();
     }
     
+    @Override
     public void persist(Teacher entity)
     {
         TeacherDAO.openCurrentSession();
@@ -30,6 +31,7 @@ public class TeacherService implements IGenericService <Teacher,String,TeacherDA
         TeacherDAO.closeCurrentTransaction();
     }
     
+    @Override
     public void update (Teacher entity)
     {
         TeacherDAO.openCurrentSession();
@@ -37,6 +39,7 @@ public class TeacherService implements IGenericService <Teacher,String,TeacherDA
         TeacherDAO.closeCurrentTransaction();
     }
     
+    @Override
     public Teacher findByID(String id)
     {
         TeacherDAO.getCurrentSession();
@@ -45,6 +48,7 @@ public class TeacherService implements IGenericService <Teacher,String,TeacherDA
         return Teacher;
     }
     
+    @Override
     public void deleteAll()
     {
         TeacherDAO.openCurrentSession();
@@ -52,6 +56,7 @@ public class TeacherService implements IGenericService <Teacher,String,TeacherDA
         TeacherDAO.closeCurrentTransaction();
     }
     
+    @Override
     public void deleteByID(String ID)
     {
         TeacherDAO.openCurrentTransaction();
@@ -60,6 +65,7 @@ public class TeacherService implements IGenericService <Teacher,String,TeacherDA
         TeacherDAO.closeCurrentTransaction();
     }
     
+    @Override
     public List<Teacher> listAll()
     {
         TeacherDAO.openCurrentTransaction();
@@ -68,6 +74,7 @@ public class TeacherService implements IGenericService <Teacher,String,TeacherDA
         return listTeachers;
     }
     
+    @Override
     public TeacherDAO getClassesDAO()
     {
         

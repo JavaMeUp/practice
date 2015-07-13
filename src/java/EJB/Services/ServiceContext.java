@@ -14,8 +14,9 @@ public class ServiceContext
     //register Services here as instance members to be injected.
     
     
-    public Object lookUp(String jndiName)
+    public Object lookUp(Object jndiName)
     {
+        
         
         return null;
     }
