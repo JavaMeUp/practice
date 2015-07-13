@@ -8,6 +8,7 @@ package EJB;
 import Hibernate.Classes;
 import Hibernate.Visitors;
 import java.util.List;
+import javax.ejb.Stateless;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -18,7 +19,7 @@ import org.hibernate.cfg.Configuration;
  *
  * @author wilson.li
  */
-
+@Stateless
 public class VisitorsDAO implements IDAO <Visitors,String>
 {
     private Transaction currentTransaction;

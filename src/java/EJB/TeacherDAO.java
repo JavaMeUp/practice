@@ -8,6 +8,7 @@ package EJB;
 import Hibernate.Classes;
 import Hibernate.Teacher;
 import java.util.List;
+import javax.ejb.Stateless;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,6 +18,7 @@ import org.hibernate.cfg.Configuration;
  *
  * @author wilton
  */
+@Stateless
 public class TeacherDAO implements IDAO <Teacher ,String>
 {
     private Transaction currentTransaction;
