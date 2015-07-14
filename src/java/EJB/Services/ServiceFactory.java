@@ -16,7 +16,7 @@ import javax.ejb.Stateless;
 @Stateless 
 public class ServiceFactory 
 {
-    private List<IGenericService> genericServices;
+    private List<IService> genericServices;
     
     @EJB
     private ClassesService classesService;
