@@ -17,6 +17,7 @@ import java.util.List;
 public class TeacherService implements IService <Teacher,String,TeacherDAO>
 {
     private static TeacherDAO TeacherDAO;
+    private final String ServiceName = "TeacherService";
     
     protected TeacherService()
     {
@@ -81,5 +82,8 @@ public class TeacherService implements IService <Teacher,String,TeacherDAO>
         return TeacherDAO;
     }
     
-    
+    @Override
+    public String getServiceName() {
+        return this.ServiceName;
+    }
 }

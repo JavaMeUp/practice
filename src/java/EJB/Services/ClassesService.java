@@ -18,6 +18,7 @@ import javax.ejb.Stateless;
 public class ClassesService implements IService <Classes,String,ClassesDAO>
 {
     private static ClassesDAO classesDAO;
+    private final String ServiceName="ClassesService";
     
     protected ClassesService()
     {
@@ -84,6 +85,11 @@ public class ClassesService implements IService <Classes,String,ClassesDAO>
     {
         
         return classesDAO;
+    }
+
+    @Override
+    public String getServiceName() {
+        return this.ServiceName;
     }
     
     
