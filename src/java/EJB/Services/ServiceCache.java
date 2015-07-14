@@ -23,14 +23,14 @@ public class ServiceCache
         services = new ArrayList<IService>();
     }
     
-    public IService getService(Object serviceName)
+    public IService getService(String serviceName)
     {
         
         for(IService service : services)
         {
             //WL TODO; Need to place in service where name of the 
             // Service is known 
-            if(  serviceName.getClass().isInstance(StudentService.class))
+            if( service.getServiceName().equalsIgnoreCase(serviceName))
             {
                 return (IService) new StudentService();
             }
@@ -47,14 +47,16 @@ public class ServiceCache
         
         for(IService service : services)
         {
-            //WL:TODO
-            if(1<2)
+            
+            if(service.getServiceName().equalsIgnoreCase(newService.getServiceName()))
             {
                 exists=true;
+                
             }
         }
         if(!exists)
         {
+            
             services.add(newService);
         }
         

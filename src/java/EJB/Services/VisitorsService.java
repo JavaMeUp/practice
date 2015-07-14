@@ -17,6 +17,7 @@ import java.util.List;
 public class VisitorsService implements IService <Visitors,String,VisitorsDAO>
 {
     private static VisitorsDAO VisitorsDAO;
+    private final String ServiceName = "VisistorsService";
     
     protected VisitorsService()
     {
@@ -81,5 +82,8 @@ public class VisitorsService implements IService <Visitors,String,VisitorsDAO>
         return VisitorsDAO;
     }
     
-    
+    @Override
+    public String getServiceName() {
+        return this.ServiceName;
+    }
 }

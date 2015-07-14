@@ -8,14 +8,17 @@ package EJB.Services;
 import EJB.StudentDAO;
 import Hibernate.Student;
 import java.util.List;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author wilson.li
  */
+@Stateless
 public class StudentService implements IService <Student,String,StudentDAO>
 {
     private static StudentDAO StudentDAO;
+    private final String ServiceName ="StudentService";
     
     protected StudentService()
     {
@@ -80,5 +83,8 @@ public class StudentService implements IService <Student,String,StudentDAO>
         return StudentDAO;
     }
     
-    
+    @Override
+    public String getServiceName() {
+        return this.ServiceName;
+    }
 }

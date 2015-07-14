@@ -5,10 +5,13 @@
  */
 package EJB.Services;
 
+import javax.ejb.Stateless;
+
 /**
  *
  * @author wilson.li
  */
+@Stateless
 public class ServiceLocator 
 {
     private static final ServiceCache cache;
