@@ -5,6 +5,7 @@
  */
 package EJB.Services;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 /**
@@ -14,27 +15,32 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiceLocator 
 {
-    private static final ServiceCache cache;
-    
-    static
-    {
-        cache = new ServiceCache();
-    }
+    @EJB
+    private static ServiceCache cache;
     
     public static IService getService(String ServiceName)
     {
-        IService service = cache.getService(ServiceName);
-        
-        if(service != null)
+        try
         {
-            return service;
+            IService service = cache.getService(ServiceName);
+
+            if(service != null)
+            {
+                return service;
+            }
+
+            ServiceContext context = new ServiceContext();
+            
+            IService service1 = (IService) context.lookUp(ServiceName);
+            cache.addService(service1);
+            return service1;
+        }
+        catch(Exception e)
+        {
+            System.out.print("There was an issue getting the service "+ ServiceName +" with the error " + e.getMessage());
         }
         
-        ServiceContext context = new ServiceContext();
-        IService service1 = (IService) context.lookUp(ServiceName);
-        cache.addService(service1);
-        return service1;
-        
+        return null;
         
     }
     

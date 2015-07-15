@@ -19,7 +19,6 @@ import org.hibernate.cfg.Configuration;
  *
  * @author wilson.li
  */
-@Stateless
 public class VisitorsDAO implements IDAO <Visitors,String>
 {
     private Transaction currentTransaction;

@@ -16,6 +16,9 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiceCache 
 {
+    
+    
+    
     private List<IService> services;
     
     public ServiceCache()
@@ -30,6 +33,15 @@ public class ServiceCache
         {
             //WL TODO; Need to place in service where name of the 
             // Service is known 
+            switch(serviceName)
+            {
+                case "":
+                    
+                        
+                    
+                
+            }
+            
             if( service.getServiceName().equalsIgnoreCase(serviceName))
             {
                 return (IService) new StudentService();

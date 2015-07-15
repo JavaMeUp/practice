@@ -18,7 +18,6 @@ import org.hibernate.cfg.Configuration;
  *
  * @author wilton
  */
-@Stateless
 public class TeacherDAO implements IDAO <Teacher ,String>
 {
     private Transaction currentTransaction;
