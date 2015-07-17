@@ -16,7 +16,7 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiceCache 
 {
-    
+    private ServiceEnum serviceEnum;
     
     
     private List<IService> services;
@@ -33,9 +33,9 @@ public class ServiceCache
         {
             //WL TODO; Need to place in service where name of the 
             // Service is known 
-            switch(serviceName)
+            switch(serviceEnum)
             {
-                case "":
+                    
                     
                         
                     
@@ -77,3 +77,4 @@ public class ServiceCache
     
     
 }
+

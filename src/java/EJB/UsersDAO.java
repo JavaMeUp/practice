@@ -7,7 +7,6 @@ package EJB;
 
 import Hibernate.Users;
 import java.util.List;
-import javax.ejb.Stateless;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
