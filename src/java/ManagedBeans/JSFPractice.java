@@ -5,7 +5,7 @@
  */
 package ManagedBeans;
 
-import EJB.IPractice;
+
 import EJB.Services.IService;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -25,8 +25,7 @@ public class JSFPractice {
     private int Number;
     private String ipAddress;
     private String  Teacher;
-    @EJB
-    private IPractice EJB;
+
     @EJB
     private IService service;
     
@@ -58,20 +57,13 @@ public class JSFPractice {
     public void setNumber(int Number) {
         this.Number = Number;
     }
-    
-    public String getEJB()
-    {
-        return this.EJB.getMessage();
-    }
+   
     
     public String getIP()
     {
         return this.ipAddress;
     }
     
-    public String getTeacher()
-    {
-        return this.EJB.getTeacher();
-    }
+
     
 }
