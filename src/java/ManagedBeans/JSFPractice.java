@@ -47,8 +47,8 @@ public class JSFPractice {
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         this.ipAddress =   request.getRemoteAddr();
      
-        serviceLocator.getService("Student");
-        
+        StudentService s = (StudentService) serviceLocator.getService(StudentService.getServiceName());
+        this.message = s.listAll().get(0).getFirstName();
     }
     
     public String getIP()

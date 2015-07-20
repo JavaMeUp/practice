@@ -15,13 +15,12 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiceLocator implements IServiceLocator
 {
-    //@EJB
+    @EJB
     private  IServiceCache cache;
     
     @Override
-    public IService getService(String ServiceName) 
+    public IService getService(ServiceEnumContext ServiceName) 
     {
-        System.out.println("HIH");
         try
         {
             IService service = cache.getService(ServiceName);
@@ -30,9 +29,8 @@ public class ServiceLocator implements IServiceLocator
             {
                 return service;
             }
-            
-            cache.addService(new StudentService());
-            return new StudentService();
+            cache.addService(ServiceName.getServiceName());
+            return ServiceName.getServiceName();
         }
         catch(NullPointerException n)
         {

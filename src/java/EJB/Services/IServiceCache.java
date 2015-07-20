@@ -13,7 +13,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface IServiceCache {
-    public IService getService(String serviceName);
+    public IService getService(ServiceEnumContext serviceName);
     public void addService(IService newService);
     
 }
