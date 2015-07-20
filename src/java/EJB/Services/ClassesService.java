@@ -8,19 +8,17 @@ package EJB.Services;
 import EJB.ClassesDAO;
 import Hibernate.Classes;
 import java.util.List;
-import javax.ejb.Stateless;
 
 /**
  *
  * @author wilson.li
  */
-@Stateless
 public class ClassesService implements IService <Classes,String,ClassesDAO>
 {
     private static ClassesDAO classesDAO;
     private final String ServiceName="ClassesService";
     
-    protected ClassesService()
+    public ClassesService()
     {
         classesDAO = new ClassesDAO();
     }

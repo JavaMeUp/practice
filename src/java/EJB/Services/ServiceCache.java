@@ -14,8 +14,9 @@ import javax.ejb.Stateless;
  * @author wilson.li
  */
 @Stateless
-public class ServiceCache 
+public class ServiceCache implements IServiceCache
 {
+  
     private List<IService> services;
     
     public ServiceCache()
@@ -23,21 +24,17 @@ public class ServiceCache
         services = new ArrayList<IService>();
     }
     
-    public IService getService(String serviceName)
+    public IService getService(ServiceEnumContext serviceName) throws NullPointerException
     {
-        
         for(IService service : services)
         {
             //WL TODO; Need to place in service where name of the 
             // Service is known 
-            if( service.getServiceName().equalsIgnoreCase(serviceName))
+            if( serviceName.getServiceName() == service)
             {
-                return (IService) new StudentService();
+                return service;
             }
-            
-            
         }
-        
         return null;
     }
     
@@ -56,7 +53,6 @@ public class ServiceCache
         }
         if(!exists)
         {
-            
             services.add(newService);
         }
         
@@ -65,3 +61,4 @@ public class ServiceCache
     
     
 }
+

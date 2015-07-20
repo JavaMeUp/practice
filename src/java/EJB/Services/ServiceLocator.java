@@ -5,6 +5,7 @@
  */
 package EJB.Services;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 /**
@@ -12,30 +13,37 @@ import javax.ejb.Stateless;
  * @author wilson.li
  */
 @Stateless
-public class ServiceLocator 
+public class ServiceLocator implements IServiceLocator
 {
-    private static final ServiceCache cache;
+    @EJB
+    private  IServiceCache cache;
     
-    static
+    @Override
+    public IService getService(ServiceEnumContext ServiceName) 
     {
-        cache = new ServiceCache();
-    }
-    
-    public static IService getService(String ServiceName)
-    {
-        IService service = cache.getService(ServiceName);
-        
-        if(service != null)
+        try
         {
-            return service;
+            IService service = cache.getService(ServiceName);
+
+            if(service != null)
+            {
+                return service;
+            }
+            cache.addService(ServiceName.getServiceName());
+            return ServiceName.getServiceName();
+        }
+        catch(NullPointerException n)
+        {
+            System.out.println("There was an error in getting the Service "+n.getMessage());
+        }
+        catch(Exception e)
+        {
+            System.out.print("There was an issue getting the service "+ ServiceName +" with the error " + e.getMessage());
         }
         
-        ServiceContext context = new ServiceContext();
-        IService service1 = (IService) context.lookUp(ServiceName);
-        cache.addService(service1);
-        return service1;
-        
-        
+        return null;
+                
     }
+
     
 }

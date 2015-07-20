@@ -18,7 +18,7 @@ import org.hibernate.cfg.Configuration;
  *
  * @author wilson.li
  */
-@Stateless
+
 public class ClassesDAO implements IDAO <Classes,String>
 {
     private Transaction currentTransaction;

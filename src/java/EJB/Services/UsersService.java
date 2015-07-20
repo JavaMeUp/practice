@@ -18,7 +18,7 @@ public class UsersService implements IService <Users,String,UsersDAO>
     private static UsersDAO UsersDAO;
     private final String ServiceName = "UsersService";
     
-    protected UsersService()
+    public UsersService()
     {
         UsersDAO = new UsersDAO();
     }

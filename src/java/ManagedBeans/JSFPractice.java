@@ -5,13 +5,19 @@
  */
 package ManagedBeans;
 
-import EJB.IPractice;
-import EJB.Services.IService;
+
+
+import EJB.Services.IServiceLocator;
+import static EJB.Services.ServiceEnumContext.StudentService;
+import EJB.Services.ServiceLocator;
+import EJB.Services.StudentService;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+
+
 
 /**
  *
@@ -21,14 +27,15 @@ import javax.servlet.http.HttpServletRequest;
 @RequestScoped
 public class JSFPractice {
 
-    private String Message;
-    private int Number;
+
+    @EJB
+    private ServiceLocator serviceLocator;
+    
     private String ipAddress;
     private String  Teacher;
-    @EJB
-    private IPractice EJB;
-    @EJB
-    private IService service;
+    private String message;
+
+
     
     
     /**
@@ -36,42 +43,24 @@ public class JSFPractice {
      */
     public JSFPractice() 
     {
-        this.Message="Hi There I am a bean";
-        this.Number = 22;
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         this.ipAddress =   request.getRemoteAddr();
+     
+        StudentService s = (StudentService) serviceLocator.getService(StudentService);
+        this.message = s.listAll().get(0).getFirstName();
         
-    }
-    
-    public String getMessage() {
-        return "HI";
-    }
+        
+        
 
-    public void setMessage(String Message) {
-        this.Message = Message;
-    }
-
-    public int getNumber() {
-        return Number;
-    }
-
-    public void setNumber(int Number) {
-        this.Number = Number;
-    }
-    
-    public String getEJB()
-    {
-        return this.EJB.getMessage();
     }
     
     public String getIP()
     {
         return this.ipAddress;
     }
-    
-    public String getTeacher()
-    {
-        return this.EJB.getTeacher();
+    public String getMessage() {
+        return message;
     }
+
     
 }
