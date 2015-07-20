@@ -19,7 +19,7 @@ public class VisitorsService implements IService <Visitors,String,VisitorsDAO>
     private static VisitorsDAO VisitorsDAO;
     private final String ServiceName = "VisistorsService";
     
-    protected VisitorsService()
+    public VisitorsService()
     {
         VisitorsDAO = new VisitorsDAO();
     }

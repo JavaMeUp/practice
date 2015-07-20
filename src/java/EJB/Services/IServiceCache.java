@@ -5,19 +5,15 @@
  */
 package EJB.Services;
 
+import javax.ejb.Local;
+
 /**
  *
  * @author wilson.li
  */
-public class ServiceContext 
-{
-    //register Services here as instance members to be injected.
+@Local
+public interface IServiceCache {
+    public IService getService(ServiceEnumContext serviceName);
+    public void addService(IService newService);
     
-    
-    public Object lookUp(Object jndiName)
-    {
-        
-        
-        return null;
-    }
 }

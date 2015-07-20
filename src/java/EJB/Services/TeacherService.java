@@ -19,7 +19,7 @@ public class TeacherService implements IService <Teacher,String,TeacherDAO>
     private static TeacherDAO TeacherDAO;
     private final String ServiceName = "TeacherService";
     
-    protected TeacherService()
+    public TeacherService()
     {
         TeacherDAO = new TeacherDAO();
     }

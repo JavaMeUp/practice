@@ -6,12 +6,17 @@
 package ManagedBeans;
 
 
-import EJB.Services.IService;
+
+import EJB.Services.IServiceLocator;
+import static EJB.Services.ServiceEnumContext.StudentService;
+import EJB.Services.StudentService;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+
+
 
 /**
  *
@@ -21,13 +26,14 @@ import javax.servlet.http.HttpServletRequest;
 @RequestScoped
 public class JSFPractice {
 
-    private String Message;
-    private int Number;
+
+
     private String ipAddress;
     private String  Teacher;
+    private String message;
 
     @EJB
-    private IService service;
+    private IServiceLocator serviceLocator;
     
     
     /**
@@ -35,35 +41,24 @@ public class JSFPractice {
      */
     public JSFPractice() 
     {
-        this.Message="Hi There I am a bean";
-        this.Number = 22;
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         this.ipAddress =   request.getRemoteAddr();
+     
+        StudentService s = (StudentService) serviceLocator.getService(StudentService);
+        this.message = s.listAll().get(0).getFirstName();
         
-    }
-    
-    public String getMessage() {
-        return "HI";
-    }
+        
+        
 
-    public void setMessage(String Message) {
-        this.Message = Message;
     }
-
-    public int getNumber() {
-        return Number;
-    }
-
-    public void setNumber(int Number) {
-        this.Number = Number;
-    }
-   
     
     public String getIP()
     {
         return this.ipAddress;
     }
-    
+    public String getMessage() {
+        return message;
+    }
 
     
 }

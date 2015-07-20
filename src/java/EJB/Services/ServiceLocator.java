@@ -13,12 +13,13 @@ import javax.ejb.Stateless;
  * @author wilson.li
  */
 @Stateless
-public class ServiceLocator 
+public class ServiceLocator implements IServiceLocator
 {
     @EJB
-    private static ServiceCache cache;
+    private  IServiceCache cache;
     
-    public static IService getService(String ServiceName)
+    @Override
+    public IService getService(ServiceEnumContext ServiceName) 
     {
         try
         {
@@ -28,12 +29,12 @@ public class ServiceLocator
             {
                 return service;
             }
-
-            ServiceContext context = new ServiceContext();
-            
-            IService service1 = (IService) context.lookUp(ServiceName);
-            cache.addService(service1);
-            return service1;
+            cache.addService(ServiceName.getServiceName());
+            return ServiceName.getServiceName();
+        }
+        catch(NullPointerException n)
+        {
+            System.out.println("There was an error in getting the Service "+n.getMessage());
         }
         catch(Exception e)
         {
@@ -41,7 +42,8 @@ public class ServiceLocator
         }
         
         return null;
-        
+                
     }
+
     
 }
