@@ -24,13 +24,13 @@ public class ServiceCache implements IServiceCache
         services = new ArrayList<IService>();
     }
     
-    public IService getService(ServiceEnumContext serviceName) throws NullPointerException
+    public IService getService(String serviceName) throws NullPointerException
     {
         for(IService service : services)
         {
             //WL TODO; Need to place in service where name of the 
             // Service is known 
-            if( serviceName.getServiceName() == service)
+            if( serviceName.equals(service.getServiceName()))
             {
                 return service;
             }

@@ -15,6 +15,6 @@ import javax.ejb.Remote;
 @Local
 public interface IServiceLocator 
 {
- public IService getService(ServiceEnumContext ServiceName);
+ public IService getService(String ServiceName);
  
 }
