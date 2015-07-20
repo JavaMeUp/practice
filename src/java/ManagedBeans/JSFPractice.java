@@ -8,6 +8,7 @@ package ManagedBeans;
 
 
 import EJB.Services.IServiceLocator;
+import EJB.Services.ServiceEnumContext;
 import static EJB.Services.ServiceEnumContext.StudentService;
 import EJB.Services.ServiceLocator;
 import EJB.Services.StudentService;
@@ -29,7 +30,7 @@ public class JSFPractice {
 
 
     @EJB
-    private ServiceLocator serviceLocator;
+    private IServiceLocator serviceLocator;
     
     private String ipAddress;
     private String  Teacher;
@@ -46,12 +47,8 @@ public class JSFPractice {
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         this.ipAddress =   request.getRemoteAddr();
      
-        StudentService s = (StudentService) serviceLocator.getService(StudentService);
+        StudentService s = (StudentService) serviceLocator.getService(StudentService.getServiceName());
         this.message = s.listAll().get(0).getFirstName();
-        
-        
-        
-
     }
     
     public String getIP()
