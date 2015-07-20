@@ -9,6 +9,7 @@ package ManagedBeans;
 
 import EJB.Services.IServiceLocator;
 import static EJB.Services.ServiceEnumContext.StudentService;
+import EJB.Services.ServiceLocator;
 import EJB.Services.StudentService;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -27,13 +28,14 @@ import javax.servlet.http.HttpServletRequest;
 public class JSFPractice {
 
 
-
+    @EJB
+    private ServiceLocator serviceLocator;
+    
     private String ipAddress;
     private String  Teacher;
     private String message;
 
-    @EJB
-    private IServiceLocator serviceLocator;
+
     
     
     /**

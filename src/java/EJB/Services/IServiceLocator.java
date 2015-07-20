@@ -6,6 +6,7 @@
 package EJB.Services;
 
 import javax.ejb.Local;
+import javax.ejb.Remote;
 
 /**
  *
