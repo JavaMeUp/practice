@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EJB;
+package DAO;
 
-import Hibernate.Visitors;
+import Hibernate.Classes;
 import java.util.List;
+import javax.ejb.Stateless;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -17,7 +18,8 @@ import org.hibernate.cfg.Configuration;
  *
  * @author wilson.li
  */
-public class VisitorsDAO implements IDAO <Visitors,String>
+
+public class ClassesDAO implements IDAO <Classes,String>
 {
     private Transaction currentTransaction;
     private Session currentSession;
@@ -76,42 +78,43 @@ public class VisitorsDAO implements IDAO <Visitors,String>
     }
     
     @Override
-    public void persist(Visitors entity) {
+    public void persist(Classes entity) {
         getCurrentSession().save(entity);
     }
 
     @Override
-    public void update(Visitors entity) {
+    public void update(Classes entity) {
         getCurrentSession().update(entity);
     }
 
     @Override
-    public Visitors findById(String id) {
-        Visitors visitors = (Visitors) getCurrentSession().get(Visitors.class, id);
-        return visitors;
+    public Classes findById(String id) {
+        Classes singleClass = (Classes) getCurrentSession().get(Classes.class, id);
+        return singleClass;
     }
 
     @Override
-    public void delete(Visitors entity) {
+    public void delete(Classes entity) {
         getCurrentSession().delete (entity);
     }
 
     @Override
-    public List<Visitors> findAll() 
+    public List<Classes> findAll() 
     {
-        List<Visitors> visitors;
-        visitors = (List<Visitors>) getCurrentSession().createQuery("From Visitors").list();
-        return visitors;        
+        List<Classes> Class;
+        Class = (List<Classes>) getCurrentSession().createQuery("From Classes").list();
+        return Class;        
     }
 
     @Override
     public void deleteAll() 
     {
-        List<Visitors> allVisitors = findAll();
+        List<Classes> allClass = findAll();
         
-        for(Visitors singleVisitors :allVisitors)
+        for(Classes singleClass :allClass)
         {
-            getCurrentSession().delete(singleVisitors);
+            getCurrentSession().delete(singleClass);
         }    
     }
+    
 }

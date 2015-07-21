@@ -7,11 +7,14 @@ package ManagedBeans;
 
 
 
-import EJB.Services.IServiceLocator;
-import EJB.Services.ServiceEnumContext;
-import static EJB.Services.ServiceEnumContext.StudentService;
-import EJB.Services.ServiceLocator;
-import EJB.Services.StudentService;
+import DAO.Services.IServiceLocator;
+import DAO.Services.ServiceEnumContext;
+import static DAO.Services.ServiceEnumContext.StudentService;
+import DAO.Services.ServiceLocator;
+import DAO.Services.StudentService;
+import Hibernate.Student;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -24,17 +27,19 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author wilson.li
  */
-@ManagedBean(name="JSFPractice",eager=true)
+@ManagedBean(name="Login",eager=true)
 @RequestScoped
-public class JSFPractice {
+public class Login {
 
 
     @EJB
     private IServiceLocator serviceLocator;
     
     private String ipAddress;
-    private String  Teacher;
+    private String  teacher;
     private String message;
+    private StudentService studentService;
+    private List<Student> studentList;
 
 
     
@@ -42,14 +47,28 @@ public class JSFPractice {
     /**
      * Creates a new instance of JSFPractice
      */
-    public JSFPractice() 
+    public Login() 
     {
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         this.ipAddress =   request.getRemoteAddr();
      
-        StudentService s = (StudentService) serviceLocator.getService(StudentService.getServiceName());
-        this.message = s.listAll().get(0).getFirstName();
+        
+        
     }
+    
+    @PostConstruct
+    public void init()
+    {
+        studentService  = (StudentService) serviceLocator.getService(StudentService);
+        message = studentService.listAll().get(2).getFirstName();
+        studentList = studentService.listAll();
+    }
+
+    public List<Student> getStudentList() 
+    {
+        return studentList;
+    }
+        
     
     public String getIP()
     {

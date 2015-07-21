@@ -3,23 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EJB;
+package DAO;
 
-import Hibernate.Teacher;
-import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+
 /**
  *
  * @author wilton
  */
-public class TeacherDAO implements IDAO <Teacher ,String>
+public abstract class GenericDAO 
 {
     private Transaction currentTransaction;
-    private Session currentSession;
+    private  Session currentSession;
     
     private static SessionFactory getSessionFactory()
     {
@@ -72,46 +71,6 @@ public class TeacherDAO implements IDAO <Teacher ,String>
     public void setCurrentTransaction(Transaction transaction)
     {
         this.currentTransaction = transaction;
-    }
-    
-    @Override
-    public void persist(Teacher entity) {
-        getCurrentSession().save(entity);
-    }
-
-    @Override
-    public void update(Teacher entity) {
-        getCurrentSession().update(entity);
-    }
-
-    @Override
-    public Teacher findById(String id) {
-        Teacher teacher = (Teacher) getCurrentSession().get(Teacher.class, id);
-        return teacher;
-    }
-
-    @Override
-    public void delete(Teacher entity) {
-        getCurrentSession().delete (entity);
-    }
-
-    @Override
-    public List<Teacher> findAll() 
-    {
-        List<Teacher> teachers;
-        teachers = (List<Teacher>) getCurrentSession().createQuery("From Teacher").list();
-        return teachers;        
-    }
-
-    @Override
-    public void deleteAll() 
-    {
-        List<Teacher> allTeachers = findAll();
-        
-        for(Teacher teacher :allTeachers)
-        {
-            getCurrentSession().delete(teacher);
-        }    
     }
     
 }

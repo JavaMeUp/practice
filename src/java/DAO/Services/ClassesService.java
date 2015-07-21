@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EJB.Services;
+package DAO.Services;
 
-import EJB.ClassesDAO;
+import DAO.ClassesDAO;
 import Hibernate.Classes;
 import java.util.List;
 
