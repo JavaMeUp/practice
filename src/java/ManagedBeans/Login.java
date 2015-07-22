@@ -74,6 +74,12 @@ public class Login {
     {
         return this.ipAddress;
     }
+    
+    public void setIP(String ip)
+    {
+        this.ipAddress = ip;
+    }
+    
     public String getMessage() {
         return message;
     }
