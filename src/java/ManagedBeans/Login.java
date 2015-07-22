@@ -83,6 +83,12 @@ public class Login {
     public String getMessage() {
         return message;
     }
-
     
+    public String Map()
+    {
+        String i = this.ipAddress !="" ? "page1" : "page2";
+        return i;
+        
+    }
+
 }
