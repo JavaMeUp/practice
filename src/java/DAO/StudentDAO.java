@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EJB;
+package DAO;
 
+import Hibernate.Student;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,12 +15,13 @@ import org.hibernate.cfg.Configuration;
 
 /**
  *
- * @author wilton
+ * @author wilson.li
  */
-public abstract class GenericDAO 
+
+public class StudentDAO implements IDAO <Student,String>
 {
     private Transaction currentTransaction;
-    private  Session currentSession;
+    private Session currentSession;
     
     private static SessionFactory getSessionFactory()
     {
@@ -73,4 +76,43 @@ public abstract class GenericDAO
         this.currentTransaction = transaction;
     }
     
+    @Override
+    public void persist(Student entity) {
+        getCurrentSession().save(entity);
+    }
+
+    @Override
+    public void update(Student entity) {
+        getCurrentSession().update(entity);
+    }
+
+    @Override
+    public Student findById(String id) {
+        Student student = (Student) getCurrentSession().get(Student.class, id);
+        return student;
+    }
+
+    @Override
+    public void delete(Student entity) {
+        getCurrentSession().delete (entity);
+    }
+
+    @Override
+    public List<Student> findAll() 
+    {
+        List<Student> students;
+        students = (List<Student>) getCurrentSession().createQuery("From Student").list();
+        return students;        
+    }
+
+    @Override
+    public void deleteAll() 
+    {
+        List<Student> allClass = findAll();
+        
+        for(Student singleClass :allClass)
+        {
+            getCurrentSession().delete(singleClass);
+        }    
+    }
 }

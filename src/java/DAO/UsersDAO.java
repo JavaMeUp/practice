@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EJB;
+package DAO;
 
-import Hibernate.Classes;
+import Hibernate.Users;
 import java.util.List;
-import javax.ejb.Stateless;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -18,8 +17,7 @@ import org.hibernate.cfg.Configuration;
  *
  * @author wilson.li
  */
-
-public class ClassesDAO implements IDAO <Classes,String>
+public class UsersDAO implements IDAO <Users,String>
 {
     private Transaction currentTransaction;
     private Session currentSession;
@@ -78,43 +76,42 @@ public class ClassesDAO implements IDAO <Classes,String>
     }
     
     @Override
-    public void persist(Classes entity) {
+    public void persist(Users entity) {
         getCurrentSession().save(entity);
     }
 
     @Override
-    public void update(Classes entity) {
+    public void update(Users entity) {
         getCurrentSession().update(entity);
     }
 
     @Override
-    public Classes findById(String id) {
-        Classes singleClass = (Classes) getCurrentSession().get(Classes.class, id);
-        return singleClass;
+    public Users findById(String id) {
+        Users user = (Users) getCurrentSession().get(Users.class, id);
+        return user;
     }
 
     @Override
-    public void delete(Classes entity) {
+    public void delete(Users entity) {
         getCurrentSession().delete (entity);
     }
 
     @Override
-    public List<Classes> findAll() 
+    public List<Users> findAll() 
     {
-        List<Classes> Class;
-        Class = (List<Classes>) getCurrentSession().createQuery("From Classes").list();
-        return Class;        
+        List<Users> users;
+        users = (List<Users>) getCurrentSession().createQuery("From Users").list();
+        return users;        
     }
 
     @Override
     public void deleteAll() 
     {
-        List<Classes> allClass = findAll();
+        List<Users> allUsers = findAll();
         
-        for(Classes singleClass :allClass)
+        for(Users user :allUsers)
         {
-            getCurrentSession().delete(singleClass);
+            getCurrentSession().delete(user);
         }    
     }
-    
 }

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EJB;
+package DAO;
 
-import Hibernate.Users;
+import Hibernate.Visitors;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,7 +17,7 @@ import org.hibernate.cfg.Configuration;
  *
  * @author wilson.li
  */
-public class UsersDAO implements IDAO <Users,String>
+public class VisitorsDAO implements IDAO <Visitors,String>
 {
     private Transaction currentTransaction;
     private Session currentSession;
@@ -76,42 +76,42 @@ public class UsersDAO implements IDAO <Users,String>
     }
     
     @Override
-    public void persist(Users entity) {
+    public void persist(Visitors entity) {
         getCurrentSession().save(entity);
     }
 
     @Override
-    public void update(Users entity) {
+    public void update(Visitors entity) {
         getCurrentSession().update(entity);
     }
 
     @Override
-    public Users findById(String id) {
-        Users user = (Users) getCurrentSession().get(Users.class, id);
-        return user;
+    public Visitors findById(String id) {
+        Visitors visitors = (Visitors) getCurrentSession().get(Visitors.class, id);
+        return visitors;
     }
 
     @Override
-    public void delete(Users entity) {
+    public void delete(Visitors entity) {
         getCurrentSession().delete (entity);
     }
 
     @Override
-    public List<Users> findAll() 
+    public List<Visitors> findAll() 
     {
-        List<Users> users;
-        users = (List<Users>) getCurrentSession().createQuery("From Users").list();
-        return users;        
+        List<Visitors> visitors;
+        visitors = (List<Visitors>) getCurrentSession().createQuery("From Visitors").list();
+        return visitors;        
     }
 
     @Override
     public void deleteAll() 
     {
-        List<Users> allUsers = findAll();
+        List<Visitors> allVisitors = findAll();
         
-        for(Users user :allUsers)
+        for(Visitors singleVisitors :allVisitors)
         {
-            getCurrentSession().delete(user);
+            getCurrentSession().delete(singleVisitors);
         }    
     }
 }

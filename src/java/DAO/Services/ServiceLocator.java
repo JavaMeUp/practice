@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EJB.Services;
+package DAO.Services;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -15,15 +15,12 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiceLocator implements IServiceLocator
 {
-    //@EJB
-    //private  IServiceCache cache;
+    @EJB
+    private  IServiceCache cache;
     
     @Override
     public IService getService(ServiceEnumContext ServiceName) 
     {
-        System.out.print("ECHO");
-        return new ClassesService();
-        /*
         try
         {
             IService service = cache.getService(ServiceName);
@@ -44,7 +41,7 @@ public class ServiceLocator implements IServiceLocator
             System.out.print("There was an issue getting the service "+ ServiceName +" with the error " + e.getMessage());
         }
         
-        return null;*/
+        return null;
                 
     }
 

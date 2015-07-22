@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EJB.Services;
+package DAO.Services;
 
 import javax.ejb.Local;
+import javax.ejb.Remote;
 
 /**
  *
  * @author wilson.li
  */
 @Local
-public interface IServiceCache {
-    public IService getService(ServiceEnumContext serviceName);
-    public void addService(IService newService);
-    
+public interface IServiceLocator 
+{
+ public IService getService(ServiceEnumContext ServiceName);
+ 
 }

@@ -3,22 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EJB;
+package DAO;
 
-import Hibernate.Student;
+import Hibernate.Teacher;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-
 /**
  *
- * @author wilson.li
+ * @author wilton
  */
-
-public class StudentDAO implements IDAO <Student,String>
+public class TeacherDAO implements IDAO <Teacher ,String>
 {
     private Transaction currentTransaction;
     private Session currentSession;
@@ -77,42 +75,43 @@ public class StudentDAO implements IDAO <Student,String>
     }
     
     @Override
-    public void persist(Student entity) {
+    public void persist(Teacher entity) {
         getCurrentSession().save(entity);
     }
 
     @Override
-    public void update(Student entity) {
+    public void update(Teacher entity) {
         getCurrentSession().update(entity);
     }
 
     @Override
-    public Student findById(String id) {
-        Student student = (Student) getCurrentSession().get(Student.class, id);
-        return student;
+    public Teacher findById(String id) {
+        Teacher teacher = (Teacher) getCurrentSession().get(Teacher.class, id);
+        return teacher;
     }
 
     @Override
-    public void delete(Student entity) {
+    public void delete(Teacher entity) {
         getCurrentSession().delete (entity);
     }
 
     @Override
-    public List<Student> findAll() 
+    public List<Teacher> findAll() 
     {
-        List<Student> students;
-        students = (List<Student>) getCurrentSession().createQuery("From Student").list();
-        return students;        
+        List<Teacher> teachers;
+        teachers = (List<Teacher>) getCurrentSession().createQuery("From Teacher").list();
+        return teachers;        
     }
 
     @Override
     public void deleteAll() 
     {
-        List<Student> allClass = findAll();
+        List<Teacher> allTeachers = findAll();
         
-        for(Student singleClass :allClass)
+        for(Teacher teacher :allTeachers)
         {
-            getCurrentSession().delete(singleClass);
+            getCurrentSession().delete(teacher);
         }    
     }
+    
 }

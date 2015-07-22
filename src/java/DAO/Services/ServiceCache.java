@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EJB.Services;
+package DAO.Services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +24,13 @@ public class ServiceCache implements IServiceCache
         services = new ArrayList<IService>();
     }
     
+    @Override
     public IService getService(ServiceEnumContext serviceName) throws NullPointerException
     {
         for(IService service : services)
         {
             //WL TODO; Need to place in service where name of the 
-            // Service is known zzzz
+            // Service is known 
             if( serviceName.getServiceName() == service)
             {
                 return service;
@@ -38,6 +39,7 @@ public class ServiceCache implements IServiceCache
         return null;
     }
     
+    @Override
     public void addService(IService newService)
     {
         boolean exists =false;
