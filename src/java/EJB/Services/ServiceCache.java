@@ -29,7 +29,7 @@ public class ServiceCache implements IServiceCache
         for(IService service : services)
         {
             //WL TODO; Need to place in service where name of the 
-            // Service is known 
+            // Service is known zzzz
             if( serviceName.getServiceName() == service)
             {
                 return service;

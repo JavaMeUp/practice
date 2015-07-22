@@ -15,12 +15,15 @@ import javax.ejb.Stateless;
 @Stateless
 public class ServiceLocator implements IServiceLocator
 {
-    @EJB
-    private  IServiceCache cache;
+    //@EJB
+    //private  IServiceCache cache;
     
     @Override
     public IService getService(ServiceEnumContext ServiceName) 
     {
+        System.out.print("ECHO");
+        return new ClassesService();
+        /*
         try
         {
             IService service = cache.getService(ServiceName);
@@ -41,7 +44,7 @@ public class ServiceLocator implements IServiceLocator
             System.out.print("There was an issue getting the service "+ ServiceName +" with the error " + e.getMessage());
         }
         
-        return null;
+        return null;*/
                 
     }
 
