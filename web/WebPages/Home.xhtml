@@ -30,10 +30,11 @@ and open the template in the editor.
                               
                             <h:form >
                                 
-                                <div><h:inputText value="#{Login.IP}" class="bg-primary"></h:inputText></div>
+                                <div><h:inputText value="#{Login.IP}" class="bg-primary" id="Login"></h:inputText></div>
                                 <div><h:inputText value="#{Login.IP}"></h:inputText></div>
                                 <div><h:button class="btn" value="Login"></h:button></div>
                                 <h:commandButton action="page1" value="#{Login.Map()}" class="btn-default"></h:commandButton>
+                                <h:message for="Login"></h:message>
                             </h:form>
                                 
                         </div>
