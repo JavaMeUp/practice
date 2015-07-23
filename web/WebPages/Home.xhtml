@@ -7,7 +7,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"   
    xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:ui="http://java.sun.com/jsf/facelets">
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core">
     <head>
 
     </head>
@@ -26,15 +27,23 @@ and open the template in the editor.
                             <image></image>
                                 <span>
                                     I am some text
+                                    
                                 </span>
                               
-                            <h:form >
+                            <h:form>
                                 
-                                <div><h:inputText value="#{Login.IP}" class="bg-primary" id="Login"></h:inputText></div>
-                                <div><h:inputText value="#{Login.IP}"></h:inputText></div>
+                                <div>
+                                    <h:inputText value="#{Login.IP}" class="bg-primary" >
+                                        <f:validateLength ></f:validateLength>
+                                    </h:inputText></div>
+                                <div>
+                                    <h:inputText value="#{Login.IP}"  size="5" id="Login">
+                                        <f:validator validatorId="com.LoginValidator"/>
+                                    </h:inputText>
+                                </div>
                                 <div><h:button class="btn" value="Login"></h:button></div>
                                 <h:commandButton action="page1" value="#{Login.Map()}" class="btn-default"></h:commandButton>
-                                <h:message for="Login"></h:message>
+                                <h:message for="Login" style="color: red"></h:message>
                             </h:form>
                                 
                         </div>
