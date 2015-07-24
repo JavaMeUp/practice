@@ -35,14 +35,15 @@ and open the template in the editor.
                                 <div>
                                     <h:inputText value="#{Login.IP}" class="bg-primary" >
                                         <f:validateLength ></f:validateLength>
-                                    </h:inputText></div>
+                                    </h:inputText>
+                                </div>
+                                
                                 <div>
-                                    <h:inputText value="#{Login.IP}"  size="5" id="Login">
+                                    <h:inputText value="#{Login.IP}"   id="Login">
                                         <f:validator validatorId="com.LoginValidator"/>
                                     </h:inputText>
                                 </div>
-                                <div><h:button class="btn" value="Login"></h:button></div>
-                                <h:commandButton action="page1" value="#{Login.Map()}" class="btn-default"></h:commandButton>
+                                <h:commandButton action="page1" value="logon" class="btn"></h:commandButton>
                                 <h:message for="Login" style="color: red"></h:message>
                             </h:form>
                                 

@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/practicesql?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">timmys</property>
+    <property name="hibernate.connection.password">abc123ABC</property>
     <mapping resource="Hibernate/Student.hbm.xml"/>
     <mapping resource="Hibernate/Teacher.hbm.xml"/>
     <mapping resource="Hibernate/Visitors.hbm.xml"/>
