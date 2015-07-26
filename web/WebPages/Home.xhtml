@@ -24,75 +24,38 @@ and open the template in the editor.
                     <div class="col-lg-4">
                         
                         <div>
-                            <image></image>
+                            <image/>
                                 <span>
                                     I am some text
                                     
                                 </span>
                               
-                            <h:form>
+                            <h:form  id="LoginForm">
+                                <h:messages style="color:red"/>
+                                    
                                 
                                 <div>
-                                    <h:inputText value="#{Login.IP}" class="bg-primary" >
-                                        <f:validateLength ></f:validateLength>
-                                    </h:inputText>
+                                    
+                                    <h:outputLabel value="UserName"/>
+                                    <h:inputText value="#{Login.userName}" />
+                                    
                                 </div>
                                 
                                 <div>
-                                    <h:inputText value="#{Login.IP}"   id="Login">
+                                    <h:outputLabel value="Password" />
+                                    <h:inputSecret  value="#{Login.password}">
                                         <f:validator validatorId="com.LoginValidator"/>
-                                    </h:inputText>
+                                    </h:inputSecret>
+                                    
                                 </div>
-                                <h:commandButton action="page1" value="logon" class="btn"></h:commandButton>
+                                <h:commandButton action="#{Login.Login()}" value="logon" class="btn"  ></h:commandButton>
+                                
                                 <h:message for="Login" style="color: red"></h:message>
+                                <h:message for="LoginForm" style="color: red"></h:message>
                             </h:form>
                                 
                         </div>
                         
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                            <table>
-                                
-                                <thead>
-                                    <tr>
-                                        <td>
-                                            FirstName
-                                        </td>
-                                        
-                                        <td>
-                                            LastName
-                                        </td>
-
-                                        <td>
-                                            DOB
-                                        </td>                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <ui:repeat value="#{Login.studentList}" var="item">                                
-
-                                            <tr>
-                                                <td>
-                                                    #{item.firstName}
-                                                </td>
-
-                                                <td>
-                                                    #{item.lastName}
-                                                </td>
-
-                                                <td>
-                                                    #{item.dob}
-                                                </td>                                                        
-                                            </tr>
-                                </ui:repeat>
-                                </tbody>
-                            </table>
                     </div>
 
                     <div class="col-lg-4">

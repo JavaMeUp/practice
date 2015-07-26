@@ -11,5 +11,15 @@
         <property name="ipAddress" type="string">
             <column name="ipAddress" not-null="true" />
         </property>
+        
+        
+        <property name="LoginName" type="string">
+            <column name="LoginName" />
+        </property>
+        
+        
+        <property name="PasswordSubmitted" type="string">
+            <column name="PasswordSubmitted"/>
+        </property>
     </class>
 </hibernate-mapping>

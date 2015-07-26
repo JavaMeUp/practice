@@ -21,12 +21,17 @@ public class Visitors  implements java.io.Serializable {
 
      private Integer id;
      private String ipAddress;
+     private String LoginName;
+     private String PasswordSubmitted;
 
     public Visitors() {
     }
 
-    public Visitors(String ipAddress) {
+    public Visitors(String ipAddress ,String LoginName , String PasswordSubmitted) 
+    {
        this.ipAddress = ipAddress;
+       this.LoginName = LoginName;
+       this.PasswordSubmitted = PasswordSubmitted;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -50,6 +55,32 @@ public class Visitors  implements java.io.Serializable {
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
     }
+    
+    @Column(name="LoginName")
+    public String getLoginName()
+    {
+        return this.LoginName;
+    }
+    
+    public void setLoginName(String loginName)
+    {
+        this.LoginName = loginName;
+    }
+    
+    @Column(name="PasswordSubmitted")
+    public String getPasswordSubmitted ()
+    {
+        return this.PasswordSubmitted;
+    }
+    
+    public void setPasswordSubmitted (String passwordSubmitted)
+    {
+        this.PasswordSubmitted = passwordSubmitted;
+        
+        
+    }
+    
+    
 
 
 

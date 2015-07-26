@@ -5,6 +5,9 @@
  */
 package FormValidation;
 
+import DAO.Services.ServiceEnumContext;
+import DAO.Services.ServiceLocator;
+import DAO.Services.UsersService;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -19,25 +22,19 @@ import javax.faces.validator.ValidatorException;
 @FacesValidator("com.LoginValidator")
 public class LoginValidation  implements Validator
 {
+    private UsersService service;
+    private ServiceLocator serviceLocator;
 
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException 
     {
-        String val =null;
-        try
-        {
-            val  = (String) value;
-        }
-        catch(Exception e)
-        {
-            
-        }
-        if(val =="")
-        {
+        System.out.println("hi");
+        
+        /*
             FacesMessage message = new FacesMessage("ERROR HERE !!!!!!!!!!");
             message.setSeverity(FacesMessage.SEVERITY_ERROR);
             throw new ValidatorException(message);
-        }
+        */
     }
     
 }

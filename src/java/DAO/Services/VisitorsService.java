@@ -27,7 +27,7 @@ public class VisitorsService implements IService <Visitors,String,VisitorsDAO>
     @Override
     public void persist(Visitors entity)
     {
-        VisitorsDAO.openCurrentSession();
+        VisitorsDAO.openCurrentTransaction();
         VisitorsDAO.persist(entity);
         VisitorsDAO.closeCurrentTransaction();
     }

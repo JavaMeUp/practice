@@ -86,4 +86,19 @@ public class UsersService implements IService <Users,String,UsersDAO>
         return this.ServiceName;
     }
     
+    public Users isUser (String username , String password) throws NullPointerException
+    {
+        
+        List<Users> users =  this.listAll();
+        
+        for(Users user : users)
+        {
+            if(user.getUserName().equals(username) && user.getUserPassword().equals(password))
+            {
+                return user;
+            }
+        }
+        return null;        
+    }
+    
 }

@@ -10,15 +10,22 @@ package ManagedBeans;
 import DAO.Services.IServiceLocator;
 import DAO.Services.ServiceEnumContext;
 import static DAO.Services.ServiceEnumContext.StudentService;
-import DAO.Services.ServiceLocator;
 import DAO.Services.StudentService;
+import DAO.Services.UsersService;
+import DAO.Services.VisitorsService;
 import Hibernate.Student;
+import Hibernate.Users;
+import Hibernate.Visitors;
+import com.State.Cookies;
+import java.util.HashSet;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -36,10 +43,12 @@ public class Login {
     private IServiceLocator serviceLocator;
     
     private String ipAddress;
-    private String  teacher;
+    private String userName;
+    private String password;
     private String message;
     private StudentService studentService;
     private List<Student> studentList;
+    private UsersService service;
 
 
     
@@ -84,11 +93,53 @@ public class Login {
         return message;
     }
     
-    public String Map()
-    {
-        String i = this.ipAddress !="" ? "page1" : "page2";
-        return i;
-        
+
+    public String getUserName() {
+        return userName;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public String Login()
+    {       
+            Cookies cookie = new Cookies();
+            service = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
+            Users loginUser = service.isUser(this.userName, this.password);
+            cookie.SetCookie(this.userName,"JSF",-1);
+            Cookie c = cookie.getCookie(this.userName);
+        
+            
+            
+            if(loginUser == null)
+            {
+                VisitorsService vService = (VisitorsService) serviceLocator.getService(ServiceEnumContext.VisitorsService);
+                Visitors v = new Visitors(this.ipAddress,this.userName,this.password);
+                vService.persist(v);
+                
+                FacesContext context = FacesContext.getCurrentInstance();
+                context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));
+                
+            }
+            else
+            {
+                VisitorsService vService = (VisitorsService) serviceLocator.getService(ServiceEnumContext.VisitorsService);
+                Visitors v = new Visitors(this.ipAddress,this.userName,this.password);
+                vService.persist(v);
+                
+                return "page1";
+            }
+            return "Home.xhtml";
+    }
+    
 
 }
