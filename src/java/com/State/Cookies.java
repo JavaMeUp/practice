@@ -5,6 +5,9 @@
  */
 package com.State;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.Cookie;
@@ -22,6 +25,7 @@ public class Cookies
     private HttpServletRequest request;
     private HttpServletResponse response;
     private ExternalContext externalContext;
+    private Map<String,Object> cookieData;
     
     public Cookies()
     {
@@ -29,6 +33,7 @@ public class Cookies
         request = (HttpServletRequest) context.getExternalContext().getRequest();
         response = (HttpServletResponse) context.getExternalContext().getResponse();
         externalContext = context.getExternalContext();
+        cookieData = new HashMap <String,Object>();
         
     }
     
@@ -53,7 +58,7 @@ public class Cookies
     
     public void SetCookie(String name, String value, int expiry )
     {
-        
+       
         Cookie [] cookies = request.getCookies();
         for(int i = 0 ; i< cookies.length; i++)
         {
@@ -75,7 +80,7 @@ public class Cookies
         
         this.cookie.setMaxAge(expiry);
         response.addCookie(cookie);
-        
+
         
     }
 }
