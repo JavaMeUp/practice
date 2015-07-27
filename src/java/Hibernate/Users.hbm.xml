@@ -17,5 +17,17 @@
         <property name="administer" type="boolean">
             <column name="Administer" not-null="true" />
         </property>
+        
+        <property name="TeacherId" type="string">
+            <column name="TeacherId"/>
+        </property>
+        
+        <property name="StudentId" type="string">
+            <column name="StudentId"/>
+        </property>
+        
+        <property name="LastLogined" type="date">
+            <column name="LastLogined"/>
+        </property>
     </class>
 </hibernate-mapping>

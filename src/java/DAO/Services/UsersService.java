@@ -5,6 +5,8 @@
  */
 package DAO.Services;
 
+import DAO.StudentDAO;
+import DAO.TeacherDAO;
 import DAO.UsersDAO;
 import Hibernate.Users;
 import java.util.List;
@@ -17,6 +19,8 @@ public class UsersService implements IService <Users,String,UsersDAO>
 {
     private static UsersDAO UsersDAO;
     private final String ServiceName = "UsersService";
+    private static TeacherDAO teacherDAO;
+    private static StudentDAO studentDAO;
     
     public UsersService()
     {
@@ -86,7 +90,7 @@ public class UsersService implements IService <Users,String,UsersDAO>
         return this.ServiceName;
     }
     
-    public Users isUser (String username , String password) throws NullPointerException
+    public Users getUser (String username , String password) throws NullPointerException
     {
         
         List<Users> users =  this.listAll();
@@ -100,5 +104,5 @@ public class UsersService implements IService <Users,String,UsersDAO>
         }
         return null;        
     }
-    
+        
 }

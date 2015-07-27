@@ -23,6 +23,7 @@ public class Visitors  implements java.io.Serializable {
      private String ipAddress;
      private String LoginName;
      private String PasswordSubmitted;
+     
 
     public Visitors() {
     }
@@ -77,10 +78,7 @@ public class Visitors  implements java.io.Serializable {
     {
         this.PasswordSubmitted = passwordSubmitted;
         
-        
     }
-    
-    
 
 
 

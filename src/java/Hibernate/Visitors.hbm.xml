@@ -21,5 +21,6 @@
         <property name="PasswordSubmitted" type="string">
             <column name="PasswordSubmitted"/>
         </property>
+        
     </class>
 </hibernate-mapping>

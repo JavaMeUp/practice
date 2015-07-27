@@ -114,7 +114,7 @@ public class Login {
     {       
             Cookies cookie = new Cookies();
             service = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
-            Users loginUser = service.isUser(this.userName, this.password);
+            Users loginUser = service.getUser(this.userName, this.password);
             cookie.SetCookie(this.userName,"JSF",-1);
             Cookie c = cookie.getCookie(this.userName);
         

@@ -2,6 +2,7 @@ package Hibernate;
 // Generated 26-Jun-2015 08:25:17 by Hibernate Tools 4.3.1
 
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,6 +26,9 @@ public class Users  implements java.io.Serializable {
      private String userName;
      private String userPassword;
      private boolean administer;
+     private String StudentId;
+     private String TeacherId;
+     private Date LastLogined;
 
     public Users() {
     }
@@ -34,15 +38,15 @@ public class Users  implements java.io.Serializable {
         this.userPassword = userPassword;
         this.administer = administer;
     }
-    public Users(String userName, String userPassword, boolean administer) {
+    public Users(String userName, String userPassword, boolean administer,String TeacherId, String StudentId) {
        this.userName = userName;
        this.userPassword = userPassword;
        this.administer = administer;
+       this.StudentId=StudentId;
+       this.TeacherId = TeacherId;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
-
-    
     @Column(name="id", unique=true, nullable=false)
     public Integer getId() {
         return this.id;
@@ -82,7 +86,40 @@ public class Users  implements java.io.Serializable {
         this.administer = administer;
     }
 
-
+    @Column(name="TeacherId")
+    public String getTeacherId ()
+    {
+        return this.TeacherId;
+    }
+    
+    public void setTeacherId (String teacherId)
+    {
+        this.TeacherId = teacherId;
+        
+    }
+    @Column(name="StudentId")
+    public String getStudentId ()
+    {
+        return this.StudentId;
+    }
+    
+    public void setStudentId (String studentId)
+    {
+        this.StudentId = studentId;
+        
+    }
+   
+    @Column(name="LastLogined")
+    public Date getLastLogined ()
+    {
+        return this.LastLogined;
+    }
+    
+    public void setLastLogined (Date LastLogined)
+    {
+        this.LastLogined = LastLogined;
+        
+    }
 
 
 }
