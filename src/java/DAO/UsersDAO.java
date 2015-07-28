@@ -51,8 +51,9 @@ public class UsersDAO implements IDAO <Users,String>
     
     public void closeCurrentTransaction()
     {
-        this.currentSession.close();
         this.currentTransaction.commit();
+        this.currentSession.close();
+        
     }
     
     public Session getCurrentSession()

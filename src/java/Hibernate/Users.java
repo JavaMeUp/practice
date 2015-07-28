@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.persistence.UniqueConstraint;
 
 /**
@@ -28,7 +29,7 @@ public class Users  implements java.io.Serializable {
      private boolean administer;
      private String StudentId;
      private String TeacherId;
-     private Date LastLogined;
+     private Date LastLogin;
 
     public Users() {
     }
@@ -109,15 +110,16 @@ public class Users  implements java.io.Serializable {
         
     }
    
-    @Column(name="LastLogined")
-    public Date getLastLogined ()
+    @Column(name="LastLogin")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    public Date getLastLogin ()
     {
-        return this.LastLogined;
+        return this.LastLogin;
     }
     
-    public void setLastLogined (Date LastLogined)
+    public void setLastLogin (Date LastLogin)
     {
-        this.LastLogined = LastLogined;
+        this.LastLogin = LastLogin;
         
     }
 

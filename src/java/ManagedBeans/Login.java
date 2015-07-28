@@ -17,6 +17,8 @@ import Hibernate.Student;
 import Hibernate.Users;
 import Hibernate.Visitors;
 import com.State.Cookies;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -112,9 +114,11 @@ public class Login {
     
     public String Login()
     {       
+            Date date = new Date();
             Cookies cookie = new Cookies();
             service = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
             Users loginUser = service.getUser(this.userName, this.password);
+            
             cookie.SetCookie(this.userName,"JSF",-1);
             Cookie c = cookie.getCookie(this.userName);
         
@@ -124,7 +128,10 @@ public class Login {
             {
                 VisitorsService vService = (VisitorsService) serviceLocator.getService(ServiceEnumContext.VisitorsService);
                 Visitors v = new Visitors(this.ipAddress,this.userName,this.password);
+                
+                v.setLastRequested(date);
                 vService.persist(v);
+                
                 
                 FacesContext context = FacesContext.getCurrentInstance();
                 context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));
@@ -132,9 +139,10 @@ public class Login {
             }
             else
             {
-                VisitorsService vService = (VisitorsService) serviceLocator.getService(ServiceEnumContext.VisitorsService);
-                Visitors v = new Visitors(this.ipAddress,this.userName,this.password);
-                vService.persist(v);
+                UsersService uService = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
+                loginUser.setLastLogin(date);
+                uService.update(loginUser);
+                
                 
                 return "page1";
             }

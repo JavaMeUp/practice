@@ -38,7 +38,7 @@ public class UsersService implements IService <Users,String,UsersDAO>
     @Override
     public void update (Users entity)
     {
-        UsersDAO.openCurrentSession();
+        UsersDAO.openCurrentTransaction();
         UsersDAO.update(entity);
         UsersDAO.closeCurrentTransaction();
     }

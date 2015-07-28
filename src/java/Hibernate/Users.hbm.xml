@@ -26,8 +26,8 @@
             <column name="StudentId"/>
         </property>
         
-        <property name="LastLogined" type="date">
-            <column name="LastLogined"/>
+        <property name="LastLogin" type="date">
+            <column name="LastLogin"/>
         </property>
     </class>
 </hibernate-mapping>
