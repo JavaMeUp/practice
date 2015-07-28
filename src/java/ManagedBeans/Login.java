@@ -16,7 +16,7 @@ import DAO.Services.VisitorsService;
 import Hibernate.Student;
 import Hibernate.Users;
 import Hibernate.Visitors;
-import com.State.Cookies;
+import com.Web.State.Cookies;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -50,8 +50,8 @@ public class Login {
     private StudentService studentService;
     private List<Student> studentList;
     private UsersService service;
-    private String SessionID;
-    private Random SessionIDGenerator;
+    private final String SessionID;
+    private final Random SessionIDGenerator;
 
 
     
@@ -65,9 +65,6 @@ public class Login {
         this.ipAddress =   request.getRemoteAddr();
         this.SessionIDGenerator = new Random();
         this.SessionID = String.valueOf(SessionIDGenerator.nextDouble());
-     
-        
-        
     }
     
     @PostConstruct
@@ -82,7 +79,6 @@ public class Login {
     {
         return studentList;
     }
-        
     
     public String getIP()
     {
