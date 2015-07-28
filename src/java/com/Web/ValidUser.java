@@ -31,19 +31,7 @@ public class ValidUser
     {
         UsersService service = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
         Users loginUser = service.getUserBySessionId(SessionId);
-        
-        for(Users u : this.userservice.listAll() )
-        {
-            if(u.getSessionID().equals(SessionId) && u.getUserName().equals(userName))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        return false;
+        return loginUser != null  ? true :false;
     }
     
     
