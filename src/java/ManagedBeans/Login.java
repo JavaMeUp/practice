@@ -93,7 +93,6 @@ public class Login {
     public String getMessage() {
         return message;
     }
-    
 
     public String getUserName() {
         return userName;
@@ -126,7 +125,7 @@ public class Login {
                 loginUser.setLastLogin(date);
                 loginUser.setSessionID(SessionID);
                 uService.update(loginUser);
-                return "page1";                
+                return "page1.xhtml";                
             }
             else
             {

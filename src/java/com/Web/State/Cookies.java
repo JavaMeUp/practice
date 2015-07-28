@@ -57,7 +57,6 @@ public class Cookies
     
     public void SetCookie(String name, String value, int expiry )
     {
-       
         Cookie [] cookies = request.getCookies();
         for(int i = 0 ; i< cookies.length; i++)
         {

@@ -6,10 +6,10 @@
 package com.Web;
 
 import DAO.Services.IServiceLocator;
+import DAO.Services.ServiceEnumContext;
 import static DAO.Services.ServiceEnumContext.UsersService;
 import DAO.Services.UsersService;
 import Hibernate.Users;
-import java.util.List;
 import javax.ejb.EJB;
 
 /**
@@ -29,6 +29,9 @@ public class ValidUser
     
     public boolean isValid(String userName, String SessionId)
     {
+        UsersService service = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
+        Users loginUser = service.getUserBySessionId(SessionId);
+        
         for(Users u : this.userservice.listAll() )
         {
             if(u.getSessionID().equals(SessionId) && u.getUserName().equals(userName))

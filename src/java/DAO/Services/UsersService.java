@@ -104,5 +104,17 @@ public class UsersService implements IService <Users,String,UsersDAO>
         }
         return null;        
     }
+    
+    public Users getUserBySessionId(String sessionId) throws NullPointerException
+    {
+        for(Users user : this.listAll())
+        {
+            if(user.getSessionID().equals(sessionId))
+            {
+                return user;
+            }
+        }
+        return null;
+    }
         
 }
