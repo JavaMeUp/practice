@@ -6,7 +6,6 @@
 package com.State;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;

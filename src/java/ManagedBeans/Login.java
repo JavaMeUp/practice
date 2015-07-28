@@ -17,10 +17,9 @@ import Hibernate.Student;
 import Hibernate.Users;
 import Hibernate.Visitors;
 import com.State.Cookies;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -51,6 +50,8 @@ public class Login {
     private StudentService studentService;
     private List<Student> studentList;
     private UsersService service;
+    private String SessionID;
+    private Random SessionIDGenerator;
 
 
     
@@ -62,6 +63,8 @@ public class Login {
     {
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         this.ipAddress =   request.getRemoteAddr();
+        this.SessionIDGenerator = new Random();
+        this.SessionID = String.valueOf(SessionIDGenerator.nextDouble());
      
         
         
@@ -118,33 +121,25 @@ public class Login {
             Cookies cookie = new Cookies();
             service = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
             Users loginUser = service.getUser(this.userName, this.password);
-            
-            cookie.SetCookie(this.userName,"JSF",-1);
             Cookie c = cookie.getCookie(this.userName);
-        
             
-            
-            if(loginUser == null)
+            if(loginUser != null )
             {
-                VisitorsService vService = (VisitorsService) serviceLocator.getService(ServiceEnumContext.VisitorsService);
-                Visitors v = new Visitors(this.ipAddress,this.userName,this.password);
-                
-                v.setLastRequested(date);
-                vService.persist(v);
-                
-                
-                FacesContext context = FacesContext.getCurrentInstance();
-                context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));
-                
+                cookie.SetCookie(this.userName,this.SessionID,-1);
+                UsersService uService = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
+                loginUser.setLastLogin(date);
+                loginUser.setSessionID(SessionID);
+                uService.update(loginUser);
+                return "page1";                
             }
             else
             {
-                UsersService uService = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
-                loginUser.setLastLogin(date);
-                uService.update(loginUser);
-                
-                
-                return "page1";
+                VisitorsService vService = (VisitorsService) serviceLocator.getService(ServiceEnumContext.VisitorsService);
+                Visitors v = new Visitors(this.ipAddress,this.userName,this.password);
+                v.setLastRequested(date);
+                vService.persist(v);
+                FacesContext context = FacesContext.getCurrentInstance();
+                context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));                
             }
             return "Home.xhtml";
     }

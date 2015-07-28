@@ -116,6 +116,7 @@ CREATE TABLE `users` (
   `StudentId` varchar(251) DEFAULT NULL,
   `TeacherId` varchar(251) DEFAULT NULL,
   `LastLogin` date DEFAULT NULL,
+  `SessionID` varchar(251) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `userName` (`userName`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
@@ -127,7 +128,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'User1','Password',1,NULL,NULL,'2015-07-28'),(2,'User2','Password',0,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'User1','Password',1,NULL,NULL,'2015-07-28','0.3108165859887375'),(2,'User2','Password',0,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +146,7 @@ CREATE TABLE `visitors` (
   `LoginName` varchar(251) DEFAULT NULL,
   `LastRequested` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,7 +155,7 @@ CREATE TABLE `visitors` (
 
 LOCK TABLES `visitors` WRITE;
 /*!40000 ALTER TABLE `visitors` DISABLE KEYS */;
-INSERT INTO `visitors` VALUES (1,'0:0:0:0:0:0:0:1','me','poop',NULL),(2,'0:0:0:0:0:0:0:1','me','Hi',NULL),(3,'0:0:0:0:0:0:0:1','Password','User1',NULL),(4,'0:0:0:0:0:0:0:1','me','Teach',NULL),(5,'0:0:0:0:0:0:0:1','Password','User1',NULL),(6,'0:0:0:0:0:0:0:1','There','Hi',NULL),(7,'0:0:0:0:0:0:0:1','me','Time',NULL),(8,'0:0:0:0:0:0:0:1','see','Boob',NULL),(9,'0:0:0:0:0:0:0:1','e','tocken',NULL),(10,'0:0:0:0:0:0:0:1','s','tocken',NULL),(11,'0:0:0:0:0:0:0:1','ne','tine','2015-07-28'),(12,'0:0:0:0:0:0:0:1','me','mem','2015-07-28'),(13,'0:0:0:0:0:0:0:1','s','Hilpo','2015-07-28'),(14,'0:0:0:0:0:0:0:1','me','Melt','2015-07-28'),(15,'0:0:0:0:0:0:0:1','No','GoOn','2015-07-28'),(16,'0:0:0:0:0:0:0:1','Password','User','2015-07-28'),(17,'0:0:0:0:0:0:0:1','','User','2015-07-28'),(18,'0:0:0:0:0:0:0:1','','User','2015-07-28');
+INSERT INTO `visitors` VALUES (1,'0:0:0:0:0:0:0:1','me','poop',NULL),(2,'0:0:0:0:0:0:0:1','me','Hi',NULL),(3,'0:0:0:0:0:0:0:1','Password','User1',NULL),(4,'0:0:0:0:0:0:0:1','me','Teach',NULL),(5,'0:0:0:0:0:0:0:1','Password','User1',NULL),(6,'0:0:0:0:0:0:0:1','There','Hi',NULL),(7,'0:0:0:0:0:0:0:1','me','Time',NULL),(8,'0:0:0:0:0:0:0:1','see','Boob',NULL),(9,'0:0:0:0:0:0:0:1','e','tocken',NULL),(10,'0:0:0:0:0:0:0:1','s','tocken',NULL),(11,'0:0:0:0:0:0:0:1','ne','tine','2015-07-28'),(12,'0:0:0:0:0:0:0:1','me','mem','2015-07-28'),(13,'0:0:0:0:0:0:0:1','s','Hilpo','2015-07-28'),(14,'0:0:0:0:0:0:0:1','me','Melt','2015-07-28'),(15,'0:0:0:0:0:0:0:1','No','GoOn','2015-07-28'),(16,'0:0:0:0:0:0:0:1','Password','User','2015-07-28'),(17,'0:0:0:0:0:0:0:1','','User','2015-07-28'),(18,'0:0:0:0:0:0:0:1','','User','2015-07-28'),(19,'0:0:0:0:0:0:0:1','Tab','User1','2015-07-28'),(20,'0:0:0:0:0:0:0:1','d','d','2015-07-28'),(21,'0:0:0:0:0:0:0:1','h','Tme','2015-07-28'),(22,'0:0:0:0:0:0:0:1','Pasword','User1','2015-07-28'),(23,'0:0:0:0:0:0:0:1','li','wilson','2015-07-28');
 /*!40000 ALTER TABLE `visitors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -167,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-28 12:07:06
+-- Dump completed on 2015-07-28 14:03:14

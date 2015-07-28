@@ -30,6 +30,7 @@ public class Users  implements java.io.Serializable {
      private String StudentId;
      private String TeacherId;
      private Date LastLogin;
+     private String SessionID;
 
     public Users() {
     }
@@ -123,6 +124,17 @@ public class Users  implements java.io.Serializable {
         
     }
 
+    @Column(name="SessionID")
+    public String getSessionID ()
+    {
+        return this.SessionID;
+    }
+    
+    public void setSessionID (String SessionID)
+    {
+        this.SessionID = SessionID;
+        
+    }
 
 }
 

@@ -29,5 +29,9 @@
         <property name="LastLogin" type="date">
             <column name="LastLogin"/>
         </property>
+        
+        <property name="SessionID" type="string">
+            <column name="SessionID"/>
+        </property>        
     </class>
 </hibernate-mapping>
