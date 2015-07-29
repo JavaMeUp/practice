@@ -17,9 +17,12 @@ import Hibernate.Student;
 import Hibernate.Users;
 import Hibernate.Visitors;
 import com.Web.State.Cookies;
+import com.Web.UserTriage;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -37,8 +40,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ManagedBean(name="Login",eager=true)
 @RequestScoped
-public class Login {
-
+public class Login  {
 
     @EJB
     private IServiceLocator serviceLocator;
@@ -61,6 +63,7 @@ public class Login {
      */
     public Login() 
     {
+        
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         this.ipAddress =   request.getRemoteAddr();
         this.SessionIDGenerator = new Random();
@@ -112,31 +115,22 @@ public class Login {
     
     public String Login()
     {       
-            Date date = new Date();
-            Cookies cookie = new Cookies();
-            service = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
-            Users loginUser = service.getUser(this.userName, this.password);
-            Cookie c = cookie.getCookie(this.userName);
-            
-            if(loginUser != null )
+            UserTriage triage = new UserTriage();
+            if(triage.isValidUser(userName, SessionID))
             {
-                cookie.SetCookie(this.userName,this.SessionID,-1);
-                UsersService uService = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
-                loginUser.setLastLogin(date);
-                loginUser.setSessionID(SessionID);
-                uService.update(loginUser);
+                triage.setValidUserCookie(userName, SessionID);
+                triage.updateValidUser(SessionID);
                 return "page1.xhtml";                
+                
             }
             else
             {
-                VisitorsService vService = (VisitorsService) serviceLocator.getService(ServiceEnumContext.VisitorsService);
-                Visitors v = new Visitors(this.ipAddress,this.userName,this.password);
-                v.setLastRequested(date);
-                vService.persist(v);
+                triage.insertInvalidUser(ipAddress, userName, password);
                 FacesContext context = FacesContext.getCurrentInstance();
                 context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));                
             }
             return "Home.xhtml";
+            
     }
     
 
