@@ -14,12 +14,15 @@ import Hibernate.Users;
 import Hibernate.Visitors;
 import com.Web.State.Cookies;
 import java.util.Date;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 
 /**
  *
  * @author wilson.li
  */
+@Stateless
 public class UserTriage 
 {
     private Date date;
@@ -30,13 +33,18 @@ public class UserTriage
     
     public UserTriage()
     {
-        userservice = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
         this.date = new Date();
+    }
+    
+    @PostConstruct
+    public void init()
+    {
+        userservice = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
+        
     }
     
     public boolean isValidUser(String userName, String SessionId)
     {
-        
         loginUser = userservice.getUserBySessionId(SessionId);
         return loginUser != null  ? true :false;
     }
