@@ -16,13 +16,16 @@ import com.Web.State.Cookies;
 import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 /**
  *
  * @author wilson.li
  */
-@Stateless
+@ManagedBean(name="UserTriage",eager=true)
+@ApplicationScoped
 public class UserTriage 
 {
     private Date date;
@@ -31,9 +34,10 @@ public class UserTriage
     private IServiceLocator serviceLocator;
     private Users loginUser;
     
-    public UserTriage()
+    public UserTriage implements Serializable()
     {
         this.date = new Date();
+        
     }
     
     @PostConstruct

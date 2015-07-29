@@ -27,7 +27,9 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +47,10 @@ public class Login  {
     @EJB
     private IServiceLocator serviceLocator;
     
+    @ManagedProperty(value="#{UserTriage}")
+    private UserTriage triage;
+    
+    
     private String ipAddress;
     private String userName;
     private String password;
@@ -54,6 +60,7 @@ public class Login  {
     private UsersService service;
     private final String SessionID;
     private final Random SessionIDGenerator;
+    
 
 
     
@@ -116,7 +123,7 @@ public class Login  {
     public String Login()
     {       
 
-            UserTriage triage = new UserTriage();
+            
             if(triage.isValidUser(userName, SessionID))
             {
                 triage.setValidUserCookie(userName, SessionID);
