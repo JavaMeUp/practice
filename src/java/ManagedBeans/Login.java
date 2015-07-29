@@ -49,7 +49,8 @@ public class Login  {
     
     @ManagedProperty(value="#{UserTriage}")
     private UserTriage triage;
-    
+
+
     
     private String ipAddress;
     private String userName;
@@ -140,6 +141,15 @@ public class Login  {
             return "Home.xhtml";
             
     }
+    
+    public UserTriage getTriage() {
+        return triage;
+    }
+
+    public void setTriage(UserTriage triage) {
+        this.triage = triage;
+    }
+
     
 
 }

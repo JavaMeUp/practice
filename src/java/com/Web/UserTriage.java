@@ -13,6 +13,7 @@ import DAO.Services.VisitorsService;
 import Hibernate.Users;
 import Hibernate.Visitors;
 import com.Web.State.Cookies;
+import java.io.Serializable;
 import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -26,7 +27,7 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean(name="UserTriage",eager=true)
 @ApplicationScoped
-public class UserTriage 
+public class UserTriage  implements Serializable
 {
     private Date date;
     private UsersService userservice;
@@ -34,7 +35,7 @@ public class UserTriage
     private IServiceLocator serviceLocator;
     private Users loginUser;
     
-    public UserTriage implements Serializable()
+    public UserTriage()
     {
         this.date = new Date();
         
