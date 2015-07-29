@@ -61,11 +61,6 @@ public class Login  {
     private UsersService service;
     private final String SessionID;
     private final Random SessionIDGenerator;
-    
-
-
-    
-    
     /**
      * Creates a new instance of JSFPractice
      */
@@ -125,7 +120,7 @@ public class Login  {
     {       
 
             
-            if(triage.isValidUser(userName, SessionID))
+            if(triage.isValidUser(userName, password))
             {
                 triage.setValidUserCookie(userName, SessionID);
                 triage.updateValidUser(SessionID);

@@ -48,9 +48,9 @@ public class UserTriage  implements Serializable
         
     }
     
-    public boolean isValidUser(String userName, String SessionId)
+    public boolean isValidUser(String userName, String passeord)
     {
-        loginUser = userservice.getUserBySessionId(SessionId);
+        loginUser = userservice.getUser(userName, passeord);
         return loginUser != null  ? true :false;
     }
     
