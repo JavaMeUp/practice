@@ -25,8 +25,10 @@ public class LogOutListener implements ActionListener
     public void processAction(ActionEvent event) throws AbortProcessingException 
     {
             ExternalContext con = FacesContext.getCurrentInstance().getExternalContext();
+            Map<String,Object> item = con.getSessionMap();
             Login log = (Login) con.getSessionMap().get("Login");
-            String i = "SDDS";
+            
+            
     }
     
 }

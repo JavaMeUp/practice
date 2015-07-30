@@ -42,7 +42,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author wilson.li
  */
 @ManagedBean(name="Login",eager=true)
-@RequestScoped
+@SessionScoped
 public class Login  implements Serializable {
 
     @EJB
@@ -51,6 +51,7 @@ public class Login  implements Serializable {
     @ManagedProperty(value="#{UserTriage}")
     private UserTriage triage;
 
+    private static final long serialVersionUID = 1L;
 
     
     private String ipAddress;
