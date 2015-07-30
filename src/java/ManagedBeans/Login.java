@@ -18,6 +18,7 @@ import Hibernate.Users;
 import Hibernate.Visitors;
 import com.Web.State.CookiesDAO;
 import com.Web.UserTriage;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -42,7 +43,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ManagedBean(name="Login",eager=true)
 @RequestScoped
-public class Login  {
+public class Login  implements Serializable {
 
     @EJB
     private IServiceLocator serviceLocator;

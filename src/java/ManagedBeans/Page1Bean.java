@@ -7,9 +7,8 @@ package ManagedBeans;
 
 import Hibernate.Users;
 import com.Web.CookieUserChecker;
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -20,7 +19,7 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean(name="Page1Bean",eager=true)
 @RequestScoped
-public class Page1Bean {
+public class Page1Bean implements Serializable {
 
     private Users use;
 
@@ -54,5 +53,10 @@ public class Page1Bean {
 
     public void setUserCheck(CookieUserChecker userCheck) {
         this.userCheck = userCheck;
+    }
+    
+    public String LogOut()
+    {
+        return "Home.xhtml";
     }
 }

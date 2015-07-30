@@ -7,7 +7,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"   
    xmlns:h="http://java.sun.com/jsf/html"
-   xmlns:ui="http://java.sun.com/jsf/facelets">
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core">
    <h:body> 
        
       <ui:composition template="../Templates/Common.xhtml">
@@ -16,6 +17,15 @@ and open the template in the editor.
             <h:outputLabel value="#{Page1Bean.use.userName}"></h:outputLabel>
             <h:outputLabel value="#{Page1Bean.use.userPassword}"></h:outputLabel>
             <h:outputLabel value="#{Page1Bean.use.studentId}"></h:outputLabel>
+            <div>
+                <h:form>
+                    <h:commandButton id="logout" class="btn" action="#{Page1Bean.LogOut()}" value="LogOut">
+                        <f:actionListener type="com.Web.Listeners.LogOutListener"/>
+                    </h:commandButton>
+                </h:form>
+                
+            </div>
+            
          </ui:define>			
          <ui:define name="Content">
             <h2>Page1 content</h2>
