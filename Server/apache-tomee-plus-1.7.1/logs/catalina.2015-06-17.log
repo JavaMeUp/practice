@@ -1,0 +1,772 @@
+Jun 17, 2015 2:19:14 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.8.0_45\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;c:\Program Files (x86)\Intel\iCLS Client\;c:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\wilson.li\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5.4 & MySQL Utilities 1.5.4 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5.4 & MySQL Utilities 1.5.4 1.5\Doctrine extensions for PHP\;.
+Jun 17, 2015 2:19:14 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Jun 17, 2015 2:19:14 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-bio-8009"]
+Jun 17, 2015 2:19:15 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.jdbc.datasource-creator=org.apache.tomee.jdbc.TomEEDataSourceCreator'
+Jun 17, 2015 2:19:15 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Jun 17, 2015 2:19:15 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: OpenEJB http://openejb.apache.org/
+Jun 17, 2015 2:19:15 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Startup: Wed Jun 17 14:19:15 BST 2015
+Jun 17, 2015 2:19:15 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Copyright 1999-2013 (C) Apache OpenEJB Project, All Rights Reserved.
+Jun 17, 2015 2:19:15 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Version: 4.7.1
+Jun 17, 2015 2:19:15 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build date: 20140912
+Jun 17, 2015 2:19:15 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build time: 01:43
+Jun 17, 2015 2:19:15 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+Jun 17, 2015 2:19:15 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.home = C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1
+Jun 17, 2015 2:19:15 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.base = C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1
+Jun 17, 2015 2:19:15 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:19:15 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Succeeded in installing singleton service
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.ConfigurationFactory init
+INFO: openejb configuration file is 'C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\conf\tomee.xml'
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Tomcat Security Service, type=SecurityService, provider-id=Tomcat Security Service)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.system.apps=true'
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: openejb
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Using openejb.deploymentId.format '{ejbName}'
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb openejb/Deployer: EjbDeployment(deployment-id=openejb/Deployer)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb openejb/ConfigurationInfo: EjbDeployment(deployment-id=openejb/ConfigurationInfo)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.InitEjbDeployments deploy
+INFO: Auto-deploying ejb MEJB: EjbDeployment(deployment-id=MEJB)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Stateless Container, type=Container, provider-id=Default Stateless Container)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.AutoConfig createContainer
+INFO: Auto-creating a container for bean openejb/Deployer: Container(type=STATELESS, id=Default Stateless Container)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "openejb" loaded.
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating TransactionManager(id=Default Transaction Manager)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating SecurityService(id=Tomcat Security Service)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Container(id=Default Stateless Container)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: openejb
+Jun 17, 2015 2:19:16 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.jndiname.format={deploymentId}{interfaceType.openejbLegacyName}'
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=openejb/DeployerBusinessRemote) --> Ejb(deployment-id=openejb/Deployer)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/Deployer!org.apache.openejb.assembler.Deployer) --> Ejb(deployment-id=openejb/Deployer)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/Deployer) --> Ejb(deployment-id=openejb/Deployer)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=openejb/ConfigurationInfoBusinessRemote) --> Ejb(deployment-id=openejb/ConfigurationInfo)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/ConfigurationInfo!org.apache.openejb.assembler.classic.cmd.ConfigurationInfo) --> Ejb(deployment-id=openejb/ConfigurationInfo)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/openejb/ConfigurationInfo) --> Ejb(deployment-id=openejb/ConfigurationInfo)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=MEJB) --> Ejb(deployment-id=MEJB)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/MEJB!javax.management.j2ee.ManagementHome) --> Ejb(deployment-id=MEJB)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.JndiBuilder bind
+INFO: Jndi(name=global/openejb/MEJB) --> Ejb(deployment-id=MEJB)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=MEJB, ejb-name=MEJB, container=Default Stateless Container)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=openejb/ConfigurationInfo, ejb-name=openejb/ConfigurationInfo, container=Default Stateless Container)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Created Ejb(deployment-id=openejb/Deployer, ejb-name=openejb/Deployer, container=Default Stateless Container)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=MEJB, ejb-name=MEJB, container=Default Stateless Container)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=openejb/ConfigurationInfo, ejb-name=openejb/ConfigurationInfo, container=Default Stateless Container)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler startEjbs
+INFO: Started Ejb(deployment-id=openejb/Deployer, ejb-name=openejb/Deployer, container=Default Stateless Container)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler deployMBean
+INFO: Deployed MBean(openejb.user.mbeans:application=openejb,group=org.apache.openejb.assembler.monitoring,name=JMXDeployer)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=openejb)
+Jun 17, 2015 2:19:16 PM org.apache.openejb.server.ServiceManager initServer
+INFO: Creating ServerService(id=cxf)
+Jun 17, 2015 2:19:17 PM org.apache.openejb.server.ServiceManager initServer
+INFO: Creating ServerService(id=cxf-rs)
+Jun 17, 2015 2:19:17 PM org.apache.openejb.server.SimpleServiceManager start
+INFO:   ** Bound Services **
+Jun 17, 2015 2:19:17 PM org.apache.openejb.server.SimpleServiceManager printRow
+INFO:   NAME                 IP              PORT  
+Jun 17, 2015 2:19:17 PM org.apache.openejb.server.SimpleServiceManager start
+INFO: -------
+Jun 17, 2015 2:19:17 PM org.apache.openejb.server.SimpleServiceManager start
+INFO: Ready!
+Jun 17, 2015 2:19:17 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 2968 ms
+Jun 17, 2015 2:19:17 PM org.apache.tomee.catalina.OpenEJBNamingContextListener bindResource
+INFO: Importing a Tomcat Resource with id 'UserDatabase' of type 'org.apache.catalina.UserDatabase'.
+Jun 17, 2015 2:19:17 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Resource(id=UserDatabase)
+Jun 17, 2015 2:19:17 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Jun 17, 2015 2:19:17 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat (TomEE)/7.0.55 (1.7.1)
+Jun 17, 2015 2:19:17 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\docs
+Jun 17, 2015 2:19:17 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /docs
+Jun 17, 2015 2:19:17 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\docs
+Jun 17, 2015 2:19:17 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\docs" loaded.
+Jun 17, 2015 2:19:17 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\docs
+Jun 17, 2015 2:19:17 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:19:18 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:19:18 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:19:18 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:19:18 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:19:18 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 183 ms.
+Jun 17, 2015 2:19:18 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\docs)
+Jun 17, 2015 2:19:18 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\docs has finished in 1,785 ms
+Jun 17, 2015 2:19:18 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\host-manager
+Jun 17, 2015 2:19:18 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /host-manager
+Jun 17, 2015 2:19:19 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\host-manager
+Jun 17, 2015 2:19:19 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\host-manager" loaded.
+Jun 17, 2015 2:19:19 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\host-manager
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 14 ms.
+Jun 17, 2015 2:19:19 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\host-manager\META-INF\context.xml
+Jun 17, 2015 2:19:19 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\host-manager)
+Jun 17, 2015 2:19:19 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\host-manager has finished in 273 ms
+Jun 17, 2015 2:19:19 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\manager
+Jun 17, 2015 2:19:19 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /manager
+Jun 17, 2015 2:19:19 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\manager
+Jun 17, 2015 2:19:19 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\manager" loaded.
+Jun 17, 2015 2:19:19 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\manager
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 9 ms.
+Jun 17, 2015 2:19:19 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\manager\META-INF\context.xml
+Jun 17, 2015 2:19:19 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\manager)
+Jun 17, 2015 2:19:19 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\manager has finished in 227 ms
+Jun 17, 2015 2:19:19 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\ROOT
+Jun 17, 2015 2:19:19 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /
+Jun 17, 2015 2:19:19 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\ROOT
+Jun 17, 2015 2:19:19 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\ROOT" loaded.
+Jun 17, 2015 2:19:19 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\ROOT
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 8 ms.
+Jun 17, 2015 2:19:19 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\ROOT)
+Jun 17, 2015 2:19:19 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\ROOT has finished in 172 ms
+Jun 17, 2015 2:19:19 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\tomee
+Jun 17, 2015 2:19:19 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /tomee
+Jun 17, 2015 2:19:19 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\tomee
+Jun 17, 2015 2:19:19 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\tomee" loaded.
+Jun 17, 2015 2:19:19 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\tomee
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:19:19 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:19:19 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 12 ms.
+Jun 17, 2015 2:19:19 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\tomee)
+Jun 17, 2015 2:19:19 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deployment of web application directory C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\tomee has finished in 260 ms
+Jun 17, 2015 2:19:19 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Jun 17, 2015 2:19:19 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-bio-8009"]
+Jun 17, 2015 2:19:19 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2798 ms
+Jun 17, 2015 2:24:00 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\conf\Catalina\localhost\WebPractice.xml
+Jun 17, 2015 2:24:00 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /WebPractice
+Jun 17, 2015 2:24:00 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:24:00 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:24:00 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:24:00 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:24:00 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:24:00 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:24:00 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:24:00 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:24:00 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:24:00 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 18 ms.
+Jun 17, 2015 2:24:00 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:24:00 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.config.DefaultFacesConfigurationProvider getStandardFacesConfig
+INFO: Reading standard config META-INF/standard-faces-config.xml
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.config.DefaultFacesConfigurationProvider getClassloaderFacesConfig
+INFO: Reading config : jar:file:/C:/Users/wilson.li/Desktop/apache-tomee-plus-1.7.1/lib/openwebbeans-el22-1.2.6.jar!/META-INF/faces-config.xml
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.config.DefaultFacesConfigurationProvider getClassloaderFacesConfig
+INFO: Reading config : jar:file:/C:/Users/wilson.li/Desktop/apache-tomee-plus-1.7.1/lib/openwebbeans-jsf-1.2.6.jar!/META-INF/faces-config.xml
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.config.LogMetaInfUtils logArtifact
+INFO: Artifact 'myfaces-api' was found in version '2.1.15' from path 'file:/C:/Users/wilson.li/Desktop/apache-tomee-plus-1.7.1/lib/myfaces-api-2.1.15.jar'
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.config.LogMetaInfUtils logArtifact
+INFO: Artifact 'myfaces-impl' was found in version '2.1.15' from path 'file:/C:/Users/wilson.li/Desktop/apache-tomee-plus-1.7.1/lib/myfaces-impl-2.1.15.jar'
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.util.ExternalSpecifications isBeanValidationAvailable
+INFO: MyFaces Bean Validation support enabled
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.config.FacesConfigurator handleSerialFactory
+INFO: Serialization provider : class org.apache.myfaces.shared_impl.util.serial.DefaultSerialFactory
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.config.annotation.DefaultLifecycleProviderFactory getLifecycleProvider
+INFO: Using LifecycleProvider org.apache.myfaces.config.annotation.Tomcat7AnnotationLifecycleProvider
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.webapp.AbstractFacesInitializer initFaces
+INFO: ServletContext initialized.
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.util.ExternalSpecifications isUnifiedELAvailable
+INFO: MyFaces Unified EL support enabled
+Jun 17, 2015 2:24:01 PM org.apache.myfaces.webapp.AbstractFacesInitializer initFaces
+WARNING: 
+
+*******************************************************************
+*** WARNING: Apache MyFaces-2 is running in DEVELOPMENT mode.   ***
+***                                         ^^^^^^^^^^^         ***
+*** Do NOT deploy to your live server(s) without changing this. ***
+*** See Application#getProjectStage() for more information.     ***
+*******************************************************************
+
+Jun 17, 2015 2:24:01 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deployment of configuration descriptor C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\conf\Catalina\localhost\WebPractice.xml has finished in 1,419 ms
+Jun 17, 2015 2:24:01 PM org.apache.catalina.util.LifecycleBase start
+INFO: The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/WebPractice]] after start() had already been called. The second call will be ignored.
+Jun 17, 2015 2:25:58 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:25:58 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:25:59 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:25:59 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:25:59 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:25:59 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:25:59 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:25:59 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:25:59 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:25:59 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:25:59 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:25:59 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 14 ms.
+Jun 17, 2015 2:25:59 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:25:59 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:26:00 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:26:00 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:26:00 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:26:00 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:26:00 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:26:00 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:26:00 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:26:00 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:26:01 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:26:01 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:26:01 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:26:01 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:26:01 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 9 ms.
+Jun 17, 2015 2:26:01 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:26:01 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:26:01 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:27:43 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:27:43 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:27:44 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:27:44 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:27:44 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:27:44 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:27:45 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:27:45 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:27:45 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:27:45 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:27:45 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:27:45 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 36 ms.
+Jun 17, 2015 2:27:45 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:27:45 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:27:45 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:27:45 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:27:45 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:27:46 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:27:46 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:27:46 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:27:46 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:27:46 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:27:46 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:27:46 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:27:46 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:27:46 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:27:46 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 20 ms.
+Jun 17, 2015 2:27:46 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:27:46 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:27:47 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:27:47 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:27:47 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:27:48 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:27:48 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:27:48 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:27:48 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:27:48 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:27:48 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:27:48 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:27:48 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:27:48 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 18 ms.
+Jun 17, 2015 2:27:48 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:27:48 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:29:46 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:29:46 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:29:46 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:29:47 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:29:47 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:29:47 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:29:47 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:29:47 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:29:47 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:29:47 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:29:47 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:29:47 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 9 ms.
+Jun 17, 2015 2:29:47 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:29:47 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:29:47 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:29:58 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:29:58 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:29:58 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:29:58 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:29:58 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:29:58 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:29:58 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:29:59 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:29:59 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:29:59 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:29:59 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:29:59 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 13 ms.
+Jun 17, 2015 2:29:59 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:29:59 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:29:59 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:29:59 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:29:59 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:29:59 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:30:00 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:00 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:30:00 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:00 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:30:00 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:30:00 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:30:00 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:30:00 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:30:00 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 9 ms.
+Jun 17, 2015 2:30:00 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:30:00 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:30:00 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:30:05 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:30:05 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:06 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:30:06 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:06 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:30:06 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:06 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:30:06 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:30:06 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:30:06 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:30:06 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:30:06 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 20 ms.
+Jun 17, 2015 2:30:06 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:30:06 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:30:07 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:30:08 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:30:08 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:08 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:30:09 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:09 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:30:09 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:09 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:30:09 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:30:09 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:30:09 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:30:09 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:30:09 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 22 ms.
+Jun 17, 2015 2:30:09 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:30:09 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:30:09 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:30:21 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:30:21 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:22 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:30:22 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:22 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:30:22 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:22 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:30:22 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:30:22 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:30:22 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:30:22 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:30:22 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 8 ms.
+Jun 17, 2015 2:30:22 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:30:22 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:30:22 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:30:25 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:30:25 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:26 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:30:26 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:26 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:30:26 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:26 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:30:26 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:30:26 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:30:26 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:30:26 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:30:26 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 11 ms.
+Jun 17, 2015 2:30:26 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:30:26 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:30:26 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:30:26 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:30:26 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:27 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:30:27 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:27 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:30:27 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:27 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:30:27 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:30:27 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:30:27 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:30:27 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:30:27 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 26 ms.
+Jun 17, 2015 2:30:27 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:30:27 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:30:27 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:30:54 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] has started
+Jun 17, 2015 2:30:54 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:55 PM org.apache.tomee.catalina.TomEEClassLoaderEnricher validateJarFile
+WARNING: jar 'C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\WEB-INF\lib\jboss-transaction-api_1.2_spec-1.0.0.Final.jar' contains offending class: javax.transaction.Transaction. It will be ignored.
+Jun 17, 2015 2:30:55 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:55 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web" loaded.
+Jun 17, 2015 2:30:55 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:30:55 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@3c0a50da
+Jun 17, 2015 2:30:55 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+Jun 17, 2015 2:30:55 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+Jun 17, 2015 2:30:55 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+Jun 17, 2015 2:30:55 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+Jun 17, 2015 2:30:55 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 11 ms.
+Jun 17, 2015 2:30:55 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using context file C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web\META-INF\context.xml
+Jun 17, 2015 2:30:55 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web)
+Jun 17, 2015 2:30:55 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/WebPractice] is completed
+Jun 17, 2015 2:38:46 PM org.apache.catalina.core.StandardServer await
+INFO: A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+Jun 17, 2015 2:38:46 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-bio-8080"]
+Jun 17, 2015 2:38:46 PM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-bio-8009"]
+Jun 17, 2015 2:38:46 PM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Jun 17, 2015 2:38:46 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\docs
+Jun 17, 2015 2:38:46 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\host-manager
+Jun 17, 2015 2:38:46 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\manager
+Jun 17, 2015 2:38:46 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\ROOT
+Jun 17, 2015 2:38:46 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Desktop\apache-tomee-plus-1.7.1\webapps\tomee
+Jun 17, 2015 2:38:46 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: C:\Users\wilson.li\Documents\NetBeansProjects\WebPractice\build\web
+Jun 17, 2015 2:38:47 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-bio-8080"]
+Jun 17, 2015 2:38:47 PM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-bio-8009"]
+Jun 17, 2015 2:38:47 PM org.apache.openejb.server.SimpleServiceManager stop
+INFO: Stopping server services
+Jun 17, 2015 2:38:47 PM org.apache.openejb.assembler.classic.Assembler destroyApplication
+INFO: Undeploying app: openejb
+Jun 17, 2015 2:38:47 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["http-bio-8080"]
+Jun 17, 2015 2:38:47 PM org.apache.coyote.AbstractProtocol destroy
+INFO: Destroying ProtocolHandler ["ajp-bio-8009"]
