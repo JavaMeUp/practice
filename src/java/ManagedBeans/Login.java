@@ -51,8 +51,6 @@ public class Login  implements Serializable {
     @ManagedProperty(value="#{UserTriage}")
     private UserTriage triage;
 
-    private static final long serialVersionUID = 1L;
-
     
     private String ipAddress;
     private String userName;
@@ -127,8 +125,8 @@ public class Login  implements Serializable {
         {
             triage.setValidUserCookie(userName, SessionID);
             triage.updateValidUser(SessionID);
+            
             return "page1.xhtml";                
-
         }
         else
         {
