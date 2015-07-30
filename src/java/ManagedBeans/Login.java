@@ -16,7 +16,7 @@ import DAO.Services.VisitorsService;
 import Hibernate.Student;
 import Hibernate.Users;
 import Hibernate.Visitors;
-import com.Web.State.Cookies;
+import com.Web.State.CookiesDAO;
 import com.Web.UserTriage;
 import java.util.Date;
 import java.util.HashSet;
@@ -55,7 +55,6 @@ public class Login  {
     private String ipAddress;
     private String userName;
     private String password;
-    private String message;
     private StudentService studentService;
     private List<Student> studentList;
     private UsersService service;
@@ -77,7 +76,6 @@ public class Login  {
     public void init()
     {
         studentService  = (StudentService) serviceLocator.getService(StudentService);
-        message = studentService.listAll().get(2).getFirstName();
         studentList = studentService.listAll();
     }
 
@@ -96,10 +94,6 @@ public class Login  {
         this.ipAddress = ip;
     }
     
-    public String getMessage() {
-        return message;
-    }
-
     public String getUserName() {
         return userName;
     }
@@ -116,27 +110,6 @@ public class Login  {
         this.password = password;
     }
     
-    public String Login()
-    {       
-
-            
-            if(triage.isValidUser(userName, password))
-            {
-                triage.setValidUserCookie(userName, SessionID);
-                triage.updateValidUser(SessionID);
-                return "page1.xhtml";                
-                
-            }
-            else
-            {
-                triage.insertInvalidUser(ipAddress, userName, password);
-                FacesContext context = FacesContext.getCurrentInstance();
-                context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));                
-            }
-            return "Home.xhtml";
-            
-    }
-    
     public UserTriage getTriage() {
         return triage;
     }
@@ -144,6 +117,27 @@ public class Login  {
     public void setTriage(UserTriage triage) {
         this.triage = triage;
     }
+    
+    public String Login()
+    {       
+       
+        if(triage.isValidUser(userName, password))
+        {
+            triage.setValidUserCookie(userName, SessionID);
+            triage.updateValidUser(SessionID);
+            return "page1.xhtml";                
+
+        }
+        else
+        {
+            triage.insertInvalidUser(ipAddress, userName, password);
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));                
+        }
+        return "Home.xhtml";
+
+    }
+    
 
     
 

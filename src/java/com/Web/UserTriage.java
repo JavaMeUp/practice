@@ -7,19 +7,17 @@ package com.Web;
 
 import DAO.Services.IServiceLocator;
 import DAO.Services.ServiceEnumContext;
-import static DAO.Services.ServiceEnumContext.UsersService;
 import DAO.Services.UsersService;
 import DAO.Services.VisitorsService;
 import Hibernate.Users;
 import Hibernate.Visitors;
-import com.Web.State.Cookies;
+import com.Web.State.CookiesDAO;
 import java.io.Serializable;
 import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 
 /**
  *
@@ -51,12 +49,12 @@ public class UserTriage  implements Serializable
     public boolean isValidUser(String userName, String passeord)
     {
         loginUser = userservice.getUser(userName, passeord);
-        return loginUser != null  ? true :false;
+        return loginUser != null;
     }
     
     public void setValidUserCookie(String userName, String sessionId)
     {
-        Cookies cookie = new Cookies();
+        CookiesDAO cookie = new CookiesDAO();
         cookie.SetCookie(userName,sessionId,-1);
     }
     

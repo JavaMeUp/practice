@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wilton
  */
-public class Cookies 
+public class CookiesDAO 
 {
     private Cookie cookie;
     private FacesContext context;
@@ -26,7 +26,7 @@ public class Cookies
     private ExternalContext externalContext;
     private Map<String,Object> cookieData;
     
-    public Cookies()
+    public CookiesDAO()
     {
         context = FacesContext.getCurrentInstance();
         request = (HttpServletRequest) context.getExternalContext().getRequest();
@@ -41,13 +41,26 @@ public class Cookies
         return request.getCookies();
     }
     
-    public Cookie getCookie(String cookie) throws NullPointerException
+    public Cookie getCookieByName(String cookieName) throws NullPointerException
     {
         Cookie [] cookies = request.getCookies();
         
         for(int i = 0; cookies!=null && cookies.length > i;i++)
         {
-            if(cookies[i].getName().equals(cookie))
+            if(cookies[i].getName().equals(cookieName))
+            {
+                return cookies[i];
+            }
+        }
+        return null;
+    }
+    
+    public Cookie getCookieBySessionId(String SessionId) throws NullPointerException
+    {
+        Cookie[] cookies = request.getCookies();
+        for(int i = 0 ; i< cookies.length;i++)
+        {
+            if(cookies[i].getValue().equals(SessionId))
             {
                 return cookies[i];
             }
@@ -81,4 +94,5 @@ public class Cookies
 
         
     }
+    
 }

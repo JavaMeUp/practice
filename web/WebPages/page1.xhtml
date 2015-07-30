@@ -13,9 +13,11 @@ and open the template in the editor.
       <ui:composition template="../Templates/Common.xhtml">
          <ui:define name="Header">
             <h2>Page1 header</h2>
+            <h:outputLabel value="#{Page1Bean.use.userName}"></h:outputLabel>
          </ui:define>			
          <ui:define name="Content">
             <h2>Page1 content</h2>
+            
              <h:link value="Back To Home" outcome="Home" />
          </ui:define> 
           
