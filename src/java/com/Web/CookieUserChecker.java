@@ -52,6 +52,10 @@ public class CookieUserChecker implements Serializable
         for (Cookie cookie1 : cookies)
         {
             user = uService.getUserBySessionIdAndUserName(cookie1.getValue(),cookie1.getName());
+            if(user != null)
+            {
+                break;
+            }
         }
         return user;
     }

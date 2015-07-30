@@ -32,7 +32,7 @@ public class Page1Bean {
      */
     public Page1Bean() 
     {
-        //use  = userCheck.getUserFromUserCookieBank();
+        
     }
     @PostConstruct
     public void init()
