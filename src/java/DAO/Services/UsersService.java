@@ -19,8 +19,6 @@ public class UsersService implements IService <Users,String,UsersDAO>
 {
     private static UsersDAO UsersDAO;
     private final String ServiceName = "UsersService";
-    private static TeacherDAO teacherDAO;
-    private static StudentDAO studentDAO;
     
     public UsersService()
     {
