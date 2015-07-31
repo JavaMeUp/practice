@@ -110,13 +110,12 @@ public class Login  implements Serializable {
     
     public String Login()
     {       
-       
         if(triage.isValidUser(userName, password))
         {
             triage.setValidUserCookie(userName, SessionID);
             triage.updateValidUser(SessionID);
             
-            return "page1.xhtml";                
+            return "page1.xhtml?faces-redirect=true";                
         }
         else
         {
@@ -124,7 +123,7 @@ public class Login  implements Serializable {
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));                
         }
-        return "Home.xhtml";
+        return "Home.xhtml?faces-redirect=true";
 
     }
     
