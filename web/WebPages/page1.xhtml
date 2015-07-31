@@ -12,12 +12,15 @@ and open the template in the editor.
    xmlns:c="http://java.sun.com/jsp/jstl/core">
    <h:body> 
        
-      <ui:composition template="../Templates/Common.xhtml">
-         <ui:define name="Header">
-            <h2>Page1 header</h2>
-            <h:outputLabel value="#{Page1Bean.use.userName}"></h:outputLabel>
-            <h:outputLabel value="#{Page1Bean.use.userPassword}"></h:outputLabel>
-            <h:outputLabel value="#{Page1Bean.use.studentId}"></h:outputLabel>
+      <ui:composition template="../Templates/LoggedInUser/LoggedIn.xhtml">
+          
+          <ui:define name="LoggedInHeader">
+                <h:outputLabel value="#{Page1Bean.use.userName}"></h:outputLabel>
+                <h:outputLabel value="#{Page1Bean.use.userPassword}"></h:outputLabel>
+                <h:outputLabel value="#{Page1Bean.use.studentId}"></h:outputLabel>
+          </ui:define>
+         <ui:define name="LoggedInContent">
+            <h2>Page1 content</h2>
             <div>
                 <h:form>
                     <h:commandButton id="logout" class="btn" action="#{Page1Bean.LogOut()}" value="LogOut">
@@ -32,15 +35,12 @@ and open the template in the editor.
                 </c:if>
             </div>
             
-         </ui:define>			
-         <ui:define name="Content">
-            <h2>Page1 content</h2>
-            
              <h:link value="Back To Home" outcome="Home" />
          </ui:define> 
           
           
-         <ui:define name="Footer">  
+          
+         <ui:define name="LoggedInFooter">  
              <h1>Custom Footer</h1>
          </ui:define>			
       </ui:composition> 
