@@ -29,8 +29,10 @@ public class ServiceLocator implements IServiceLocator
             {
                 return service;
             }
-            cache.addService(ServiceName.getServiceName());
-            return ServiceName.getServiceName();
+            cache.addService(ServiceName);
+            service = cache.getService(ServiceName);
+            
+            return service;
         }
         catch(NullPointerException n)
         {

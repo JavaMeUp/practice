@@ -8,31 +8,21 @@ package ManagedBeans;
 
 
 import DAO.Services.IServiceLocator;
-import DAO.Services.ServiceEnumContext;
 import static DAO.Services.ServiceEnumContext.StudentService;
 import DAO.Services.StudentService;
 import DAO.Services.UsersService;
-import DAO.Services.VisitorsService;
 import Hibernate.Student;
-import Hibernate.Users;
-import Hibernate.Visitors;
-import com.Web.State.CookiesDAO;
 import com.Web.UserTriage;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 

@@ -18,26 +18,27 @@ public enum ServiceEnumContext
     VisitorsService(5);
     
     
-    private IService ServiceName;
+    private String ServiceName;
+   
     
     private ServiceEnumContext(int indicator)
     {
         switch (indicator)
         {
             case 1:
-                this.ServiceName = new ClassesService();
+                this.ServiceName = "ClassesService";
                 break;
             case 2:
-                this.ServiceName = new StudentService();
+                this.ServiceName = "StudentService";
                 break;                
             case 3:
-                this.ServiceName = new TeacherService();
+                this.ServiceName = "TeacherService";
                 break;                
             case 4:
-                this.ServiceName = new UsersService();
+                this.ServiceName = "UsersService";
                 break;                
             case 5:
-                this.ServiceName = new VisitorsService();
+                this.ServiceName = "VisitorsService";
                 break;                
             default:
                 
@@ -45,14 +46,13 @@ public enum ServiceEnumContext
         }
     }
 
-    public IService getServiceName() {
+    public String getServiceName() {
         return ServiceName;
     }
 
-    public void setServiceName(IService ServiceName) {
+    public void setServiceName(String ServiceName) {
         this.ServiceName = ServiceName;
     }
     
-
     
 }

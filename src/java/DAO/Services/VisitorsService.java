@@ -17,7 +17,7 @@ import java.util.List;
 public class VisitorsService implements IService <Visitors,String,VisitorsDAO>
 {
     private static VisitorsDAO VisitorsDAO;
-    private final String ServiceName = "VisistorsService";
+    private final String ServiceName = "VisitorsService";
     
     public VisitorsService()
     {

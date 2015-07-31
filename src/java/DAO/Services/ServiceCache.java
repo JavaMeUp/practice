@@ -19,6 +19,7 @@ public class ServiceCache implements IServiceCache
   
     private List<IService> services;
     
+    
     public ServiceCache()
     {
         services = new ArrayList<IService>();
@@ -29,9 +30,7 @@ public class ServiceCache implements IServiceCache
     {
         for(IService service : services)
         {
-            //WL TODO; Need to place in service where name of the 
-            // Service is known 
-            if( serviceName.getServiceName() == service)
+            if( serviceName.getServiceName().equals(service.getServiceName()))
             {
                 return service;
             }
@@ -40,7 +39,7 @@ public class ServiceCache implements IServiceCache
     }
     
     @Override
-    public void addService(IService newService)
+    public void addService(ServiceEnumContext newService)
     {
         boolean exists =false;
         
@@ -55,7 +54,33 @@ public class ServiceCache implements IServiceCache
         }
         if(!exists)
         {
-            services.add(newService);
+            
+            //Here are the options to add the services to the cache should they not 
+            //Exsist, New ones should be placed here
+            if(newService.getServiceName().equals("ClassesService"))
+            {
+                services.add(new ClassesService());
+            }
+            
+            if(newService.getServiceName().equals("StudentService"))
+            {
+                services.add(new StudentService());
+            }
+                        
+            if(newService.getServiceName().equals("TeacherService"))
+            {
+                services.add(new TeacherService());
+            }            
+            
+            if(newService.getServiceName().equals("UsersService"))
+            {
+                services.add(new UsersService());
+            }            
+            
+            if(newService.getServiceName().equals("VisitorsService"))
+            {
+                services.add(new VisitorsService());
+            }            
         }
         
     }
