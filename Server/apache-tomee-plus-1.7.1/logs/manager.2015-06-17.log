@@ -1,0 +1,76 @@
+Jun 17, 2015 2:19:36 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Jun 17, 2015 2:19:36 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Jun 17, 2015 2:19:36 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:19:36 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:24:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:24:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:24:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: install: Installing context configuration at 'file:/C:/Users/wilson.li/AppData/Local/Temp/context1592525202757436694.xml'
+Jun 17, 2015 2:24:01 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/WebPractice'
+Jun 17, 2015 2:25:58 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:25:58 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:26:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:26:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:27:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:27:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:27:45 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:27:45 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:27:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:27:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: stop: Stopping web application '/WebPractice'
+Jun 17, 2015 2:27:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: start: Starting web application '/WebPractice'
+Jun 17, 2015 2:29:46 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:29:46 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:29:58 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:29:58 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:29:59 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:29:59 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:30:05 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:30:05 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:30:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:30:08 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:30:21 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:30:21 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:30:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:30:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:30:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:30:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:30:54 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Jun 17, 2015 2:30:54 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: restart: Reloading web application '/WebPractice'
+Jun 17, 2015 2:30:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
