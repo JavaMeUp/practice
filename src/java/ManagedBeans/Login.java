@@ -123,7 +123,7 @@ public class Login  implements Serializable {
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));                
         }
-        return "Home.xhtml?faces-redirect=true";
+        return "Home.xhtml";
 
     }
     
