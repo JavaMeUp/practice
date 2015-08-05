@@ -12,6 +12,7 @@ import static DAO.Services.ServiceEnumContext.StudentService;
 import DAO.Services.StudentService;
 import DAO.Services.UsersService;
 import Hibernate.Student;
+import Hibernate.Users;
 import com.Web.UserTriage;
 import java.io.Serializable;
 import java.util.List;
@@ -41,13 +42,12 @@ public class Login  implements Serializable {
     @ManagedProperty(value="#{UserTriage}")
     private UserTriage triage;
 
-    
+    private Users user;
     private String ipAddress;
     private String userName;
     private String password;
     private StudentService studentService;
     private List<Student> studentList;
-    private UsersService service;
     private final String SessionID;
     private final Random SessionIDGenerator;
     /**
@@ -114,8 +114,26 @@ public class Login  implements Serializable {
         {
             triage.setValidUserCookie(userName, SessionID);
             triage.updateValidUser(SessionID);
+            this.user = triage.getUser(userName, password);
             
-            return "page1.xhtml?faces-redirect=true";                
+            if(this.user.getTeacherId() != null && this.user.getSessionID() != null)
+            {
+                return "page1.xhtml?faces-redirect=true";
+            }
+            
+            if(this.user.getStudentId()!= null )
+            {
+                return "page1.xhtml?faces-redirect=true";
+            }
+            
+            if(this.user.getTeacherId()!= null)
+            {
+                return "page1.xhtml?faces-redirect=true";
+            }
+            if(this.user.isAdminister())
+            {
+                return "page1.xhtml?faces-redirect=true";
+            }
         }
         else
         {

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"   
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:c="http://java.sun.com/jsp/jstl/core">
+   <h:body> 
+       
+      <ui:composition template="../Templates/LoggedInUser/LoggedIn.xhtml">
+          
+          <ui:define name="LoggedInHeader">
+                <h:outputLabel value="#{Page1Bean.use.userName}"></h:outputLabel>
+                <h:outputLabel value="#{Page1Bean.use.userPassword}"></h:outputLabel>
+                <h:outputLabel value="#{Page1Bean.use.studentId}"></h:outputLabel>
+          </ui:define>
+         <ui:define name="LoggedInContent">
+            <h2>Page1 content</h2>
+            <div>
+                <h:form>
+                    <h:commandButton id="logout" class="btn" action="#{Page1Bean.LogOut()}" value="LogOut">
+                        <f:actionListener type="com.Web.Listeners.LogOutListener"/>
+                    </h:commandButton>
+                </h:form>
+                <c:if test="#{Page1Bean.use.administer}">
+                    <h:outputLabel value="I am Admin"/>
+                </c:if>
+                <c:if test="#{!Page1Bean.use.administer}">
+                    <h:outputLabel value="I am not admin"/>
+                </c:if>
+            </div>
+            
+             <h:link value="Back To Home" outcome="Home" />
+         </ui:define> 
+          
+          
+          
+         <ui:define name="LoggedInFooter">  
+             <h1>Custom Footer</h1>
+         </ui:define>			
+      </ui:composition> 
+       
+       
+   </h:body> 
+</html>	
