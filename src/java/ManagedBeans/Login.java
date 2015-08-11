@@ -115,7 +115,7 @@ public class Login  implements Serializable {
             triage.setValidUserCookie(userName, SessionID);
             triage.updateValidUser(SessionID);
             
-            return "page1.xhtml?faces-redirect=true";                
+            return "LoggedInPage.xhtml?faces-redirect=true";                
         }
         else
         {
