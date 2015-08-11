@@ -88,7 +88,7 @@ public class ClassesService implements IService <Classes,String,ClassesDAO>
         
         for( Classes singleClass : ClassesList)
         {
-            if(singleClass.getTeacher().equals(id))
+            if(String.valueOf(singleClass.getTeacher().getTeacherId()).equals(id))
             {
                 listClasses.add(singleClass);
             }

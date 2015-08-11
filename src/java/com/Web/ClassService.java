@@ -23,7 +23,7 @@ import javax.faces.bean.SessionScoped;
  *
  * @author wilson.li
  */
-@ManagedBean(name="CookieUserChecker",eager=true)
+@ManagedBean(name="ClassService",eager=true)
 @ApplicationScoped
 public class ClassService implements Serializable{
 
