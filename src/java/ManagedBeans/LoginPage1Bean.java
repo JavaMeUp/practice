@@ -5,9 +5,12 @@
  */
 package ManagedBeans;
 
+import Hibernate.Classes;
 import Hibernate.Users;
+import com.Web.ClassService;
 import com.Web.CookieUserChecker;
 import java.io.Serializable;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -25,18 +28,17 @@ public class LoginPage1Bean implements Serializable {
 
     @ManagedProperty(value="#{CookieUserChecker}")
     private  CookieUserChecker userCheck;
+    
+    @ManagedProperty(value="#{ClassService}")
+    private  ClassService classService;    
+    
+    private List<Classes> classes;
 
-    /**
-     * Creates a new instance of Page1Bean
-     */
-    public LoginPage1Bean() 
-    {
-        
-    }
     @PostConstruct
     public void init()
     {
         use  = userCheck.getUserFromUserCookieBank();
+        
     }
     
     public Users getUse() {
@@ -55,8 +57,32 @@ public class LoginPage1Bean implements Serializable {
         this.userCheck = userCheck;
     }
     
+    public ClassService getClassService() {
+        return classService;
+    }
+
+    public void setClassService(ClassService classService) {
+        this.classService = classService;
+    }
+
+    public List<Classes> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(List<Classes> classes) {
+        this.classes = classes;
+    }
+    
+    public List<Classes> getClassesbyTeacherID()
+    {
+        return classService.getClassByTeacher(this.use.getTeacherId());
+    }
+    
+    
     public String LogOut()
     {
         return "Home.xhtml";
     }
+    
+    
 }

@@ -26,9 +26,7 @@ and open the template in the editor.
                 <c:if test="#{LoginPage1Bean.use.administer}">
                     <h:outputLabel value="I am Admin"/>
                 </c:if>
-                <c:if test="#{!LoginPage1Bean.use.administer}">
-                    <h:outputLabel value="I am not admin"/>
-                </c:if>
+                
             </div>
             
              <h:link value="Back To Home" outcome="Home" />
