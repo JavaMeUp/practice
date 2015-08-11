@@ -14,25 +14,19 @@ and open the template in the editor.
        
       <ui:composition template="../Templates/LoggedInUser/LoggedIn.xhtml">
           
-          <ui:define name="LoggedInHeader">
-                <h:outputLabel value="#{Page1Bean.use.userName}"></h:outputLabel>
-                <h:outputLabel value="#{Page1Bean.use.userPassword}"></h:outputLabel>
-                <h:outputLabel value="#{Page1Bean.use.studentId}"></h:outputLabel>
-          </ui:define>
+          
          <ui:define name="LoggedInContent">
             <h2>Page1 content</h2>
             <div>
                 <h:form>
-                    <h:commandButton id="logout" class="btn" action="#{Page1Bean.LogOut()}" value="LogOut">
+                    <h:commandButton id="logout" class="btn" action="#{LoginPage1Bean.LogOut()}" value="LogOut">
                         <f:actionListener type="com.Web.Listeners.LogOutListener"/>
                     </h:commandButton>
                 </h:form>
-                <c:if test="#{Page1Bean.use.administer}">
+                <c:if test="#{LoginPage1Bean.use.administer}">
                     <h:outputLabel value="I am Admin"/>
                 </c:if>
-                <c:if test="#{!Page1Bean.use.administer}">
-                    <h:outputLabel value="I am not admin"/>
-                </c:if>
+                
             </div>
             
              <h:link value="Back To Home" outcome="Home" />
