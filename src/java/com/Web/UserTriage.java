@@ -46,23 +46,10 @@ public class UserTriage  implements Serializable
         
     }
     
-    public boolean isValidUser(String userName, String password)
+    public boolean isValidUser(String userName, String passeord)
     {
-        loginUser = userservice.getUser(userName, password);
+        loginUser = userservice.getUser(userName, passeord);
         return loginUser != null;
-    }
-    
-    public Users getUser(String userName, String password)
-    {
-       if(this.isValidUser(userName, password))
-       {
-           return this.loginUser;
-       }
-       else
-       {
-           return  null;
-       }
-       
     }
     
     public void setValidUserCookie(String userName, String sessionId)
