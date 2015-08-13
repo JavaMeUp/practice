@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 26-Jun-2015 08:25:22 by Hibernate Tools 4.3.1 -->
+<!-- Generated 13-Aug-2015 09:53:14 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Hibernate.Student" table="student" catalog="practicesql" optimistic-lock="version">
         <id name="studentId" type="int">
             <column name="StudentID" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="classes" class="Hibernate.Classes" fetch="select">
-            <column name="ClassEnrolled" not-null="true" />
-        </many-to-one>
         <property name="firstName" type="string">
             <column name="FirstName" length="250" not-null="true" />
         </property>
@@ -23,5 +20,11 @@
         <property name="year" type="int">
             <column name="Year" not-null="true" />
         </property>
+        <set name="studentclasseses" table="studentclasses" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="StudentId" />
+            </key>
+            <one-to-many class="Hibernate.Studentclasses" />
+        </set>
     </class>
 </hibernate-mapping>

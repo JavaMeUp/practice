@@ -5,11 +5,11 @@
  */
 package ManagedBeans;
 
-import DAO.Services.StudentService;
 import Hibernate.Classes;
 import Hibernate.Users;
 import com.Web.WebClassService;
 import com.Web.CookieUserChecker;
+import com.Web.WebStudentService;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -34,8 +34,9 @@ public class LoginPage1Bean implements Serializable {
     private  WebClassService classService;    
     
     @ManagedProperty(value="#{StudentService}")
-    private  StudentService studentService;    
-    
+    private  WebStudentService studentService;    
+
+
     private List<Classes> classes;
 
     @PostConstruct
@@ -44,6 +45,15 @@ public class LoginPage1Bean implements Serializable {
         use  = userCheck.getUserFromUserCookieBank();
         
     }
+    
+    public WebStudentService getStudentService() {
+        return studentService;
+    }
+
+    public void setStudentService(WebStudentService studentService) {
+        this.studentService = studentService;
+    }
+    
     
     public Users getUse() {
         return use;
@@ -80,6 +90,11 @@ public class LoginPage1Bean implements Serializable {
     public List<Classes> getClassesbyTeacherID()
     {
         return classService.getClassByTeacher(this.use.getTeacherId());
+    }
+    
+    public List<Classes> getClassByStudentID()
+    {
+        return studentService.getClassByStudent(use.getStudentId());
     }
     
     

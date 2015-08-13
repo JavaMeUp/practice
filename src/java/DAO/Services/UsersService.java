@@ -107,7 +107,7 @@ public class UsersService implements IService <Users,String,UsersDAO>
     {
         for(Users user : this.listAll())
         {
-            if(user.getSessionID() != null && user.getSessionID().equals(sessionId))
+            if(user.getSessionId() != null && user.getSessionId().equals(sessionId))
             {
                 return user;
             }
@@ -119,7 +119,7 @@ public class UsersService implements IService <Users,String,UsersDAO>
     {
         for(Users user : this.listAll())
         {
-            if(user.getSessionID() != null && user.getSessionID().equals(sessionId)&user.getUserName().equals(UserName))
+            if(user.getSessionId() != null && user.getSessionId().equals(sessionId)&user.getUserName().equals(UserName))
             {
                 return user;
             }

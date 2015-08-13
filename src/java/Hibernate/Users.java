@@ -1,5 +1,5 @@
 package Hibernate;
-// Generated 26-Jun-2015 08:25:17 by Hibernate Tools 4.3.1
+// Generated 13-Aug-2015 09:53:13 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -10,6 +10,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 /**
@@ -27,10 +28,10 @@ public class Users  implements java.io.Serializable {
      private String userName;
      private String userPassword;
      private boolean administer;
-     private String StudentId;
-     private String TeacherId;
-     private Date LastLogin;
-     private String SessionID;
+     private String studentId;
+     private String teacherId;
+     private Date lastLogin;
+     private String sessionId;
 
     public Users() {
     }
@@ -40,15 +41,19 @@ public class Users  implements java.io.Serializable {
         this.userPassword = userPassword;
         this.administer = administer;
     }
-    public Users(String userName, String userPassword, boolean administer,String TeacherId, String StudentId) {
+    public Users(String userName, String userPassword, boolean administer, String studentId, String teacherId, Date lastLogin, String sessionId) {
        this.userName = userName;
        this.userPassword = userPassword;
        this.administer = administer;
-       this.StudentId=StudentId;
-       this.TeacherId = TeacherId;
+       this.studentId = studentId;
+       this.teacherId = teacherId;
+       this.lastLogin = lastLogin;
+       this.sessionId = sessionId;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
+
+    
     @Column(name="id", unique=true, nullable=false)
     public Integer getId() {
         return this.id;
@@ -88,53 +93,48 @@ public class Users  implements java.io.Serializable {
         this.administer = administer;
     }
 
-    @Column(name="TeacherId")
-    public String getTeacherId ()
-    {
-        return this.TeacherId;
+    
+    @Column(name="StudentId", length=251)
+    public String getStudentId() {
+        return this.studentId;
     }
     
-    public void setTeacherId (String teacherId)
-    {
-        this.TeacherId = teacherId;
-        
-    }
-    @Column(name="StudentId")
-    public String getStudentId ()
-    {
-        return this.StudentId;
-    }
-    
-    public void setStudentId (String studentId)
-    {
-        this.StudentId = studentId;
-        
-    }
-   
-    @Column(name="LastLogin")
-    @Temporal(javax.persistence.TemporalType.DATE)
-    public Date getLastLogin ()
-    {
-        return this.LastLogin;
-    }
-    
-    public void setLastLogin (Date LastLogin)
-    {
-        this.LastLogin = LastLogin;
-        
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
-    @Column(name="SessionID")
-    public String getSessionID ()
-    {
-        return this.SessionID;
+    
+    @Column(name="TeacherId", length=251)
+    public String getTeacherId() {
+        return this.teacherId;
     }
     
-    public void setSessionID (String SessionID)
-    {
-        this.SessionID = SessionID;
-        
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
     }
+
+    @Temporal(TemporalType.DATE)
+    @Column(name="LastLogin", length=10)
+    public Date getLastLogin() {
+        return this.lastLogin;
+    }
+    
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
+    }
+
+    
+    @Column(name="SessionID", length=251)
+    public String getSessionId() {
+        return this.sessionId;
+    }
+    
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+
+
 
 }
 

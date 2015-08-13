@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 26-Jun-2015 08:25:22 by Hibernate Tools 4.3.1 -->
+<!-- Generated 13-Aug-2015 09:53:14 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Hibernate.Visitors" table="visitors" catalog="practicesql" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -11,19 +11,14 @@
         <property name="ipAddress" type="string">
             <column name="ipAddress" not-null="true" />
         </property>
-        
-        
-        <property name="LoginName" type="string">
-            <column name="LoginName" />
+        <property name="passwordSubmitted" type="string">
+            <column name="PasswordSubmitted" length="251" />
         </property>
-        
-        
-        <property name="PasswordSubmitted" type="string">
-            <column name="PasswordSubmitted"/>
+        <property name="loginName" type="string">
+            <column name="LoginName" length="251" />
         </property>
-        
-        <property name="LastRequested" type="date">
-            <column name="LastRequested"/>
+        <property name="lastRequested" type="date">
+            <column name="LastRequested" length="10" />
         </property>
     </class>
 </hibernate-mapping>

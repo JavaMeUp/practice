@@ -9,11 +9,10 @@ package com.Web;
 import DAO.Services.ClassesService;
 import DAO.Services.IServiceLocator;
 import DAO.Services.ServiceEnumContext;
-import DAO.Services.StudentService;
+import DAO.Services.StudentClassesService;
 import Hibernate.Classes;
-import Hibernate.Student;
+import Hibernate.Studentclasses;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -33,6 +32,7 @@ public class WebStudentService implements Serializable{
    @EJB
    private IServiceLocator sLocator;
    private ClassesService classesService;
+   private StudentClassesService enrollService;
     /**
      * Creates a new instance of ClassService
      */
@@ -45,27 +45,18 @@ public class WebStudentService implements Serializable{
     public void init()
     {
         this.classesService = (ClassesService) sLocator.getService(ServiceEnumContext.ClassesService);
+        this.enrollService = (StudentClassesService) sLocator.getService(ServiceEnumContext.StudentEnrolledClassesService);
     }
     
     public List<Classes> getClassByStudent(String id)
     {
-        List<Classes> classes = new ArrayList<Classes>();
+        //Need to get a list of the Studentenrolledclasses and then see what classeIds are present for the student and then query again to get the classes and return it.
+         List<Studentclasses> li = this.enrollService.listAll();
+         
+    
         
         
-        //Wl; Could add somthing to either get validation if the student is already there or make the list unique after processing. 
-        for(Classes singleclass: classesService.listAll())
-        {
-            for(Student singleStudent : singleclass.getStudents())
-            {
-                if(String.valueOf(singleStudent.getStudentId()).equals(id) )
-                {
-                    classes.add(singleclass);
-                }
-            }
-        }
-        
-        
-        return classes;
+        return null;
         
     }
     

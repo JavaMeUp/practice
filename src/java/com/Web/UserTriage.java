@@ -61,7 +61,7 @@ public class UserTriage  implements Serializable
     public void updateValidUser(String SessionID)
     {
         loginUser.setLastLogin(date);
-        loginUser.setSessionID(SessionID);
+        loginUser.setSessionId(SessionID);
         userservice.update(loginUser);
     }
     

@@ -1,5 +1,5 @@
 package Hibernate;
-// Generated 26-Jun-2015 08:25:17 by Hibernate Tools 4.3.1
+// Generated 13-Aug-2015 09:53:13 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -29,7 +29,7 @@ public class Classes  implements java.io.Serializable {
      private Teacher teacher;
      private String className;
      private int credits;
-     private Set<Student> students = new HashSet<Student>(0);
+     private Set<Studentclasses> studentclasseses = new HashSet<Studentclasses>(0);
 
     public Classes() {
     }
@@ -40,11 +40,11 @@ public class Classes  implements java.io.Serializable {
         this.className = className;
         this.credits = credits;
     }
-    public Classes(Teacher teacher, String className, int credits, Set<Student> students) {
+    public Classes(Teacher teacher, String className, int credits, Set<Studentclasses> studentclasseses) {
        this.teacher = teacher;
        this.className = className;
        this.credits = credits;
-       this.students = students;
+       this.studentclasseses = studentclasseses;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -90,12 +90,12 @@ public class Classes  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="classes")
-    public Set<Student> getStudents() {
-        return this.students;
+    public Set<Studentclasses> getStudentclasseses() {
+        return this.studentclasseses;
     }
     
-    public void setStudents(Set<Student> students) {
-        this.students = students;
+    public void setStudentclasseses(Set<Studentclasses> studentclasseses) {
+        this.studentclasseses = studentclasseses;
     }
 
 

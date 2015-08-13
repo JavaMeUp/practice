@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-Aug-2015 09:53:14 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.Studentclasses" table="studentclasses" catalog="practicesql" optimistic-lock="version">
+        <composite-id name="id" class="Hibernate.StudentclassesId">
+            <key-property name="studentId" type="java.lang.Integer">
+                <column name="StudentId" />
+            </key-property>
+            <key-property name="classId" type="java.lang.Integer">
+                <column name="ClassId" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="classes" class="Hibernate.Classes" update="false" insert="false" fetch="select">
+            <column name="ClassId" />
+        </many-to-one>
+        <many-to-one name="student" class="Hibernate.Student" update="false" insert="false" fetch="select">
+            <column name="StudentId" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

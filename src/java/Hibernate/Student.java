@@ -1,14 +1,15 @@
 package Hibernate;
-// Generated 26-Jun-2015 08:25:17 by Hibernate Tools 4.3.1
+// Generated 13-Aug-2015 09:53:13 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,22 +25,30 @@ public class Student  implements java.io.Serializable {
 
 
      private int studentId;
-     private Classes classes;
      private String firstName;
      private String lastName;
      private Date dob;
      private int year;
+     private Set<Studentclasses> studentclasseses = new HashSet<Studentclasses>(0);
 
     public Student() {
     }
 
-    public Student(int studentId, Classes classes, String firstName, String lastName, Date dob, int year) {
+	
+    public Student(int studentId, String firstName, String lastName, Date dob, int year) {
+        this.studentId = studentId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = dob;
+        this.year = year;
+    }
+    public Student(int studentId, String firstName, String lastName, Date dob, int year, Set<Studentclasses> studentclasseses) {
        this.studentId = studentId;
-       this.classes = classes;
        this.firstName = firstName;
        this.lastName = lastName;
        this.dob = dob;
        this.year = year;
+       this.studentclasseses = studentclasseses;
     }
    
      @Id 
@@ -52,16 +61,6 @@ public class Student  implements java.io.Serializable {
     
     public void setStudentId(int studentId) {
         this.studentId = studentId;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="ClassEnrolled", nullable=false)
-    public Classes getClasses() {
-        return this.classes;
-    }
-    
-    public void setClasses(Classes classes) {
-        this.classes = classes;
     }
 
     
@@ -102,6 +101,15 @@ public class Student  implements java.io.Serializable {
     
     public void setYear(int year) {
         this.year = year;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="student")
+    public Set<Studentclasses> getStudentclasseses() {
+        return this.studentclasseses;
+    }
+    
+    public void setStudentclasseses(Set<Studentclasses> studentclasseses) {
+        this.studentclasseses = studentclasseses;
     }
 
 
