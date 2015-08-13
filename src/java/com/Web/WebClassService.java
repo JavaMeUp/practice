@@ -25,7 +25,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name="ClassService",eager=true)
 @ApplicationScoped
-public class ClassService implements Serializable{
+public class WebClassService implements Serializable{
 
    @EJB
    private IServiceLocator sLocator;
@@ -33,7 +33,7 @@ public class ClassService implements Serializable{
     /**
      * Creates a new instance of ClassService
      */
-    public ClassService() 
+    public WebClassService() 
     {
         
     }

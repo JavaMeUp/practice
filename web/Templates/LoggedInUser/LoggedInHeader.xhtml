@@ -16,12 +16,20 @@ and open the template in the editor.
         <h:outputLabel value="#{LoginPage1Bean.use.studentId}"></h:outputLabel>
 
         <c:if test="#{LoginPage1Bean.use.administer}">
-            <p>I am a administrator </p>
+                    <h:outputLabel value="I am Admin"/>
+                    <br/>
         </c:if>
+                
+
+        <c:if test="#{LoginPage1Bean.use.teacherId.length()>0}">
+            <ui:repeat value="#{LoginPage1Bean.classesbyTeacherID}" var="item">
+                <h:outputLabel value="#{item.className}"></h:outputLabel>
+                <br/>
+            </ui:repeat>
+        </c:if>        
         
-        <c:if test="#{LoginPage1Bean.use.teacherId != null}">
-            
-            
+        <c:if test="#{LoginPage1Bean.use.studentId.length >0}">
+            <ui:repeat value ="#{LoginPage1Bean}"
         </c:if>
         
         

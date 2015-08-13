@@ -23,18 +23,7 @@ and open the template in the editor.
                         <f:actionListener type="com.Web.Listeners.LogOutListener"/>
                     </h:commandButton>
                 </h:form>
-                <c:if test="#{LoginPage1Bean.use.administer}">
-                    <h:outputLabel value="I am Admin"/>
-                    <br/>
-                </c:if>
-                
-                
-                <c:if test="#{LoginPage1Bean.use.teacherId.length()>0}">
-                    <ui:repeat value="#{LoginPage1Bean.classesbyTeacherID}" var="item">
-                        <h:outputLabel value="#{item.className}"></h:outputLabel>
-                        <br/>
-                    </ui:repeat>
-                </c:if>                
+                 
             </div>
             
              <h:link value="Back To Home" outcome="Home" />
