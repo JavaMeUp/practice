@@ -121,7 +121,7 @@ public class StudentClassesDAO implements IDAO <Studentclasses,String>
     
     public List<Classes> findClassesByStudentID(int id) 
     {
-        List<Classes> classes= getCurrentSession().createQuery("from Classes  c join c.studentclasseses s where s.id.studentId = :id").setInteger("id", id).list();        
+        List<Classes> classes= getCurrentSession().createQuery("select s.classes from Classes  c join c.studentclasseses s where s.id.studentId = :id").setInteger("id", id).list();        
         return classes;        
     }
     

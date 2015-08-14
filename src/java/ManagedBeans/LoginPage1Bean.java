@@ -93,7 +93,7 @@ public class LoginPage1Bean implements Serializable {
         return classService.getClassByTeacher(this.use.getTeacherId());
     }
     
-    public List<Studentclasses> getClassByStudentID()
+    public List<Classes> getClassByStudentID()
     {
         return studentService.getClassByStudent(use.getStudentId());
     }

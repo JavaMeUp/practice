@@ -41,10 +41,10 @@ public class WebStudentService implements Serializable{
         this.enrollService = (StudentClassesService) sLocator.getService(ServiceEnumContext.StudentEnrolledClassesService);
     }
     
-    public List<Studentclasses> getClassByStudent(String id)
+    public List<Classes> getClassByStudent(String id)
     {
         //Need to get a list of the Studentenrolledclasses and then see what classeIds are present for the student and then query again to get the classes and return it.
-         List<Studentclasses> studentClass = this.enrollService.findClassesByStudentID();
+         List<Classes> studentClass = this.enrollService.findClassesByStudentID();
         return studentClass;
         
     }
