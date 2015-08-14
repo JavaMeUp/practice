@@ -95,9 +95,8 @@ public class LoginPage1Bean implements Serializable {
     
     public List<Classes> getClassByStudentID()
     {
-        return studentService.getClassByStudent(use.getStudentId());
+        return studentService.getClassesByStudent(use.getStudentId());
     }
-    
     
     public String LogOut()
     {
