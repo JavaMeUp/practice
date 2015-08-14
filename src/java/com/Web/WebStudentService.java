@@ -33,13 +33,6 @@ public class WebStudentService implements Serializable{
    private IServiceLocator sLocator;
    private ClassesService classesService;
    private StudentClassesService enrollService;
-    /**
-     * Creates a new instance of ClassService
-     */
-    public WebStudentService() 
-    {
-        
-    }
     
     @PostConstruct
     public void init()
@@ -48,15 +41,11 @@ public class WebStudentService implements Serializable{
         this.enrollService = (StudentClassesService) sLocator.getService(ServiceEnumContext.StudentEnrolledClassesService);
     }
     
-    public List<Classes> getClassByStudent(String id)
+    public List<Studentclasses> getClassByStudent(String id)
     {
         //Need to get a list of the Studentenrolledclasses and then see what classeIds are present for the student and then query again to get the classes and return it.
-         List<Studentclasses> li = this.enrollService.listAll();
-         
-    
-        
-        
-        return null;
+         List<Studentclasses> studentClass = this.enrollService.findClassesByStudentID();
+        return studentClass;
         
     }
     

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.25, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.26, for Win64 (x86_64)
 --
--- Host: localhost    Database: PracticeSql
+-- Host: localhost    Database: practicesql
 -- ------------------------------------------------------
--- Server version	5.6.25-log
+-- Server version	5.6.26-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -57,10 +57,7 @@ CREATE TABLE `student` (
   `LastName` varchar(250) NOT NULL,
   `DOB` date NOT NULL,
   `Year` int(11) NOT NULL,
-  `ClassEnrolled` int(11) NOT NULL,
-  PRIMARY KEY (`StudentID`),
-  KEY `FK_EnrolledClass_ClassID_idx` (`ClassEnrolled`),
-  CONSTRAINT `FK_EnrolledClass_ClassID` FOREIGN KEY (`ClassEnrolled`) REFERENCES `classes` (`ClassID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  PRIMARY KEY (`StudentID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -70,8 +67,35 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1,'	Woody	','	John	','1999-06-06',2000,1),(2,'	Buzz	','	Amber	','1970-01-01',2015,8),(3,'	DinoBot	','	Jack	','1950-04-06',2012,10),(4,'	Alan	','	Iwp	','1932-07-05',2013,19),(5,'	Grant	','	Yoghurt	','1999-02-01',2013,18),(6,'	Tim	','	Imagination	','1992-05-02',2013,16),(7,'	Bell	','	Magic	','1956-05-09',2013,5),(8,'	Simon	','	HighWire	','1920-01-01',2013,3),(9,'	Jones	','	Time	','1981-05-05',2013,14),(10,'	Wendy	','	Scarlette	','1987-02-06',2013,10),(11,'	Scrooge	','	Josh	','1988-01-01',2013,11),(12,'	Ned	','	Dumb	','1977-07-07',2013,3),(13,'	Ted	','	Smart	','1966-06-06',2013,5),(14,'	Sed	','	Heavy 	','1932-03-04',2009,9),(15,'	Humoud	','	Light	','1987-05-04',2009,7),(16,'	Daffy	','	Test	','1978-04-06',2009,13),(17,'	John	','	Non	','1953-02-05',2009,18),(18,'	Aron	','	NAN	','1954-02-06',2009,16),(19,'	Liam	','	Pod	','1957-03-05',2008,14),(20,'	Homer	','	Excel	','1977-01-02',2008,17);
+INSERT INTO `student` VALUES (1,'	Woody	','	John	','1999-06-06',2000),(2,'	Buzz	','	Amber	','1970-01-01',2015),(3,'	DinoBot	','	Jack	','1950-04-06',2012),(4,'	Alan	','	Iwp	','1932-07-05',2013),(5,'	Grant	','	Yoghurt	','1999-02-01',2013),(6,'	Tim	','	Imagination	','1992-05-02',2013),(7,'	Bell	','	Magic	','1956-05-09',2013),(8,'	Simon	','	HighWire	','1920-01-01',2013),(9,'	Jones	','	Time	','1981-05-05',2013),(10,'	Wendy	','	Scarlette	','1987-02-06',2013),(11,'	Scrooge	','	Josh	','1988-01-01',2013),(12,'	Ned	','	Dumb	','1977-07-07',2013),(13,'	Ted	','	Smart	','1966-06-06',2013),(14,'	Sed	','	Heavy 	','1932-03-04',2009),(15,'	Humoud	','	Light	','1987-05-04',2009),(16,'	Daffy	','	Test	','1978-04-06',2009),(17,'	John	','	Non	','1953-02-05',2009),(18,'	Aron	','	NAN	','1954-02-06',2009),(19,'	Liam	','	Pod	','1957-03-05',2008),(20,'	Homer	','	Excel	','1977-01-02',2008);
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `studentclasses`
+--
+
+DROP TABLE IF EXISTS `studentclasses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `studentclasses` (
+  `StudentId` int(11) DEFAULT NULL,
+  `ClassId` int(11) DEFAULT NULL,
+  KEY `fk_ClassID_idx` (`ClassId`),
+  KEY `fk_StudentID_idx` (`StudentId`),
+  CONSTRAINT `fk_ClassID` FOREIGN KEY (`ClassId`) REFERENCES `classes` (`ClassID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_StudentID` FOREIGN KEY (`StudentId`) REFERENCES `student` (`StudentID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `studentclasses`
+--
+
+LOCK TABLES `studentclasses` WRITE;
+/*!40000 ALTER TABLE `studentclasses` DISABLE KEYS */;
+INSERT INTO `studentclasses` VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),(1,8),(1,9);
+/*!40000 ALTER TABLE `studentclasses` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -128,7 +152,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'User1','Password',1,NULL,NULL,'2015-07-28','0.3108165859887375'),(2,'User2','Password',0,NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'User1','Password',1,'3','1','2015-08-13','0.15523624724338292'),(2,'User2','Password',0,NULL,NULL,'2015-07-31','0.8712137678352685');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +170,7 @@ CREATE TABLE `visitors` (
   `LoginName` varchar(251) DEFAULT NULL,
   `LastRequested` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +179,7 @@ CREATE TABLE `visitors` (
 
 LOCK TABLES `visitors` WRITE;
 /*!40000 ALTER TABLE `visitors` DISABLE KEYS */;
-INSERT INTO `visitors` VALUES (1,'0:0:0:0:0:0:0:1','me','poop',NULL),(2,'0:0:0:0:0:0:0:1','me','Hi',NULL),(3,'0:0:0:0:0:0:0:1','Password','User1',NULL),(4,'0:0:0:0:0:0:0:1','me','Teach',NULL),(5,'0:0:0:0:0:0:0:1','Password','User1',NULL),(6,'0:0:0:0:0:0:0:1','There','Hi',NULL),(7,'0:0:0:0:0:0:0:1','me','Time',NULL),(8,'0:0:0:0:0:0:0:1','see','Boob',NULL),(9,'0:0:0:0:0:0:0:1','e','tocken',NULL),(10,'0:0:0:0:0:0:0:1','s','tocken',NULL),(11,'0:0:0:0:0:0:0:1','ne','tine','2015-07-28'),(12,'0:0:0:0:0:0:0:1','me','mem','2015-07-28'),(13,'0:0:0:0:0:0:0:1','s','Hilpo','2015-07-28'),(14,'0:0:0:0:0:0:0:1','me','Melt','2015-07-28'),(15,'0:0:0:0:0:0:0:1','No','GoOn','2015-07-28'),(16,'0:0:0:0:0:0:0:1','Password','User','2015-07-28'),(17,'0:0:0:0:0:0:0:1','','User','2015-07-28'),(18,'0:0:0:0:0:0:0:1','','User','2015-07-28'),(19,'0:0:0:0:0:0:0:1','Tab','User1','2015-07-28'),(20,'0:0:0:0:0:0:0:1','d','d','2015-07-28'),(21,'0:0:0:0:0:0:0:1','h','Tme','2015-07-28'),(22,'0:0:0:0:0:0:0:1','Pasword','User1','2015-07-28'),(23,'0:0:0:0:0:0:0:1','li','wilson','2015-07-28');
+INSERT INTO `visitors` VALUES (1,'0:0:0:0:0:0:0:1','me','poop',NULL),(2,'0:0:0:0:0:0:0:1','me','Hi',NULL),(3,'0:0:0:0:0:0:0:1','Password','User1',NULL),(4,'0:0:0:0:0:0:0:1','me','Teach',NULL),(5,'0:0:0:0:0:0:0:1','Password','User1',NULL),(6,'0:0:0:0:0:0:0:1','There','Hi',NULL),(7,'0:0:0:0:0:0:0:1','me','Time',NULL),(8,'0:0:0:0:0:0:0:1','see','Boob',NULL),(9,'0:0:0:0:0:0:0:1','e','tocken',NULL),(10,'0:0:0:0:0:0:0:1','s','tocken',NULL),(11,'0:0:0:0:0:0:0:1','ne','tine','2015-07-28'),(12,'0:0:0:0:0:0:0:1','me','mem','2015-07-28'),(13,'0:0:0:0:0:0:0:1','s','Hilpo','2015-07-28'),(14,'0:0:0:0:0:0:0:1','me','Melt','2015-07-28'),(15,'0:0:0:0:0:0:0:1','No','GoOn','2015-07-28'),(16,'0:0:0:0:0:0:0:1','Password','User','2015-07-28'),(17,'0:0:0:0:0:0:0:1','','User','2015-07-28'),(18,'0:0:0:0:0:0:0:1','','User','2015-07-28'),(19,'0:0:0:0:0:0:0:1','Tab','User1','2015-07-28'),(20,'0:0:0:0:0:0:0:1','d','d','2015-07-28'),(21,'0:0:0:0:0:0:0:1','h','Tme','2015-07-28'),(22,'0:0:0:0:0:0:0:1','Pasword','User1','2015-07-28'),(23,'0:0:0:0:0:0:0:1','li','wilson','2015-07-28'),(24,'0:0:0:0:0:0:0:1','d','padd','2015-07-31'),(25,'0:0:0:0:0:0:0:1','s','s','2015-07-31'),(26,'0:0:0:0:0:0:0:1','o','Tome','2015-07-31'),(27,'0:0:0:0:0:0:0:1','s','s','2015-07-31'),(28,'0:0:0:0:0:0:0:1','hi','This is somthing','2015-07-31'),(29,'0:0:0:0:0:0:0:1','TDST','ggT','2015-07-31'),(30,'0:0:0:0:0:0:0:1','password','User1','2015-07-31'),(31,'0:0:0:0:0:0:0:1','Li','wilson','2015-07-31'),(32,'0:0:0:0:0:0:0:1','h','Time','2015-08-03'),(33,'0:0:0:0:0:0:0:1','s','s','2015-08-03'),(34,'0:0:0:0:0:0:0:1','x','x','2015-08-03'),(35,'0:0:0:0:0:0:0:1','a','a','2015-08-03'),(36,'0:0:0:0:0:0:0:1','Passowrd','User1','2015-08-03'),(37,'0:0:0:0:0:0:0:1','s','User1','2015-08-05'),(38,'0:0:0:0:0:0:0:1','','User1','2015-08-05'),(39,'0:0:0:0:0:0:0:1','s','User1','2015-08-11'),(40,'0:0:0:0:0:0:0:1','s','User1','2015-08-11'),(41,'0:0:0:0:0:0:0:1','p','User1','2015-08-11'),(42,'0:0:0:0:0:0:0:1','password','User1','2015-08-11');
 /*!40000 ALTER TABLE `visitors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -168,4 +192,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-28 14:03:14
+-- Dump completed on 2015-08-14  7:53:31

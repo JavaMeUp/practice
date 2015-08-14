@@ -87,4 +87,14 @@ public class StudentClassesService implements IService <Studentclasses,String,St
     public StudentClassesDAO getClassesDAO() {
          return StudentClassesServiceDAO;
     }
+    
+    
+    public List<Studentclasses> findClassesByStudentID()
+    {
+        StudentClassesServiceDAO.openCurrentTransaction();
+        List<Studentclasses> listEnrolledClass = StudentClassesServiceDAO.findClassesByStudentID(1);
+        StudentClassesServiceDAO.closeCurrentTransaction();
+        return listEnrolledClass;
+    }
+    
 }

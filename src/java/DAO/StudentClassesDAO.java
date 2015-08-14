@@ -9,6 +9,7 @@ import Hibernate.Classes;
 import Hibernate.Studentclasses;
 import java.util.List;
 import javax.ejb.Stateless;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -116,6 +117,19 @@ public class StudentClassesDAO implements IDAO <Studentclasses,String>
         {
             getCurrentSession().delete(singleStudentenrolledclasses);
         }    
+    }
+    
+    public List<Classes> findClassesByStudentID(int id) 
+    {
+        List<Classes> classes= getCurrentSession().createQuery("from Classes  c join c.studentclasseses s where s.id.studentId = :id").setInteger("id", id).list();        
+        return classes;        
+    }
+    
+    public List<Studentclasses> findStudentsbyClassID() 
+    {
+        List<Studentclasses> AllStudentenrolledclasses;
+        AllStudentenrolledclasses = (List<Studentclasses>) getCurrentSession().createQuery("select s.student from Classes  c join c.studentclasseses s").list();
+        return AllStudentenrolledclasses;        
     }
     
 }

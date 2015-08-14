@@ -6,6 +6,7 @@
 package ManagedBeans;
 
 import Hibernate.Classes;
+import Hibernate.Studentclasses;
 import Hibernate.Users;
 import com.Web.WebClassService;
 import com.Web.CookieUserChecker;
@@ -92,7 +93,7 @@ public class LoginPage1Bean implements Serializable {
         return classService.getClassByTeacher(this.use.getTeacherId());
     }
     
-    public List<Classes> getClassByStudentID()
+    public List<Studentclasses> getClassByStudentID()
     {
         return studentService.getClassByStudent(use.getStudentId());
     }
