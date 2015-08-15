@@ -27,6 +27,13 @@ and open the template in the editor.
                     <ui:include src="/Templates/LoggedInUser/LoggedInHeader.xhtml" /> 
                 </ui:insert>             
         </div>
+        
+        <div id="SideBar">
+            <ui:insert name="SideBar" >
+                    <ui:include src="/Templates/LoggedInUser/LoggedInSideBar.xhtml" /> 
+                </ui:insert>             
+        </div>
+        
 
         <div id="Content">
                 <ui:insert name="LoggedInContent" >

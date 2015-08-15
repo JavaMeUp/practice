@@ -18,12 +18,20 @@ and open the template in the editor.
          <ui:define name="LoggedInContent">
             <h2>Page1 content</h2>
             <div>
-                <h:form>
-                    <h:commandButton id="logout" class="btn" action="#{LoginPage1Bean.LogOut()}" value="LogOut">
-                        <f:actionListener type="com.Web.Listeners.LogOutListener"/>
-                    </h:commandButton>
-                </h:form>
-                 
+                <p> Welcome to the Student Teacher portal, #{LoginPage1Bean.use.userName} </p>
+                <p>On The Left are options for you. At the moment you are: </p>
+                
+                
+                <c:if test="#{LoginPage1Bean.use.administer}">
+                    <p class="Admin"> A Administrator</p>
+                </c:if>
+                <c:if test="#{LoginPage1Bean.use.teacherId.length()>0}">
+                    <p class="Teacher"> A Teacher</p>
+                </c:if>
+                <c:if test="#{LoginPage1Bean.use.studentId.length()>0}">
+                    <p class="Student"> A Student</p>
+                </c:if> 
+                
             </div>
             
              <h:link value="Back To Home" outcome="Home" />
