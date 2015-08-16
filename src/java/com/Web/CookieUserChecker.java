@@ -28,6 +28,7 @@ public class CookieUserChecker implements Serializable
     private CookiesDAO cookie;
     
     private UsersService uService;
+    private String userName;
     
     @EJB
     private IServiceLocator sLocator;
@@ -54,12 +55,16 @@ public class CookieUserChecker implements Serializable
             user = uService.getUserBySessionIdAndUserName(cookie1.getValue(),cookie1.getName());
             if(user != null)
             {
+                userName = user.getUserName();
                 break;
             }
         }
         return user;
     }
     
-    
+    public void removeUserFromUserCookieBank() throws NullPointerException
+    {
+        cookie.removeCookie(this.userName);
+    }
     
 }

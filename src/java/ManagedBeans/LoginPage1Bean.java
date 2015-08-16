@@ -100,6 +100,7 @@ public class LoginPage1Bean implements Serializable {
     
     public String LogOut()
     {
+        userCheck.removeUserFromUserCookieBank();
         return "Home.xhtml";
     }
     

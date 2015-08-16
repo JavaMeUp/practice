@@ -91,8 +91,23 @@ public class CookiesDAO
         
         this.cookie.setMaxAge(expiry);
         response.addCookie(cookie);
+    }
+    
+    public void removeCookie(String name )
+    {
+        Cookie [] cookies = request.getCookies();
+        for(int i = 0 ; i< cookies.length; i++)
+        {
+            if(cookies != null && cookies[i].getName().equals(name))
+            {
+                this.cookie = cookies[i];
+                this.cookie.setMaxAge(0);
+                break;
+            }
+        }
 
-        
+        this.cookie.setPath(request.getContextPath());
+        response.addCookie(cookie);
     }
     
 }

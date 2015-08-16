@@ -69,9 +69,9 @@ public class UserTriage  implements Serializable
     {
         
         VisitorsService vService = (VisitorsService) serviceLocator.getService(ServiceEnumContext.VisitorsService);
-        Visitors v = new Visitors(ipAddress,userName,password);
-        v.setLastRequested(date);
-        vService.persist(v);
+        Visitors visitor = new Visitors(ipAddress,userName,password);
+        visitor.setLastRequested(date);
+        vService.persist(visitor);
     }
     
     
