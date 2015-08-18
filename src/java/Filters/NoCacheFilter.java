@@ -5,6 +5,7 @@
  */
 package Filters;
 
+import ManagedBeans.Login;
 import java.io.IOException;
 import javax.faces.application.ResourceHandler;
 import javax.servlet.Filter;
@@ -21,12 +22,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wilson.li
  */
-@WebFilter("/*")
+@WebFilter("WebPractice/*")
 public class NoCacheFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
+        Login auth = (Login) request.getSession().getAttribute("Login");
         HttpServletResponse response = (HttpServletResponse) res;
 
         if (!request.getRequestURI().startsWith(request.getContextPath() + ResourceHandler.RESOURCE_IDENTIFIER)) { // Skip JSF resources (CSS/JS/Images/etc)
