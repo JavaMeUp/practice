@@ -21,6 +21,7 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +33,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author wilson.li
  */
 @ManagedBean(name="Login",eager=true)
-@SessionScoped
+@RequestScoped
 public class Login  implements Serializable {
 
     @EJB

@@ -17,13 +17,14 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author wilson.li
  */
 @ManagedBean(name="LoginPage1Bean",eager=true)
-@RequestScoped
+@SessionScoped
 public class LoginPage1Bean implements Serializable {
 
     private Users use;

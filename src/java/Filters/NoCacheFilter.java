@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wilson.li
  */
-@WebFilter("WebPractice/*")
+@WebFilter("/*")
 public class NoCacheFilter implements Filter {
 
     @Override

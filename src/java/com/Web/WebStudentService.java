@@ -18,6 +18,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 
 
@@ -26,7 +27,7 @@ import javax.faces.bean.ManagedBean;
  * @author wilson.li
  */
 @ManagedBean(name="StudentService",eager=true)
-@ApplicationScoped
+@SessionScoped
 public class WebStudentService implements Serializable{
 
    @EJB

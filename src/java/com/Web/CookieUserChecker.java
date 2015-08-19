@@ -15,6 +15,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.servlet.http.Cookie;
 
 /**
@@ -22,7 +23,7 @@ import javax.servlet.http.Cookie;
  * @author wilson.li
  */
 @ManagedBean(name="CookieUserChecker",eager=true)
-@ApplicationScoped
+@SessionScoped
 public class CookieUserChecker implements Serializable
 {
     private CookiesDAO cookie;

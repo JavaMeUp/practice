@@ -24,7 +24,7 @@ import javax.faces.bean.SessionScoped;
  * @author wilson.li
  */
 @ManagedBean(name="ClassService",eager=true)
-@ApplicationScoped
+@SessionScoped
 public class WebClassService implements Serializable{
 
    @EJB
