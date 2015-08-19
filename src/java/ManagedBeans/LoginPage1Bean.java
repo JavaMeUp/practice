@@ -9,7 +9,7 @@ import Hibernate.Classes;
 import Hibernate.Studentclasses;
 import Hibernate.Users;
 import com.Web.WebClassService;
-import com.Web.CookieUserChecker;
+import com.Web.WebCookieService;
 import com.Web.WebStudentService;
 import java.io.Serializable;
 import java.util.List;
@@ -29,8 +29,8 @@ public class LoginPage1Bean implements Serializable {
 
     private Users use;
 
-    @ManagedProperty(value="#{CookieUserChecker}")
-    private  CookieUserChecker userCheck;
+    @ManagedProperty(value="#{WebCookieService}")
+    private  WebCookieService webCookieService;
     
     @ManagedProperty(value="#{ClassService}")
     private  WebClassService classService;    
@@ -44,7 +44,7 @@ public class LoginPage1Bean implements Serializable {
     @PostConstruct
     public void init()
     {
-        use  = userCheck.getUserFromUserCookieBank();
+        use  = webCookieService.getUserFromUserCookieBank();
         
     }
     
@@ -65,12 +65,12 @@ public class LoginPage1Bean implements Serializable {
         this.use = use;
     }
     
-   public CookieUserChecker getUserCheck() {
-        return userCheck;
+   public WebCookieService getUserCheck() {
+        return webCookieService;
     }
 
-    public void setUserCheck(CookieUserChecker userCheck) {
-        this.userCheck = userCheck;
+    public void setUserCheck(WebCookieService webCookieService) {
+        this.webCookieService = webCookieService;
     }
     
     public WebClassService getClassService() {
@@ -101,7 +101,7 @@ public class LoginPage1Bean implements Serializable {
     
     public String LogOut()
     {
-        userCheck.removeUserFromUserCookieBank();
+        webCookieService.removeUserFromUserCookieBank();
         return "Home.xhtml";
     }
     

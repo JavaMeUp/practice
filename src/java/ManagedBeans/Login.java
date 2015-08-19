@@ -12,6 +12,7 @@ import static DAO.Services.ServiceEnumContext.StudentService;
 import DAO.Services.StudentService;
 import DAO.Services.UsersService;
 import Hibernate.Student;
+import com.Web.WebCookieService;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
@@ -38,8 +39,8 @@ public class Login  implements Serializable {
     @EJB
     private IServiceLocator serviceLocator;
     
-    @ManagedProperty(value="#{UserTriage}")
-    private UserTriage triage;
+    @ManagedProperty(value="#{WebCookieService}")
+    private WebCookieService webCookieService;
 
     
     private String ipAddress;
@@ -100,26 +101,27 @@ public class Login  implements Serializable {
         this.password = password;
     }
     
-    public UserTriage getTriage() {
-        return triage;
+    public WebCookieService getTriage() {
+        return webCookieService;
     }
 
-    public void setTriage(UserTriage triage) {
-        this.triage = triage;
+    public void setTriage(WebCookieService webCookieService) {
+        this.webCookieService = webCookieService;
     }
     
     public String Login()
     {       
-        if(triage.isValidUser(userName, password))
+        if(webCookieService.isValidUser(userName, password))
         {
-            triage.setValidUserCookie(userName, SessionID);
-            triage.updateValidUser(SessionID);
+            webCookieService.setValidUserCookie(userName, SessionID);
+            webCookieService.updateValidUser(SessionID);
             
             return "LoggedInPage.xhtml?faces-redirect=true";                
         }
         else
         {
-            triage.insertInvalidUser(ipAddress, userName, password);
+            //Should this be in web cookie service or in webUserService?
+            webCookieService.insertInvalidUser(ipAddress, userName, password);
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));                
         }
