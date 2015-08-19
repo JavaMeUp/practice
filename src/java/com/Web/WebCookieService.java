@@ -24,9 +24,9 @@ import javax.servlet.http.Cookie;
  *
  * @author wilson.li
  */
-@ManagedBean(name="CookieService",eager=true)
+@ManagedBean(name="WebCookieService",eager=true)
 @ApplicationScoped
-public class CookieService  implements Serializable
+public class WebCookieService  implements Serializable
 {
     private Date date;
     private UsersService userservice;
@@ -37,7 +37,7 @@ public class CookieService  implements Serializable
     private CookiesDAO cookie;
     
     
-    public CookieService()
+    public WebCookieService()
     {
         this.date = new Date();
         cookie = new CookiesDAO();

@@ -26,7 +26,7 @@ import javax.faces.bean.SessionScoped;
  *
  * @author wilson.li
  */
-@ManagedBean(name="StudentService",eager=true)
+@ManagedBean(name="WebStudentService",eager=true)
 @SessionScoped
 public class WebStudentService implements Serializable{
 

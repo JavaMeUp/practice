@@ -23,9 +23,9 @@ import javax.faces.bean.ManagedBean;
  *
  * @author wilson.li
  */
-@ManagedBean(name="UserTriage",eager=true)
+@ManagedBean(name="WebUserService",eager=true)
 @ApplicationScoped
-public class UserTriage  implements Serializable
+public class WebUserService  implements Serializable
 {
     private Date date;
     private UsersService userservice;
@@ -33,7 +33,7 @@ public class UserTriage  implements Serializable
     private IServiceLocator serviceLocator;
     private Users loginUser;
     
-    public UserTriage()
+    public WebUserService()
     {
         this.date = new Date();
         
