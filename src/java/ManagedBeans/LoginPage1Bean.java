@@ -108,6 +108,4 @@ public class LoginPage1Bean implements Serializable {
         webCookieService.removeUserFromUserCookieBank();
         return "Home.xhtml";
     }
-    
-    
 }
