@@ -20,7 +20,7 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author wilson.li
  */
 @ManagedBean(name="Login",eager=true)
-@RequestScoped
+@SessionScoped
 public class Login  implements Serializable {
 
     @EJB
@@ -47,12 +47,14 @@ public class Login  implements Serializable {
     private List<Student> studentList;
     private final String SessionID;
     private final Random SessionIDGenerator;
+    private boolean isValidUser;
+
+
     /**
      * Creates a new instance of JSFPractice
      */
     public Login() 
     {
-        
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
         this.ipAddress =   request.getRemoteAddr();
         this.SessionIDGenerator = new Random();
@@ -104,12 +106,20 @@ public class Login  implements Serializable {
     public void setWebCookieService(WebCookieService webCookieService) {
         this.webCookieService = webCookieService;
     }
+    
+    public boolean isIsValidUser() {
+        return isValidUser;
+    }
 
+    public void setIsValidUser(boolean isValidUser) {
+        this.isValidUser = isValidUser;
+    }
     
     public String Login()
     {       
         if(webCookieService.isValidUser(userName, password))
         {
+            isValidUser=true;
             webCookieService.setValidUserCookie(userName, SessionID);
             webCookieService.updateValidUser(SessionID);
             

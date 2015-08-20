@@ -112,9 +112,11 @@ public class WebCookieService  implements Serializable
                 cookie1.setMaxAge(0);
                 cookie1.setValue("");
                 cookie1.setPath("");
+                cookie.removeCookie(user.getUserName());
                 
             }
         }
+        
         
     }
     

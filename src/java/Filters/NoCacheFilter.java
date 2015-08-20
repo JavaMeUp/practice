@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author wilson.li
  */
-@WebFilter("/*")
+@WebFilter("/faces/WebPages/LoggedInPage.xhtml")
 public class NoCacheFilter implements Filter {
 
     @Override
@@ -36,12 +36,18 @@ public class NoCacheFilter implements Filter {
             response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
             response.setDateHeader("Expires", 0); // Proxies.
         }
-
-        chain.doFilter(req, res);
+        
+        if(auth.isIsValidUser())
+        {
+            chain.doFilter(req, res);
+        }
+        else
+        {
+            response.sendRedirect(request.getContextPath() + "/Home.xhtml");
+        }
+            
+        
     }
-
-    
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         System.out.println("This is the filter init");
