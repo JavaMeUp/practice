@@ -117,9 +117,8 @@ public class Login  implements Serializable {
     
     public String Login()
     {       
-        if(webCookieService.isValidUser(userName, password))
+        if(isValidUser = webCookieService.isValidUser(userName, password))
         {
-            isValidUser=true;
             webCookieService.setValidUserCookie(userName, SessionID);
             webCookieService.updateValidUser(SessionID);
             

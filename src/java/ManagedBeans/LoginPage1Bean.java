@@ -35,8 +35,10 @@ public class LoginPage1Bean implements Serializable {
     
     @ManagedProperty(value="#{WebStudentService}")
     private  WebStudentService studentService;    
-
-
+    
+    @ManagedProperty(value="#{Login}")
+    private  Login login;    
+    
     private List<Classes> classes;
 
     @PostConstruct
@@ -45,6 +47,14 @@ public class LoginPage1Bean implements Serializable {
         use  = webCookieService.getUserFromUserCookieBank();
     }
 
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+    
     public WebCookieService getWebCookieService() {
         return webCookieService;
     }
@@ -106,6 +116,7 @@ public class LoginPage1Bean implements Serializable {
     public String LogOut()
     {
         webCookieService.removeUserFromUserCookieBank();
+        login.setIsValidUser(false);
         return "Home.xhtml";
     }
 }

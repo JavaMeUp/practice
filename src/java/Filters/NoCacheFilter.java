@@ -43,7 +43,7 @@ public class NoCacheFilter implements Filter {
         }
         else
         {
-            response.sendRedirect(request.getContextPath() + "/Home.xhtml");
+            response.sendRedirect("Home.xhtml");
         }
             
         
