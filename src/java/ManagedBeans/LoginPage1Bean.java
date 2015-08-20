@@ -6,7 +6,6 @@
 package ManagedBeans;
 
 import Hibernate.Classes;
-import Hibernate.Studentclasses;
 import Hibernate.Users;
 import com.Web.WebClassService;
 import com.Web.WebCookieService;
@@ -16,7 +15,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 /**
@@ -32,10 +30,10 @@ public class LoginPage1Bean implements Serializable {
     @ManagedProperty(value="#{WebCookieService}")
     private  WebCookieService webCookieService;
     
-    @ManagedProperty(value="#{ClassService}")
+    @ManagedProperty(value="#{WebClassService}")
     private  WebClassService classService;    
     
-    @ManagedProperty(value="#{StudentService}")
+    @ManagedProperty(value="#{WebStudentService}")
     private  WebStudentService studentService;    
 
 
@@ -45,8 +43,15 @@ public class LoginPage1Bean implements Serializable {
     public void init()
     {
         use  = webCookieService.getUserFromUserCookieBank();
-        
     }
+
+    public WebCookieService getWebCookieService() {
+        return webCookieService;
+    }
+
+    public void setWebCookieService(WebCookieService webCookieService) {
+        this.webCookieService = webCookieService;
+    }    
     
     public WebStudentService getStudentService() {
         return studentService;
@@ -55,7 +60,6 @@ public class LoginPage1Bean implements Serializable {
     public void setStudentService(WebStudentService studentService) {
         this.studentService = studentService;
     }
-    
     
     public Users getUse() {
         return use;

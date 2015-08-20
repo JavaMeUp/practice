@@ -10,7 +10,6 @@ package ManagedBeans;
 import DAO.Services.IServiceLocator;
 import static DAO.Services.ServiceEnumContext.StudentService;
 import DAO.Services.StudentService;
-import DAO.Services.UsersService;
 import Hibernate.Student;
 import com.Web.WebCookieService;
 import java.io.Serializable;
@@ -22,7 +21,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -41,14 +39,12 @@ public class Login  implements Serializable {
     
     @ManagedProperty(value="#{WebCookieService}")
     private WebCookieService webCookieService;
-
     
     private String ipAddress;
     private String userName;
     private String password;
     private StudentService studentService;
     private List<Student> studentList;
-    private UsersService service;
     private final String SessionID;
     private final Random SessionIDGenerator;
     /**
@@ -101,13 +97,14 @@ public class Login  implements Serializable {
         this.password = password;
     }
     
-    public WebCookieService getTriage() {
+    public WebCookieService getWebCookieService() {
         return webCookieService;
     }
 
-    public void setTriage(WebCookieService webCookieService) {
+    public void setWebCookieService(WebCookieService webCookieService) {
         this.webCookieService = webCookieService;
     }
+
     
     public String Login()
     {       

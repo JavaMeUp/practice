@@ -16,8 +16,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.servlet.http.Cookie;
 
 /**
@@ -25,7 +25,7 @@ import javax.servlet.http.Cookie;
  * @author wilson.li
  */
 @ManagedBean(name="WebCookieService",eager=true)
-@ApplicationScoped
+@SessionScoped
 public class WebCookieService  implements Serializable
 {
     private Date date;
@@ -34,13 +34,11 @@ public class WebCookieService  implements Serializable
     private IServiceLocator serviceLocator;
     private Users loginUser;
     private UsersService uService;
-    private CookiesDAO cookie;
     
     
     public WebCookieService()
     {
         this.date = new Date();
-        cookie = new CookiesDAO();
         
     }
     
@@ -49,8 +47,6 @@ public class WebCookieService  implements Serializable
     {
         this.userservice = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
         this.uService = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
-        
-        
     }
     
     public boolean isValidUser(String userName, String passeord)
@@ -62,7 +58,7 @@ public class WebCookieService  implements Serializable
     public void setValidUserCookie(String userName, String sessionId)
     {
         CookiesDAO singleookie = new CookiesDAO();
-        cookie.SetCookie(userName,sessionId,-1);
+        singleookie.SetCookie(userName,sessionId,-1);
     }
     
     public void removeValidUserCookie(String userName)
@@ -89,6 +85,7 @@ public class WebCookieService  implements Serializable
     
     public Users getUserFromUserCookieBank() throws NullPointerException
     {
+        CookiesDAO cookie = new CookiesDAO();
         Cookie[] cookies = cookie.getAllCookies();
         Users user = null;
         for (Cookie cookie1 : cookies)
@@ -104,6 +101,7 @@ public class WebCookieService  implements Serializable
     
     public void removeUserFromUserCookieBank() throws NullPointerException
     {
+        CookiesDAO cookie = new CookiesDAO();
         Cookie[] cookies = cookie.getAllCookies();
         Users user = null;
         for (Cookie cookie1 : cookies)
