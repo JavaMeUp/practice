@@ -12,29 +12,37 @@ and open the template in the editor.
       xmlns:f="http://java.sun.com/jsf/core">
    <body>
       <ui:composition> 
-          <div class="Generic">
-            <h:outputLabel value="#{LoginPage1Bean.use.userName}"></h:outputLabel>
-            <br/>
+          <div class="Generic navbar-header">
 
-            <h:outputLabel value="#{LoginPage1Bean.use.studentId}"></h:outputLabel>
-            <br/>      
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="#">
+                        <h:outputLabel value="#{LoginPage1Bean.use.userName}"></h:outputLabel>
+                        <h:outputLabel value="#{LoginPage1Bean.use.studentId}"></h:outputLabel>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h:form>
+                            <h:commandButton id="logout" class="btn" action="#{LoginPage1Bean.LogOut()}" value="LogOut">
+                                <f:actionListener type="com.Web.Listeners.LogOutListener"/>
+                            </h:commandButton>
+                        </h:form>
+                    </a></li>
+                <li>
+                    <a href="#">
+                        <div class="Admin">
+                            <c:if test="#{LoginPage1Bean.use.administer}">
+                                <h:outputLabel value="I am Admin"/>
+                            </c:if> 
+                        </div>          
+                    </a>
+                </li>
 
-            <h:form>
-                <h:commandButton id="logout" class="btn" action="#{LoginPage1Bean.LogOut()}" value="LogOut">
-                    <f:actionListener type="com.Web.Listeners.LogOutListener"/>
-                </h:commandButton>
-            </h:form>
+            </ul>
+              
+
           </div>
-        
-
-        <div class="Admin">
-            <c:if test="#{LoginPage1Bean.use.administer}">
-                <h:outputLabel value="I am Admin"/>
-                <br/>
-            </c:if> 
-        </div>
-        
-                
       </ui:composition>	
        
    </body>

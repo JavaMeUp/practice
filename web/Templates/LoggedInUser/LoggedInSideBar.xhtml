@@ -13,23 +13,47 @@ and open the template in the editor.
 
     <body>
         <ui:composition> 
-         
-        <div class="Teacher">
-            <c:if test="#{LoginPage1Bean.use.teacherId.length()>0}">
-                <ui:repeat value="#{LoginPage1Bean.classesbyTeacherID}" var="item">
-                    <h:outputLabel value="this is teacher class  #{item.className}"></h:outputLabel>
-                    <br/>
-                </ui:repeat>
-            </c:if>        
-        </div>
+
+            <div class="col-lg-3">   
+                <div class="Teacher">
+                    <h5>
+                        Teacher Classes
+                    </h5>
+                    <ul class=" nav nav-pills nav-stacked">
+                    <li class="active"><a href="#">Home</a></li>
+                    <c:if test="#{LoginPage1Bean.use.studentId.length() >0}">
+                        <ui:repeat value ="#{LoginPage1Bean.getClassByStudentID()}" var="item">
+                            <li>
+                                <a>
+                                    #{item.className}
+                                </a>
+                            </li>
+                        </ui:repeat>
+                    </c:if>
+                    </ul>
+                </div>
+
+                <div class="Student">
+                    <h5>
+                        Student Classes
+                    </h5>
+                    <ul class=" nav nav-pills nav-stacked">
+                    <c:if test="#{LoginPage1Bean.use.studentId.length() >0}">
+                        <ui:repeat value="#{LoginPage1Bean.classesbyTeacherID}" var="item">
+                            <li>
+                                <a>
+                                    #{item.className}
+                                </a>
+                            </li>
+                        </ui:repeat>
+                    </c:if>        
+                        
+                  </ul>                    
+                </div>
+
+            </div>    
         
-        <div class="Student">
-            <c:if test="#{LoginPage1Bean.use.studentId.length() >0}">
-                <ui:repeat value ="#{LoginPage1Bean.getClassByStudentID()}" var="item">
-                    <h:outputLabel value="This is student class #{item.className}"></h:outputLabel>
-                </ui:repeat>
-            </c:if>
-        </div>
+
       </ui:composition>	
     </body>
 </html>

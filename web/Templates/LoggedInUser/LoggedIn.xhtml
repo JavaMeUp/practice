@@ -14,34 +14,31 @@ and open the template in the editor.
         <h:outputScript name="jQuery.js" library="js"></h:outputScript>
         <h:outputStylesheet name="bootstrap.min.css" library="css"></h:outputStylesheet>
         <h:outputScript name="bootstrap.min.js" library="js"></h:outputScript>
-        
-        <title>TODO supply a title</title>
+        <link href="../../resources/css/WilsonCss.css" rel="stylesheet" type="text/css"/>
+        <title>Wilson Practice</title>
     </h:head>
-    
-    
-    
     <body>
         
-        <div id="Header">
+        <div id="Header" >
                 <ui:insert name="LoggedInHeader" >
                     <ui:include src="/Templates/LoggedInUser/LoggedInHeader.xhtml" /> 
                 </ui:insert>             
         </div>
         
-        <div id="SideBar">
+        <div id="SideBar" >
             <ui:insert name="SideBar" >
                     <ui:include src="/Templates/LoggedInUser/LoggedInSideBar.xhtml" /> 
                 </ui:insert>             
         </div>
         
 
-        <div id="Content">
+        <div id="Content" >
                 <ui:insert name="LoggedInContent" >
                     <ui:include src="/Templates/LoggedInUser/LoggedInContent.xhtml" /> 
                 </ui:insert>             
         </div>
         
-        <div id="Footer">
+        <div id="Footer" >
                 <ui:insert name="LoggedInFooter" >
                     <ui:include src="/Templates/LoggedInUser/LoggedInFooter.xhtml" /> 
                 </ui:insert>             
