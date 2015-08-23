@@ -19,26 +19,32 @@ and open the template in the editor.
     </h:head>
     <body>
         
-        <div id="Header" >
+        <div id="Header">
                 <ui:insert name="LoggedInHeader" >
                     <ui:include src="/Templates/LoggedInUser/LoggedInHeader.xhtml" /> 
                 </ui:insert>             
         </div>
         
-        <div id="SideBar" >
-            <ui:insert name="SideBar" >
-                    <ui:include src="/Templates/LoggedInUser/LoggedInSideBar.xhtml" /> 
-                </ui:insert>             
-        </div>
+
         
 
         <div id="Content" >
+            
+            <div id="SideBar" class="col-lg-3" >
+                    <ui:insert name="SideBar" >
+                    <ui:include src="/Templates/LoggedInUser/LoggedInSideBar.xhtml" /> 
+                </ui:insert>            
+            </div>
+            
+            <div class="col-lg-9">
                 <ui:insert name="LoggedInContent" >
                     <ui:include src="/Templates/LoggedInUser/LoggedInContent.xhtml" /> 
                 </ui:insert>             
+            </div>
+                
         </div>
         
-        <div id="Footer" >
+        <div id="Footer" class="container">
                 <ui:insert name="LoggedInFooter" >
                     <ui:include src="/Templates/LoggedInUser/LoggedInFooter.xhtml" /> 
                 </ui:insert>             

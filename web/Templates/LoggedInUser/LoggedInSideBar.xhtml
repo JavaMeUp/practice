@@ -14,46 +14,35 @@ and open the template in the editor.
     <body>
         <ui:composition> 
 
-            <div class="col-lg-3">   
-                <div class="Teacher">
-                    <h5>
-                        Teacher Classes
-                    </h5>
-                    <ul class=" nav nav-pills nav-stacked">
-                    <li class="active"><a href="#">Home</a></li>
-                    <c:if test="#{LoginPage1Bean.use.studentId.length() >0}">
-                        <ui:repeat value ="#{LoginPage1Bean.getClassByStudentID()}" var="item">
-                            <li>
-                                <a>
-                                    #{item.className}
-                                </a>
-                            </li>
-                        </ui:repeat>
-                    </c:if>
-                    </ul>
-                </div>
-
-                <div class="Student">
-                    <h5>
-                        Student Classes
-                    </h5>
-                    <ul class=" nav nav-pills nav-stacked">
-                    <c:if test="#{LoginPage1Bean.use.studentId.length() >0}">
-                        <ui:repeat value="#{LoginPage1Bean.classesbyTeacherID}" var="item">
-                            <li>
-                                <a>
-                                    #{item.className}
-                                </a>
-                            </li>
-                        </ui:repeat>
-                    </c:if>        
-                        
-                  </ul>                    
-                </div>
-
-            </div>    
-        
-
+    <div class="panel-group Teacher">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Teacher Classes 
+            </div>
+                <c:if test="#{LoginPage1Bean.use.studentId.length() >0}">
+                    <ui:repeat value ="#{LoginPage1Bean.getClassByStudentID()}" var="item">
+                        <div class="panel-body">
+                            #{item.className}
+                        </div>
+                    </ui:repeat>
+                </c:if>
+        </div>
+    </div>
+            
+    <div class="panel-group Student">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Student Classes 
+            </div>
+                <c:if test="#{LoginPage1Bean.use.studentId.length() >0}">
+                    <ui:repeat value ="#{LoginPage1Bean.getClassesbyTeacherID()}" var="item">
+                        <div class="panel-body">
+                            #{item.className}
+                        </div>
+                    </ui:repeat>
+                </c:if>
+        </div>
+    </div>
       </ui:composition>	
     </body>
 </html>
