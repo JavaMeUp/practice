@@ -21,39 +21,38 @@ and open the template in the editor.
     </div>
       
     <div>
-      <ul class="nav navbar-nav">
-        <li class="active">
-            <a href="#">
+        <ul class="nav navbar-nav">
+            <li>
+
+                <p class="navbar-btn">
+
+                    <h:form class="btn btn-def">
+                        <h:commandButton id="logout" action="#{LoginPage1Bean.LogOut()}" value="LogOut">
+                            <f:actionListener type="com.Web.Listeners.LogOutListener"/>
+                                </h:commandButton>
+                    </h:form>                                                
+                </p>
+            </li>
+            <li class="active">
+                <a >
 
                     <h:outputLabel value=" User Name: #{LoginPage1Bean.use.userName}"></h:outputLabel>
-                    <h:outputLabel value=" User ID: #{LoginPage1Bean.use.studentId}"></h:outputLabel>
-            </a>
-        </li>
-          
-        <li class="active">
-            <a href="#">
-                <h:form>
-                    <h:commandButton id="logout" class="btn" action="#{LoginPage1Bean.LogOut()}" value="LogOut">
-                        <f:actionListener type="com.Web.Listeners.LogOutListener"/>
-                    </h:commandButton>
-                </h:form>
-            </a>
-        </li>
-          
-          
 
-        <li class="active">
-            <a href="#">
-                <div class="Admin">
-                    <c:if test="#{LoginPage1Bean.use.administer}">
-                        <h:outputLabel value="I am Admin"/>
-                    </c:if> 
-                </div>          
-            </a>
-        </li>
-          
-          
-      </ul>
+                </a>
+            </li>   
+            <li class="active">
+                <a >
+                    <h:outputLabel value=" User ID: #{LoginPage1Bean.use.studentId}"></h:outputLabel>
+                </a>
+            </li>          
+
+
+            <li>
+                <p class="navbar-btn">
+                    <a href="#" class="btn btn-default">I'm a link button!</a>
+                </p>
+            </li>  
+        </ul>
     </div>
       
       

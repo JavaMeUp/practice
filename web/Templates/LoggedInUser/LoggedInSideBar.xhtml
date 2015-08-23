@@ -36,7 +36,7 @@ and open the template in the editor.
             </div>
                 <c:if test="#{LoginPage1Bean.use.studentId.length() >0}">
                     <ui:repeat value ="#{LoginPage1Bean.getClassesbyTeacherID()}" var="item">
-                        <div class="panel-body">
+                        <div class="panel-body">        
                             #{item.className}
                         </div>
                     </ui:repeat>
