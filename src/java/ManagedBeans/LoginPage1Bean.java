@@ -11,7 +11,9 @@ import com.Web.WebClassService;
 import com.Web.WebCookieService;
 import com.Web.WebStudentService;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -25,7 +27,8 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class LoginPage1Bean implements Serializable {
 
-    private Users use;
+    @ManagedProperty(value="#{userLogedIn")
+    private UserLogedIn use;
 
     @ManagedProperty(value="#{WebCookieService}")
     private  WebCookieService webCookieService;
@@ -44,7 +47,7 @@ public class LoginPage1Bean implements Serializable {
     @PostConstruct
     public void init()
     {
-        use  = webCookieService.getUserFromUserCookieBank();
+        
     }
 
     public Login getLogin() {
@@ -71,11 +74,11 @@ public class LoginPage1Bean implements Serializable {
         this.studentService = studentService;
     }
     
-    public Users getUse() {
+    public UserLogedIn getUse() {
         return use;
     }
 
-    public void setUse(Users use) {
+    public void setUse(UserLogedIn use) {
         this.use = use;
     }
     
@@ -105,16 +108,19 @@ public class LoginPage1Bean implements Serializable {
     
     public List<Classes> getClassesbyTeacherID()
     {
-        return classService.getClassByTeacher(this.use.getTeacherId());
+        return classService.getClassByTeacher(this.use.getUse().getTeacherId());
     }
     
     public List<Classes> getClassByStudentID()
     {
-        return studentService.getClassesByStudent(use.getStudentId());
+        return studentService.getClassesByStudent(use.getUse().getStudentId());
     }
     
     public String LogOut()
     {
+        
+        use.setUse(null);
+        
         webCookieService.removeUserFromUserCookieBank();
         login.setIsValidUser(false);
         return "Home.xhtml";

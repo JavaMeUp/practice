@@ -5,6 +5,7 @@
  */
 package ManagedBeans;
 
+import Hibernate.Users;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 
@@ -16,6 +17,8 @@ import javax.enterprise.context.Dependent;
 @Dependent
 public class UserLogedIn {
 
+    private Users use;
+
     /**
      * Creates a new instance of UserLogedIn
      */
@@ -23,5 +26,14 @@ public class UserLogedIn {
     {
         
     }
+
     
+
+    public Users getUse() {
+        return use;
+    }
+
+    public void setUse(Users use) {
+        this.use = use;
+    }    
 }

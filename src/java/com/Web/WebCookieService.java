@@ -55,16 +55,13 @@ public class WebCookieService  implements Serializable
         return loginUser != null;
     }
     
+    
     public void setValidUserCookie(String userName, String sessionId)
     {
         CookiesDAO singleookie = new CookiesDAO();
         singleookie.SetCookie(userName,sessionId,-1);
     }
     
-    public void removeValidUserCookie(String userName)
-    {
-        //cookie.removeCookie(userName);
-    }
     
     public void updateValidUser(String SessionID)
     {
