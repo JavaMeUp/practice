@@ -38,8 +38,8 @@ public class Login  implements Serializable {
     @EJB
     private IServiceLocator serviceLocator;
     
-    @ManagedProperty(value="#{WebUserLoggedIn}")
-    private LoggedInUser webUserLogedIn;
+    @ManagedProperty(value="#{userLogedIn}")
+    private UserLogedIn webUserLogedIn;
     @ManagedProperty(value="#{WebCookieService}")
     private WebCookieService webCookieService;
     
@@ -72,11 +72,11 @@ public class Login  implements Serializable {
     }
     
 
-    public LoggedInUser getWebUserLogedIn() {
+    public UserLogedIn getWebUserLogedIn() {
         return webUserLogedIn;
     }
 
-    public void setWebUserLogedIn(LoggedInUser webUserLogedIn) {
+    public void setWebUserLogedIn(UserLogedIn webUserLogedIn) {
         this.webUserLogedIn = webUserLogedIn;
     }    
 
@@ -133,7 +133,7 @@ public class Login  implements Serializable {
         {
             webCookieService.setValidUserCookie(userName, SessionID);
             webCookieService.updateValidUser(SessionID);
-            webUserLogedIn.setUser(webCookieService.getUserFromUserCookieBank());
+            webUserLogedIn.setUse(webCookieService.getUserFromUserCookieBank());
             
             
             return "LoggedInPage.xhtml?faces-redirect=true";                

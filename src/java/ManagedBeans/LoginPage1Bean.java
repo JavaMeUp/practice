@@ -6,11 +6,14 @@
 package ManagedBeans;
 
 import Hibernate.Classes;
+import Hibernate.Users;
 import com.Web.WebClassService;
 import com.Web.WebCookieService;
 import com.Web.WebStudentService;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -24,8 +27,8 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class LoginPage1Bean implements Serializable {
 
-    @ManagedProperty(value="#{WebUserLoggedIn")
-    private LoggedInUser user;
+    @ManagedProperty(value="#{userLogedIn")
+    private UserLogedIn use;
 
     @ManagedProperty(value="#{WebCookieService}")
     private  WebCookieService webCookieService;
@@ -71,12 +74,12 @@ public class LoginPage1Bean implements Serializable {
         this.studentService = studentService;
     }
     
-    public LoggedInUser getUse() {
-        return user;
+    public UserLogedIn getUse() {
+        return use;
     }
 
-    public void setUser(LoggedInUser use) {
-        this.user = use;
+    public void setUse(UserLogedIn use) {
+        this.use = use;
     }
     
    public WebCookieService getUserCheck() {
@@ -105,18 +108,18 @@ public class LoginPage1Bean implements Serializable {
     
     public List<Classes> getClassesbyTeacherID()
     {
-        return classService.getClassByTeacher(this.user.getUser().getTeacherId());
+        return classService.getClassByTeacher(this.use.getUse().getTeacherId());
     }
     
     public List<Classes> getClassByStudentID()
     {
-        return studentService.getClassesByStudent(user.getUser().getStudentId());
+        return studentService.getClassesByStudent(use.getUse().getStudentId());
     }
     
     public String LogOut()
     {
         
-        user.setUser(null);
+        use.setUse(null);
         
         webCookieService.removeUserFromUserCookieBank();
         login.setIsValidUser(false);

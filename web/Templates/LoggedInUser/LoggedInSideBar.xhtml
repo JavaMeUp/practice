@@ -19,7 +19,7 @@ and open the template in the editor.
             <div class="panel-heading">
                 Teacher Classes 
             </div>
-                <c:if test="#{WebUserLoggedIn.studentID.length() >0}">
+                <c:if test="#{LoginPage1Bean.use.studentId.length() >0}">
                     <ui:repeat value ="#{LoginPage1Bean.getClassByStudentID()}" var="item">
                         <div class="panel-body">
                             #{item.className}
@@ -34,7 +34,7 @@ and open the template in the editor.
             <div class="panel-heading">
                 Student Classes 
             </div>
-            <c:if test="#{WebUserLoggedIn.teacherID.length() >0}">
+                <c:if test="#{LoginPage1Bean.use.studentId.length() >0}">
                     <ui:repeat value ="#{LoginPage1Bean.getClassesbyTeacherID()}" var="item">
                         <div class="panel-body">        
                             #{item.className}
