@@ -6,9 +6,8 @@
 package ManagedBeans;
 
 import Hibernate.Users;
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
-import javax.enterprise.context.RequestScoped;
+import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -16,9 +15,9 @@ import javax.faces.bean.SessionScoped;
  *
  * @author wilton
  */
-@ManagedBean(name="WebUserLoggedIn",eager=false)
+@ManagedBean(name="WebUserLoggedIn",eager=true)
 @SessionScoped
-public class LoggedInUser {
+public class WebUserLoggedIn  implements Serializable {
 
     private Users user;
     private String userName;
@@ -31,36 +30,27 @@ public class LoggedInUser {
     /**
      * Creates a new instance of UserLogedIn
      */
-    public LoggedInUser() 
+    public WebUserLoggedIn() 
     {
         
     }
-
-    public String getStudentID() {
-        return studentID;
-    }
-
-    public void setStudentID(String studentID) {
-        this.studentID = studentID;
-    }
-
-    public String getTeacherID() {
-        return teacherID;
-    }
-
-    public void setTeacherID(String teacherID) {
-        this.teacherID = teacherID;
-    }
     
+    @PostConstruct
+    public void init()
+    {
+
+    }
+
     public Users getUser() {
         return user;
     }
 
     public void setUser(Users user) {
         this.user = user;
-        this.administrator = this.user.isAdminister();
-        this.userID = this.user.getId();
-        this.userName = this.user.getUserName();
+        this.userName =this.user.getUserName();
+        this.studentID =this.user.getStudentId();
+        this.teacherID =this.user.getTeacherId();
+        this.userID =this.user.getId();
     }
 
     public String getUserName() {
@@ -85,6 +75,31 @@ public class LoggedInUser {
 
     public void setAdministrator(Boolean administrator) {
         this.administrator = administrator;
+    }
+
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
+    public String getTeacherID() {
+        return teacherID;
+    }
+
+    public void setTeacherID(String teacherID) {
+        this.teacherID = teacherID;
+    }
+
+    public void logOut()
+    {
+        this.user = null;
+        this.userName =null;
+        this.studentID =null;
+        this.teacherID =null;
+        this.userID =0;
     }
     
 }

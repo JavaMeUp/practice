@@ -39,7 +39,8 @@ public class Login  implements Serializable {
     private IServiceLocator serviceLocator;
     
     @ManagedProperty(value="#{WebUserLoggedIn}")
-    private LoggedInUser webUserLogedIn;
+    private WebUserLoggedIn webUserLoggedIn;
+    
     @ManagedProperty(value="#{WebCookieService}")
     private WebCookieService webCookieService;
     
@@ -72,12 +73,12 @@ public class Login  implements Serializable {
     }
     
 
-    public LoggedInUser getWebUserLogedIn() {
-        return webUserLogedIn;
+    public WebUserLoggedIn getWebUserLoggedIn() {
+        return webUserLoggedIn;
     }
 
-    public void setWebUserLogedIn(LoggedInUser webUserLogedIn) {
-        this.webUserLogedIn = webUserLogedIn;
+    public void setWebUserLoggedIn(WebUserLoggedIn webUserLogedIn) {
+        this.webUserLoggedIn = webUserLogedIn;
     }    
 
     public List<Student> getStudentList() 
@@ -133,7 +134,7 @@ public class Login  implements Serializable {
         {
             webCookieService.setValidUserCookie(userName, SessionID);
             webCookieService.updateValidUser(SessionID);
-            webUserLogedIn.setUser(webCookieService.getUserFromUserCookieBank());
+            webUserLoggedIn.setUser(webCookieService.getUserFromUserCookieBank());
             
             
             return "LoggedInPage.xhtml?faces-redirect=true";                

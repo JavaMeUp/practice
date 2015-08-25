@@ -25,12 +25,16 @@ and open the template in the editor.
             <li class="active">
 
                 <p class="navbar-btn">
-
-                    <h:form >
-                        <h:commandButton class="btn btn-def" id="logout" action="#{LoginPage1Bean.LogOut()}" value="LogOut">
+                    
+                    <h:form>
+                        <h:commandButton class="btn btn-def" action="#{LoginPage1Bean.LogOut()}" value="LogOut" >
                             <f:actionListener type="com.Web.Listeners.LogOutListener"/>
                         </h:commandButton>
-                    </h:form>                                                
+                    </h:form>       
+
+
+                    
+                    
                 </p>
             </li>
             <li>

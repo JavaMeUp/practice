@@ -24,9 +24,9 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class LoginPage1Bean implements Serializable {
 
-    @ManagedProperty(value="#{WebUserLoggedIn")
-    private LoggedInUser user;
-
+    @ManagedProperty(value="#{WebUserLoggedIn}")
+    private WebUserLoggedIn webUserLoggedIn;
+    
     @ManagedProperty(value="#{WebCookieService}")
     private  WebCookieService webCookieService;
     
@@ -47,22 +47,30 @@ public class LoginPage1Bean implements Serializable {
         
     }
 
-    public Login getLogin() {
-        return login;
+    public WebUserLoggedIn getWebUserLoggedIn() {
+        return webUserLoggedIn;
     }
 
-    public void setLogin(Login login) {
-        this.login = login;
+    public void setWebUserLoggedIn(WebUserLoggedIn webUserLoggedIn) {
+        this.webUserLoggedIn = webUserLoggedIn;
     }
-    
+
     public WebCookieService getWebCookieService() {
         return webCookieService;
     }
 
     public void setWebCookieService(WebCookieService webCookieService) {
         this.webCookieService = webCookieService;
-    }    
-    
+    }
+
+    public WebClassService getClassService() {
+        return classService;
+    }
+
+    public void setClassService(WebClassService classService) {
+        this.classService = classService;
+    }
+
     public WebStudentService getStudentService() {
         return studentService;
     }
@@ -70,29 +78,13 @@ public class LoginPage1Bean implements Serializable {
     public void setStudentService(WebStudentService studentService) {
         this.studentService = studentService;
     }
-    
-    public LoggedInUser getUse() {
-        return user;
+
+    public Login getLogin() {
+        return login;
     }
 
-    public void setUser(LoggedInUser use) {
-        this.user = use;
-    }
-    
-   public WebCookieService getUserCheck() {
-        return webCookieService;
-    }
-
-    public void setUserCheck(WebCookieService webCookieService) {
-        this.webCookieService = webCookieService;
-    }
-    
-    public WebClassService getClassService() {
-        return classService;
-    }
-
-    public void setClassService(WebClassService classService) {
-        this.classService = classService;
+    public void setLogin(Login login) {
+        this.login = login;
     }
 
     public List<Classes> getClasses() {
@@ -102,21 +94,20 @@ public class LoginPage1Bean implements Serializable {
     public void setClasses(List<Classes> classes) {
         this.classes = classes;
     }
-    
     public List<Classes> getClassesbyTeacherID()
     {
-        return classService.getClassByTeacher(this.user.getUser().getTeacherId());
+        return classService.getClassByTeacher(this.webUserLoggedIn.getTeacherID());
     }
     
     public List<Classes> getClassByStudentID()
     {
-        return studentService.getClassesByStudent(user.getUser().getStudentId());
+        return studentService.getClassesByStudent(this.webUserLoggedIn.getStudentID());
     }
     
     public String LogOut()
     {
         
-        user.setUser(null);
+        webUserLoggedIn.logOut();
         
         webCookieService.removeUserFromUserCookieBank();
         login.setIsValidUser(false);
