@@ -10,7 +10,43 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html">
    <body>
       <ui:composition> 
-         <h1>TODO Write Some Content</h1>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Wilson</a>
+    </div>
+      
+    <div>
+        <ul class="nav navbar-nav">
+            <li class="active">
+
+                <p class="navbar-btn">
+                    
+
+
+                    
+                    
+                </p>
+            </li>
+            <li>
+                <a >
+
+                    <h:outputLabel value=" User Name: #{WebUserLoggedIn.userName}"></h:outputLabel>
+
+                </a>
+            </li>   
+            <li>
+                <a >
+                    <h:outputLabel value=" User ID: #{WebUserLoggedIn.userID}"></h:outputLabel>
+                </a>
+            </li>   
+        </ul>
+    </div>
+      
+      
+  </div>
+</nav>          
       </ui:composition>	
        
    </body>
