@@ -90,10 +90,10 @@ public class StudentClassesService implements IService <Studentclasses,String,St
     }
     
     
-    public List<Classes> findClassesByStudentID()
+    public List<Classes> findClassesByStudentID(String id)
     {
         StudentClassesServiceDAO.openCurrentTransaction();
-        List<Classes> listEnrolledClass = StudentClassesServiceDAO.findClassesByStudentID(1);
+        List<Classes> listEnrolledClass = StudentClassesServiceDAO.findClassesByStudentID(Integer.parseInt(id));
         StudentClassesServiceDAO.closeCurrentTransaction();
         return listEnrolledClass;
     }

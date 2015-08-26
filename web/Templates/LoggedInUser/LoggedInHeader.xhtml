@@ -17,8 +17,15 @@ and open the template in the editor.
   <div class="container-fluid">
     
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Wilson</a>
+      <a class="navbar-brand" >Wilson</a>
     </div>
+    
+    <c:if test='#{WebUserLoggedIn.administrator}'>
+        <div class="navbar-header Admin">
+            <a class="navbar-brand" >Administrator</a>
+        </div>
+    </c:if>
+    
       
     <div>
         <ul class="nav navbar-nav">
@@ -31,10 +38,6 @@ and open the template in the editor.
                             <f:actionListener type="com.Web.Listeners.LogOutListener"/>
                         </h:commandButton>
                     </h:form>       
-
-
-                    
-                    
                 </p>
             </li>
             <li>

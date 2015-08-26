@@ -47,6 +47,7 @@ public class WebUserLoggedIn  implements Serializable {
 
     public void setUser(Users user) {
         this.user = user;
+        this.administrator = this.user.isAdminister();
         this.userName =this.user.getUserName();
         this.studentID =this.user.getStudentId();
         this.teacherID =this.user.getTeacherId();
