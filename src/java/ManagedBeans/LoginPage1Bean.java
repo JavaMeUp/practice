@@ -108,9 +108,7 @@ public class LoginPage1Bean implements Serializable {
     {
         
         webUserLoggedIn.logOut();
-        
         webCookieService.removeUserFromUserCookieBank();
-        login.setIsValidUser(false);
         return "Home.xhtml";
     }
 }

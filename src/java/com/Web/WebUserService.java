@@ -74,5 +74,10 @@ public class WebUserService  implements Serializable
         vService.persist(visitor);
     }
     
+    public Users getUserByNameAndPassword(String userName,String password) throws NullPointerException
+    {
+        return userservice.getUser(userName, password);
+    }
+        
     
 }

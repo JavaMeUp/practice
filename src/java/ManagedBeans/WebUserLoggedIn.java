@@ -38,7 +38,7 @@ public class WebUserLoggedIn  implements Serializable {
     @PostConstruct
     public void init()
     {
-        
+
     }
 
     public Users getUser() {

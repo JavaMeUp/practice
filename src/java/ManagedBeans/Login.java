@@ -8,13 +8,10 @@ package ManagedBeans;
 
 
 import DAO.Services.IServiceLocator;
-import static DAO.Services.ServiceEnumContext.StudentService;
 import DAO.Services.StudentService;
-import Hibernate.Student;
-import Hibernate.Users;
 import com.Web.WebCookieService;
+import com.Web.WebUserService;
 import java.io.Serializable;
-import java.util.List;
 import java.util.Random;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -44,14 +41,15 @@ public class Login  implements Serializable {
     @ManagedProperty(value="#{WebCookieService}")
     private WebCookieService webCookieService;
     
+    @ManagedProperty(value="#{WebUserService}")
+    private WebUserService webUserService;
+    
     private String ipAddress;
     private String userName;
     private String password;
-    private StudentService studentService;
-    private List<Student> studentList;
     private final String SessionID;
     private final Random SessionIDGenerator;
-    private boolean isValidUser;
+    
 
 
     /**
@@ -68,50 +66,25 @@ public class Login  implements Serializable {
     @PostConstruct
     public void init()
     {
-        studentService  = (StudentService) serviceLocator.getService(StudentService);
-        studentList = studentService.listAll();
+
     }
-    
+
+    public IServiceLocator getServiceLocator() {
+        return serviceLocator;
+    }
+
+    public void setServiceLocator(IServiceLocator serviceLocator) {
+        this.serviceLocator = serviceLocator;
+    }
 
     public WebUserLoggedIn getWebUserLoggedIn() {
         return webUserLoggedIn;
     }
 
-    public void setWebUserLoggedIn(WebUserLoggedIn webUserLogedIn) {
-        this.webUserLoggedIn = webUserLogedIn;
-    }    
-
-    public List<Student> getStudentList() 
-    {
-        return studentList;
-    }
-    
-    public String getIP()
-    {
-        return this.ipAddress;
-    }
-    
-    public void setIP(String ip)
-    {
-        this.ipAddress = ip;
-    }
-    
-    public String getUserName() {
-        return userName;
+    public void setWebUserLoggedIn(WebUserLoggedIn webUserLoggedIn) {
+        this.webUserLoggedIn = webUserLoggedIn;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
     public WebCookieService getWebCookieService() {
         return webCookieService;
     }
@@ -119,22 +92,51 @@ public class Login  implements Serializable {
     public void setWebCookieService(WebCookieService webCookieService) {
         this.webCookieService = webCookieService;
     }
-    
-    public boolean isIsValidUser() {
-        return isValidUser;
+
+    public WebUserService getWebUserService() {
+        return webUserService;
     }
 
-    public void setIsValidUser(boolean isValidUser) {
-        this.isValidUser = isValidUser;
+    public void setWebUserService(WebUserService webUserService) {
+        this.webUserService = webUserService;
     }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
+    
+
     
     public String Login()
     {       
-        if(isValidUser = webCookieService.isValidUser(userName, password))
+        if(webUserService.isValidUser(userName, password))
         {
             webCookieService.setValidUserCookie(userName, SessionID);
-            webCookieService.updateValidUser(SessionID);
-            webUserLoggedIn.setUser(webCookieService.getUserFromUserCookieBank());
+            webUserService.updateValidUser(SessionID);
+            
+            webUserLoggedIn.setUser(webUserService.getUserByNameAndPassword(userName, password));
             
             
             return "LoggedInPage.xhtml?faces-redirect=true";                
@@ -142,7 +144,7 @@ public class Login  implements Serializable {
         else
         {
             //Should this be in web cookie service or in webUserService?
-            webCookieService.insertInvalidUser(ipAddress, userName, password);
+            webUserService.insertInvalidUser(ipAddress, userName, password);
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage("LoginForm", new FacesMessage("UserName or Password not Valid"));                
         }

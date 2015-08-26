@@ -48,37 +48,12 @@ public class WebCookieService  implements Serializable
         this.userservice = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
         this.uService = (UsersService) serviceLocator.getService(ServiceEnumContext.UsersService);
     }
-    
-    public boolean isValidUser(String userName, String passeord)
-    {
-        loginUser = userservice.getUser(userName, passeord);
-        return loginUser != null;
-    }
-    
-    
+        
     public void setValidUserCookie(String userName, String sessionId)
     {
         CookiesDAO singleookie = new CookiesDAO();
         singleookie.SetCookie(userName,sessionId,-1);
     }
-    
-    
-    public void updateValidUser(String SessionID)
-    {
-        loginUser.setLastLogin(date);
-        loginUser.setSessionId(SessionID);
-        userservice.update(loginUser);
-    }
-    
-    public void insertInvalidUser(String ipAddress,String userName, String password)
-    {
-        
-        VisitorsService vService = (VisitorsService) serviceLocator.getService(ServiceEnumContext.VisitorsService);
-        Visitors v = new Visitors(ipAddress,userName,password);
-        v.setLastRequested(date);
-        vService.persist(v);
-    }
-    
     
     public Users getUserFromUserCookieBank() throws NullPointerException
     {

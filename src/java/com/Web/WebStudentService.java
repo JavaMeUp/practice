@@ -11,12 +11,10 @@ import DAO.Services.IServiceLocator;
 import DAO.Services.ServiceEnumContext;
 import DAO.Services.StudentClassesService;
 import Hibernate.Classes;
-import Hibernate.Studentclasses;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
