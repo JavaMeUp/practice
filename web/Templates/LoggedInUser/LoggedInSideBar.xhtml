@@ -16,16 +16,24 @@ and open the template in the editor.
 
     <div class="panel-group Teacher">
         <div class="panel panel-default">
+
+
+            
             <div class="panel-heading">
                 Student Classes 
             </div>
                 <c:if test="#{WebUserLoggedIn.studentID.length() >0}">
-                    <ui:repeat value ="#{LoginPage1Bean.getClassByStudentID()}" var="item">
-                        <div class="panel-body">
-                            #{item.className}
+                    <ui:repeat id="StudentClass" value ="#{LoginPage1Bean.getClassByStudentID()}" var="item">
+                        <div class="panel-body"  >
+                            <h:commandButton value="#{item.className}" id="#{item.classId}}">
+                                <f:ajax execute="name" render="output" />
+                            </h:commandButton>
+                            <h:outputText id="item" value="#{item.className}">
+                            </h:outputText>
                         </div>
                     </ui:repeat>
                 </c:if>
+            
         </div>
     </div>
             
