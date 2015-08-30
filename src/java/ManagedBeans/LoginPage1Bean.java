@@ -10,11 +10,18 @@ import com.Web.WebClassService;
 import com.Web.WebCookieService;
 import com.Web.WebStudentService;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.component.html.HtmlForm;
+import javax.faces.component.html.HtmlOutputText;
+import javax.faces.event.AjaxBehaviorEvent;
 
 /**
  *
@@ -111,4 +118,32 @@ public class LoginPage1Bean implements Serializable {
         webCookieService.removeUserFromUserCookieBank();
         return "Home.xhtml";
     }
-}
+    
+    public void AJAX(AjaxBehaviorEvent  event)
+    {
+       Random rand = new Random();
+       Object thing = event.getSource();
+       HtmlForm item1 = (HtmlForm) event.getComponent();
+       HtmlForm item = (HtmlForm) event.getSource();
+       System.out.print(item.getChildren().size());
+       List<UIComponent> components = item.getChildren();
+       HtmlOutputText text = (HtmlOutputText)components.get(0);
+       String id = text.getId();
+       //HtmlOutputText text = (HtmlOutputText) item.getParent().getChildren().get(1);
+       
+       
+       
+       
+       this.webUserLoggedIn.setUserName(String.format("AJAX + %s", rand.nextInt()));
+           
+    }
+    
+    public void AJAX()
+    {
+       Random rand = new Random();
+       
+       
+       this.webUserLoggedIn.setUserName(String.format("AJAX + %s", rand.nextInt()));
+           
+    }
+}   
