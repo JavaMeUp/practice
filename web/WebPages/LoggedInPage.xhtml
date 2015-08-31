@@ -10,14 +10,14 @@ and open the template in the editor.
    xmlns:ui="http://java.sun.com/jsf/facelets"
    xmlns:f="http://java.sun.com/jsf/core"
    xmlns:c="http://java.sun.com/jsp/jstl/core">
-   <h:body> 
+   <h:body > 
        
-      <ui:composition template="../Templates/LoggedInUser/LoggedIn.xhtml">
+      <ui:composition  template="../Templates/LoggedInUser/LoggedIn.xhtml" >
           
           
-          <ui:define name="LoggedInContent" id="DisplayContext">
-              <h:body id="DisplayContext">
-                  <c:choose>
+          <ui:define name="LoggedInContent"  >
+              <h:panelGrid id="DisplayContext">
+                  <c:choose >
                     <c:when test="#{LoginPage1Bean.curentPage eq 'Teacher'}">
                         <ui:insert>
                             <ui:include src="/WEB-INF/WebPages/Teacher.xhtml"/> 
@@ -52,7 +52,7 @@ and open the template in the editor.
                    </c:otherwise>                 
 
                 </c:choose>
-              </h:body>
+            </h:panelGrid>
                 
              
       

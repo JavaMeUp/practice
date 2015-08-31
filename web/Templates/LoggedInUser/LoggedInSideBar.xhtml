@@ -31,7 +31,7 @@ and open the template in the editor.
                                 <h:form class="btn">
                                     <h:outputText value="#{item.className}"  id="Student_ID_#{item.classId}" />
 
-                                    <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax "></f:ajax>
+                                    <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax DisplayContext"></f:ajax>
                                 </h:form>   
 
                             </h:body>
@@ -78,7 +78,7 @@ and open the template in the editor.
                                 <h:form class="btn">
                                     <h:outputText value="#{item.className}"  id="Teacher_ID_#{item.classId}" />
 
-                                    <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax "></f:ajax>
+                                    <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax DisplayContext"></f:ajax>
                                 </h:form>   
 
                             </h:body>

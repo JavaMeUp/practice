@@ -142,6 +142,7 @@ public class LoginPage1Bean implements Serializable {
        List<UIComponent> components = item.getChildren();
        HtmlOutputText text = (HtmlOutputText)components.get(0);
        String id = text.getId();
+       
        this.CurentPage = CurrentPageEnum.StudentPage.getPageName();
        
        //HtmlOutputText text = (HtmlOutputText) item.getParent().getChildren().get(1);

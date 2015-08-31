@@ -17,7 +17,7 @@ and open the template in the editor.
         <link href="../../resources/css/WilsonCss.css" rel="stylesheet" type="text/css"/>
         <title>Wilson Practice</title>
     </h:head>
-    <body>
+    <h:body  >
         
         <div id="Header">
                 <ui:insert name="LoggedInHeader" >
@@ -30,19 +30,22 @@ and open the template in the editor.
 
         <div id="Content"  class="clearfix">
             
+                <div id="SideBar" class="col-lg-2" >
+                    <ui:insert name="SideBar" >
+                        <ui:include src="/Templates/LoggedInUser/LoggedInSideBar.xhtml" /> 
+                    </ui:insert>            
+                </div>
+            
+                <div class="col-lg-8" >
+                    <ui:insert name="LoggedInContent"  >
+                        <ui:include src="/Templates/LoggedInUser/LoggedInContent.xhtml" /> 
+                    </ui:insert>             
+                </div>
             
             
-            <div id="SideBar" class="col-lg-2" >
-                <ui:insert name="SideBar" >
-                    <ui:include src="/Templates/LoggedInUser/LoggedInSideBar.xhtml" /> 
-                </ui:insert>            
-            </div>
             
-            <div class="col-lg-8">
-                <ui:insert name="LoggedInContent" >
-                    <ui:include src="/Templates/LoggedInUser/LoggedInContent.xhtml" /> 
-                </ui:insert>             
-            </div>
+            
+            
                 
         </div>
         
@@ -51,5 +54,5 @@ and open the template in the editor.
                     <ui:include src="/Templates/LoggedInUser/LoggedInFooter.xhtml" /> 
                 </ui:insert>             
         </div>
-    </body>
+    </h:body>
 </html>
