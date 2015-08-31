@@ -14,7 +14,7 @@ and open the template in the editor.
     <body>
         <ui:composition> 
 
-    <div class="panel-group Teacher">
+    <div class="panel-group Student">
         <div class="panel panel-default">
 
 
@@ -23,18 +23,17 @@ and open the template in the editor.
                 Student Classes 
             </div>
                 <c:if test="#{WebUserLoggedIn.studentID.length() >0}">
-                        <c:forEach items="#{LoginPage1Bean.getClassByStudentID()}" var="item">
+                    <c:forEach items="#{LoginPage1Bean.getClassByStudentID()}" var="item">
                         
                         <div class="panel-body">
-                            <h:body >
-                                <h:form>
-                                    <h:outputText value="#{item.className}"  id="ID_#{item.classId}" />
-                                    
-                                    <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax">
-                                            
-                                        </f:ajax>
+                            <h:body>
+                                
+                                <h:form class="btn">
+                                    <h:outputText value="#{item.className}"  id="Student_ID_#{item.classId}" />
+
+                                    <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax "></f:ajax>
                                 </h:form>   
-                                    
+
                             </h:body>
                         </div>
                     </c:forEach>
@@ -64,17 +63,28 @@ and open the template in the editor.
             </h:outputLabel>
             
             
-    <div class="panel-group Student">
+    <div class="panel-group Teacher">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Teacher Classes 
             </div>
             <c:if test="#{WebUserLoggedIn.teacherID.length() >0}">
-                    <ui:repeat value ="#{LoginPage1Bean.getClassesbyTeacherID()}" var="item">
-                        <div class="panel-body">        
-                            #{item.className}
+                
+                <c:forEach items="#{LoginPage1Bean.classesbyTeacherID}" var="item">
+                        
+                        <div class="panel-body">
+                            <h:body>
+                                
+                                <h:form class="btn">
+                                    <h:outputText value="#{item.className}"  id="Teacher_ID_#{item.classId}" />
+
+                                    <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax "></f:ajax>
+                                </h:form>   
+
+                            </h:body>
                         </div>
-                    </ui:repeat>
+                    </c:forEach>
+
                 </c:if>
         </div>
     </div>

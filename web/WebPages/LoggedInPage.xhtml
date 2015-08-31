@@ -15,25 +15,49 @@ and open the template in the editor.
       <ui:composition template="../Templates/LoggedInUser/LoggedIn.xhtml">
           
           
-         <ui:define name="LoggedInContent">
-            <h2>Page1 content</h2>
-            <div>
-                <p> Welcome to the Student Teacher portal, #{WebUserLoggedIn.userName} </p>
-                <p>On The Left are options for you. At the moment you are: </p>
+          <ui:define name="LoggedInContent" id="DisplayContext">
+              <h:body id="DisplayContext">
+                  <c:choose>
+                    <c:when test="#{LoginPage1Bean.curentPage eq 'Teacher'}">
+                        <ui:insert>
+                            <ui:include src="/WEB-INF/WebPages/Teacher.xhtml"/> 
+                        </ui:insert>
+                    </c:when>
+
+                    <c:when test="#{LoginPage1Bean.curentPage eq 'Student'}">
+                        <ui:insert>
+                            <ui:include src="/WEB-INF/WebPages/Student.xhtml"/>
+                        </ui:insert>
+                    </c:when>
+
+                    <c:otherwise> 
+                      <h2>Page1 content</h2>
+                      <div>
+                          <p> Welcome to the Student Teacher portal, #{WebUserLoggedIn.userName} </p>
+                          <p>On The Left are options for you. At the moment you are: </p>
+
+
+                          <c:if test="#{WebUserLoggedIn.administrator}">
+                              <p class="Admin"> A Administrator</p>
+                          </c:if>
+                          <c:if test="#{WebUserLoggedIn.teacherID.length()>0}">
+                              <p class="Teacher"> A Teacher</p>
+                          </c:if>
+                          <c:if test="#{WebUserLoggedIn.studentID.length()>0}">
+                              <p class="Student"> A Student</p>
+                          </c:if> 
+
+                      </div>
+                       <!--<h:link value="Back To Home" outcome="Home" />-->
+                   </c:otherwise>                 
+
+                </c:choose>
+              </h:body>
                 
-                
-                <c:if test="#{WebUserLoggedIn.administrator}">
-                    <p class="Admin"> A Administrator</p>
-                </c:if>
-                <c:if test="#{WebUserLoggedIn.teacherID.length()>0}">
-                    <p class="Teacher"> A Teacher</p>
-                </c:if>
-                <c:if test="#{WebUserLoggedIn.studentID.length()>0}">
-                    <p class="Student"> A Student</p>
-                </c:if> 
-                
-            </div>
-             <!--<h:link value="Back To Home" outcome="Home" />-->
+             
+      
+
+             
          </ui:define> 
           
          	

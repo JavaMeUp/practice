@@ -52,8 +52,9 @@ public class StudentDAO implements IDAO <Student,String>
     
     public void closeCurrentTransaction()
     {
-        this.currentSession.close();
         this.currentTransaction.commit();
+        this.currentSession.close();
+        
     }
     
     public Session getCurrentSession()

@@ -6,6 +6,7 @@
 package ManagedBeans;
 
 import Hibernate.Classes;
+import com.Web.CurrentPageEnum;
 import com.Web.WebClassService;
 import com.Web.WebCookieService;
 import com.Web.WebStudentService;
@@ -46,14 +47,26 @@ public class LoginPage1Bean implements Serializable {
     @ManagedProperty(value="#{Login}")
     private  Login login;    
     
+    private String CurentPage;
+    
     private List<Classes> classes;
 
     @PostConstruct
     public void init()
     {
         
+    }   
+
+    public String getCurentPage() {
+        return CurentPage;
     }
 
+    public void setCurentPage(String CurentPage) {
+        this.CurentPage = CurentPage;
+    }
+
+    
+    
     public WebUserLoggedIn getWebUserLoggedIn() {
         return webUserLoggedIn;
     }
@@ -129,6 +142,8 @@ public class LoginPage1Bean implements Serializable {
        List<UIComponent> components = item.getChildren();
        HtmlOutputText text = (HtmlOutputText)components.get(0);
        String id = text.getId();
+       this.CurentPage = CurrentPageEnum.StudentPage.getPageName();
+       
        //HtmlOutputText text = (HtmlOutputText) item.getParent().getChildren().get(1);
        
        
