@@ -14,14 +14,14 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name="WebCurrentPageEnum",eager=true)
 @SessionScoped
-public enum CurrentPageEnum 
+public enum WebCurrentPageEnum 
 {
     TeacherPage(1),
     StudentPage(2);
     
     private String PageName;
     
-    private CurrentPageEnum(int i)
+    private WebCurrentPageEnum(int i)
     {
         switch(i)
         {

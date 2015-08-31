@@ -6,7 +6,7 @@
 package ManagedBeans;
 
 import Hibernate.Classes;
-import com.Web.CurrentPageEnum;
+import com.Web.WebCurrentPageEnum;
 import com.Web.WebClassService;
 import com.Web.WebCookieService;
 import com.Web.WebStudentService;
@@ -43,6 +43,7 @@ public class LoginPage1Bean implements Serializable {
     
     @ManagedProperty(value="#{WebStudentService}")
     private  WebStudentService studentService;    
+    
     
     @ManagedProperty(value="#{Login}")
     private  Login login;    
@@ -144,11 +145,11 @@ public class LoginPage1Bean implements Serializable {
        String id = text.getId();
        if(id.contains("Student"))
        {
-        this.CurentPage = CurrentPageEnum.StudentPage.getPageName();
+        this.CurentPage = WebCurrentPageEnum.StudentPage.getPageName();
        }
        if(id.contains("Teacher"))
        {
-        this.CurentPage = CurrentPageEnum.TeacherPage.getPageName();   
+        this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   
        }
        
        
