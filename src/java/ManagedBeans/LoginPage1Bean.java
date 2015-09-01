@@ -11,10 +11,8 @@ import com.Web.WebClassService;
 import com.Web.WebCookieService;
 import com.Web.WebStudentService;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -43,7 +41,6 @@ public class LoginPage1Bean implements Serializable {
     
     @ManagedProperty(value="#{WebStudentService}")
     private  WebStudentService studentService;    
-    
     
     @ManagedProperty(value="#{Login}")
     private  Login login;    
@@ -127,7 +124,7 @@ public class LoginPage1Bean implements Serializable {
     
     public String LogOut()
     {
-        
+        this.CurentPage = null;
         webUserLoggedIn.logOut();
         webCookieService.removeUserFromUserCookieBank();
         return "Home.xhtml";
@@ -143,12 +140,19 @@ public class LoginPage1Bean implements Serializable {
        List<UIComponent> components = item.getChildren();
        HtmlOutputText text = (HtmlOutputText)components.get(0);
        String id = text.getId();
+       
+       
        if(id.contains("Student"))
        {
-        this.CurentPage = WebCurrentPageEnum.StudentPage.getPageName();
+           studentService.getStudentByClassID("1");
+           this.CurentPage = WebCurrentPageEnum.StudentPage.getPageName();
        }
+       
+       
        if(id.contains("Teacher"))
        {
+           
+           
         this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   
        }
        

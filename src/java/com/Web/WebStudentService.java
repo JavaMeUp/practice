@@ -11,6 +11,8 @@ import DAO.Services.IServiceLocator;
 import DAO.Services.ServiceEnumContext;
 import DAO.Services.StudentClassesService;
 import Hibernate.Classes;
+import Hibernate.Student;
+import Hibernate.Studentclasses;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -45,6 +47,19 @@ public class WebStudentService implements Serializable{
         //Need to get a list of the Studentenrolledclasses and then see what classeIds are present for the student and then query again to get the classes and return it.
          List<Classes> studentClass = this.enrollService.findClassesByStudentID(id);
         return studentClass;
+    }
+    
+    public List<Studentclasses> getStudentByClassID(String id)
+    {
+        List<Studentclasses> students = this.enrollService.listAll();
+        for(Studentclasses item: students)
+        {
+            if(!item.getClasses().getClassId().equals(id))
+            {
+                students.remove(item);
+            }
+        }
+        return students;
     }
     
 }
