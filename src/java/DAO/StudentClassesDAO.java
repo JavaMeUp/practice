@@ -6,6 +6,7 @@
 package DAO;
 
 import Hibernate.Classes;
+import Hibernate.Student;
 import Hibernate.Studentclasses;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -125,10 +126,10 @@ public class StudentClassesDAO implements IDAO <Studentclasses,String>
         return classes;        
     }
     
-    public List<Studentclasses> findStudentsbyClassID() 
+    public List<Student> findStudentsbyClassID(int id) 
     {
-        List<Studentclasses> AllStudentenrolledclasses;
-        AllStudentenrolledclasses = (List<Studentclasses>) getCurrentSession().createQuery("select s.student from Classes  c join c.studentclasseses s").list();
+        List<Student> AllStudentenrolledclasses;
+        AllStudentenrolledclasses = (List<Student>) getCurrentSession().createQuery("select s.student from Classes  c join c.studentclasseses s  where c.id= :id ").setInteger("id", id).list();
         return AllStudentenrolledclasses;        
     }
     

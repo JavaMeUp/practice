@@ -7,6 +7,7 @@ package DAO.Services;
 
 import DAO.StudentClassesDAO;
 import Hibernate.Classes;
+import Hibernate.Student;
 import Hibernate.Studentclasses;
 import java.util.List;
 
@@ -98,6 +99,12 @@ public class StudentClassesService implements IService <Studentclasses,String,St
         return listEnrolledClass;
     }
     
-    
+    public List<Student> findStudentsByClassID(String id)
+    {
+        StudentClassesServiceDAO.openCurrentTransaction();
+        List<Student> listStudents = StudentClassesServiceDAO.findStudentsbyClassID(Integer.parseInt(id));
+        StudentClassesServiceDAO.closeCurrentTransaction();
+        return listStudents;
+    }    
     
 }
