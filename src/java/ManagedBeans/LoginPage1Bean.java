@@ -8,6 +8,7 @@ package ManagedBeans;
 import Hibernate.Classes;
 import Hibernate.Student;
 import com.Web.WebAjaxSingleStudent;
+import com.Web.WebAjaxSingleTeacher;
 import com.Web.WebCurrentPageEnum;
 import com.Web.WebClassService;
 import com.Web.WebCookieService;
@@ -40,7 +41,7 @@ public class LoginPage1Bean implements Serializable {
     private  WebCookieService webCookieService;
     
     @ManagedProperty(value="#{WebClassService}")
-    private  WebClassService classService;    
+    private  WebClassService webclassService;    
     
     @ManagedProperty(value="#{WebStudentClassesService}")
     private  WebStudentClassesService webStudentClassesService;    
@@ -107,13 +108,14 @@ public class LoginPage1Bean implements Serializable {
         this.webCookieService = webCookieService;
     }
 
-    public WebClassService getClassService() {
-        return classService;
+    public WebClassService getWebclassService() {
+        return webclassService;
     }
 
-    public void setClassService(WebClassService classService) {
-        this.classService = classService;
+    public void setWebclassService(WebClassService webclassService) {
+        this.webclassService = webclassService;
     }
+
 
     public WebStudentClassesService getWebStudentClassesService() {
         return webStudentClassesService;
@@ -140,7 +142,7 @@ public class LoginPage1Bean implements Serializable {
     }
     public List<Classes> getClassesbyTeacherID()
     {
-        return classService.getClassByTeacher(this.webUserLoggedIn.getTeacherID());
+        return webclassService.getClassByTeacher(this.webUserLoggedIn.getTeacherID());
     }
     
     public List<Classes> getClassByStudentID()
@@ -170,28 +172,32 @@ public class LoginPage1Bean implements Serializable {
        
        if(id.contains("Student"))
        {
+           String classId = id.replace("Student_ID_","");
+           List<Student> students =  webStudentClassesService.getStudentByClassID(classId);
+           ArrayList<WebAjaxSingleStudent>  newAjax = new ArrayList<WebAjaxSingleStudent>();
            
-           List<Student> studentClasses =  webStudentClassesService.getStudentByClassID("1");
-           Student i = studentClasses.get(0);
-           System.out.print(i.getFirstName());
-           System.out.print(i.getClass());
-           System.out.print(i.getDob());
-           System.out.print(i.getFirstName());
-           System.out.print(i.getFirstName());
+           for(Student singleStudent: students)
+           {
+               newAjax.add( new WebAjaxSingleStudent(singleStudent.getFirstName(),singleStudent.getLastName(),String.valueOf(singleStudent.getDob())));
+           }
            this.CurentPage = WebCurrentPageEnum.StudentPage.getPageName();
-           
-           ArrayList<WebAjaxSingleStudent>  ish = new ArrayList<WebAjaxSingleStudent>();
-           ish.add(new WebAjaxSingleStudent(i.getFirstName(), String.valueOf(i.getStudentId()), i.getLastName()));
-           webAjaxStudents.setStudent(ish);
+           webAjaxStudents.setStudent(newAjax);
            
        }
        
        
        if(id.contains("Teacher"))
        {
+           String classId = id.replace("webAjaxTeachers","");
+           List<Classes> classes = webclassService.getClassByTeacher(classId);
+           ArrayList<WebAjaxSingleTeacher>  newAjax = new ArrayList<WebAjaxSingleTeacher>();
            
-           
-        this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   
+           for(Classes singleClass : classes)
+           {
+               newAjax.add(new WebAjaxSingleTeacher());
+           }
+           this.webAjaxTeachers.setTeacher(newAjax);
+            this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   
        }
        
        
