@@ -5,10 +5,13 @@
  */
 package ManagedBeans;
 
+import com.Web.Ajax.WebAjaxStudents;
+import com.Web.Ajax.WebAjaxTeachers;
 import Hibernate.Classes;
 import Hibernate.Student;
-import com.Web.WebAjaxSingleStudent;
-import com.Web.WebAjaxSingleTeacher;
+import Hibernate.Teacher;
+import com.Web.Ajax.WebAjaxSingleStudent;
+import com.Web.Ajax.WebAjaxSingleTeacher;
 import com.Web.WebCurrentPageEnum;
 import com.Web.WebClassService;
 import com.Web.WebCookieService;
@@ -180,9 +183,9 @@ public class LoginPage1Bean implements Serializable {
            {
                newAjax.add( new WebAjaxSingleStudent(singleStudent.getFirstName(),singleStudent.getLastName(),String.valueOf(singleStudent.getDob())));
            }
-           this.CurentPage = WebCurrentPageEnum.StudentPage.getPageName();
-           webAjaxStudents.setStudent(newAjax);
            
+           this.webAjaxStudents.setStudent(newAjax);
+           this.CurentPage = WebCurrentPageEnum.StudentPage.getPageName();
        }
        
        
@@ -190,6 +193,7 @@ public class LoginPage1Bean implements Serializable {
        {
            String classId = id.replace("webAjaxTeachers","");
            List<Classes> classes = webclassService.getClassByTeacher(classId);
+           Teacher  teach = webclassService.getTeacherbyClassId(classId);
            ArrayList<WebAjaxSingleTeacher>  newAjax = new ArrayList<WebAjaxSingleTeacher>();
            
            for(Classes singleClass : classes)
@@ -197,7 +201,7 @@ public class LoginPage1Bean implements Serializable {
                newAjax.add(new WebAjaxSingleTeacher());
            }
            this.webAjaxTeachers.setTeacher(newAjax);
-            this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   
+           this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   
        }
        
        

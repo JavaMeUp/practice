@@ -9,11 +9,11 @@ import DAO.Services.ClassesService;
 import DAO.Services.IServiceLocator;
 import DAO.Services.ServiceEnumContext;
 import Hibernate.Classes;
+import Hibernate.Teacher;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -49,7 +49,12 @@ public class WebClassService implements Serializable{
         List<Classes> classes;
         classes = classService.listAllByID(id);
         return classes;
-        
     }
+    
+    public Teacher getTeacherbyClassId(String classId)
+    {
+        return classService.findByID(classId).getTeacher();
+    };
+    
     
 }
