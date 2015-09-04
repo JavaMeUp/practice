@@ -22,7 +22,7 @@ import java.util.List;
 public class StudentClassesService implements IService <Studentclasses,String,StudentClassesDAO>
 {
     private static StudentClassesDAO StudentClassesServiceDAO;
-    private final String ServiceName ="StudentEnrolledClassesService";
+    private final String ServiceName ="StudentClassesService";
     
     public StudentClassesService()
     {
