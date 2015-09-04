@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ManagedBeans;
+package com.Web.Ajax;
 
-import com.Web.WebAjaxSingleStudent;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -15,30 +14,23 @@ import javax.faces.bean.SessionScoped;
  *
  * @author wilson.li
  */
-@ManagedBean(name="WebAjaxStudents",eager=true)
+@ManagedBean(name="WebAjaxTeachers",eager=true)
 @SessionScoped
-public class WebAjaxStudents implements Serializable {
+public class WebAjaxTeachers implements Serializable {
 
-    private List<WebAjaxSingleStudent> student;
+    private List<WebAjaxSingleTeacher> teacher;
     /**
      * Creates a new instance of AjaxStudents
      */
-    public WebAjaxStudents() {
+    public WebAjaxTeachers() {
     }
 
-    public List<WebAjaxSingleStudent> getStudent() {
-        return student;
+    public List<WebAjaxSingleTeacher> getTeacher() {
+        return teacher;
     }
 
-    public void setStudent(List<WebAjaxSingleStudent> student) {
-        this.student = student;
+    public void setTeacher(List<WebAjaxSingleTeacher> teacher) {
+        this.teacher = teacher;
     }
-    
-    
-    
-
-    
-    
-    
     
 }
