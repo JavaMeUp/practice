@@ -1,5 +1,5 @@
 package Hibernate;
-// Generated 13-Aug-2015 09:53:13 by Hibernate Tools 4.3.1
+// Generated Sep 4, 2015 6:55:56 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -35,6 +35,13 @@ public class Visitors  implements java.io.Serializable {
     public Visitors(String ipAddress) {
         this.ipAddress = ipAddress;
     }
+    public Visitors(String ipAddress, String passwordSubmitted, String loginName, Date lastRequested) {
+       this.ipAddress = ipAddress;
+       this.passwordSubmitted = passwordSubmitted;
+       this.loginName = loginName;
+       this.lastRequested = lastRequested;
+    }
+    
     public Visitors(String ipAddress, String passwordSubmitted, String loginName) {
        this.ipAddress = ipAddress;
        this.passwordSubmitted = passwordSubmitted;

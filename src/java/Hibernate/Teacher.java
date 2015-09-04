@@ -1,5 +1,5 @@
 package Hibernate;
-// Generated 13-Aug-2015 09:53:13 by Hibernate Tools 4.3.1
+// Generated Sep 4, 2015 6:55:56 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -8,6 +8,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -24,42 +26,40 @@ import javax.persistence.TemporalType;
 public class Teacher  implements java.io.Serializable {
 
 
-     private int teacherId;
+     private Integer teacherId;
      private Date recordDate;
      private String firstName;
      private String lastName;
      private String specialSubject;
-     private Set<Classes> classeses = new HashSet<Classes>(0);
+     private Set<Teacherclasses> teacherclasseses = new HashSet<Teacherclasses>(0);
 
     public Teacher() {
     }
 
 	
-    public Teacher(int teacherId, Date recordDate, String firstName, String lastName, String specialSubject) {
-        this.teacherId = teacherId;
+    public Teacher(Date recordDate, String firstName, String lastName, String specialSubject) {
         this.recordDate = recordDate;
         this.firstName = firstName;
         this.lastName = lastName;
         this.specialSubject = specialSubject;
     }
-    public Teacher(int teacherId, Date recordDate, String firstName, String lastName, String specialSubject, Set<Classes> classeses) {
-       this.teacherId = teacherId;
+    public Teacher(Date recordDate, String firstName, String lastName, String specialSubject, Set<Teacherclasses> teacherclasseses) {
        this.recordDate = recordDate;
        this.firstName = firstName;
        this.lastName = lastName;
        this.specialSubject = specialSubject;
-       this.classeses = classeses;
+       this.teacherclasseses = teacherclasseses;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="TeacherID", unique=true, nullable=false)
-    public int getTeacherId() {
+    public Integer getTeacherId() {
         return this.teacherId;
     }
     
-    public void setTeacherId(int teacherId) {
+    public void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
     }
 
@@ -104,12 +104,12 @@ public class Teacher  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="teacher")
-    public Set<Classes> getClasseses() {
-        return this.classeses;
+    public Set<Teacherclasses> getTeacherclasseses() {
+        return this.teacherclasseses;
     }
     
-    public void setClasseses(Set<Classes> classeses) {
-        this.classeses = classeses;
+    public void setTeacherclasseses(Set<Teacherclasses> teacherclasseses) {
+        this.teacherclasseses = teacherclasseses;
     }
 
 

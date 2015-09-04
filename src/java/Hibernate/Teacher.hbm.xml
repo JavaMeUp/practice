@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 13-Aug-2015 09:53:14 by Hibernate Tools 4.3.1 -->
+<!-- Generated Sep 4, 2015 6:56:01 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Hibernate.Teacher" table="teacher" catalog="practicesql" optimistic-lock="version">
-        <id name="teacherId" type="int">
+        <id name="teacherId" type="java.lang.Integer">
             <column name="TeacherID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="recordDate" type="date">
             <column name="RecordDate" length="10" not-null="true" />
@@ -20,11 +20,11 @@
         <property name="specialSubject" type="string">
             <column name="SpecialSubject" length="250" not-null="true" />
         </property>
-        <set name="classeses" table="classes" inverse="true" lazy="true" fetch="select">
+        <set name="teacherclasseses" table="teacherclasses" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="TeacherID" not-null="true" />
+                <column name="TeacherId" />
             </key>
-            <one-to-many class="Hibernate.Classes" />
+            <one-to-many class="Hibernate.Teacherclasses" />
         </set>
     </class>
 </hibernate-mapping>
