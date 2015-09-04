@@ -19,25 +19,28 @@ and open the template in the editor.
 
 
             
-            <div class="panel-heading">
+            <div class="panel-heading" data-toggle="collapse" data-target="#studentPanel">
                 Student Classes 
             </div>
-                <c:if test="#{WebUserLoggedIn.studentID.length() >0}">
-                    <c:forEach items="#{LoginPage1Bean.getClassByStudentID()}" var="item">
+                <div id="studentPanel" class="collapse">
+                    
+                    <c:if test="#{WebUserLoggedIn.studentID.length() >0}">
+                        <c:forEach items="#{LoginPage1Bean.getClassByStudentID()}" var="item">
+
+                            <div class="panel-body">
+
+                                    <h:form class="btn">
+                                        <h:outputText value="#{item.className}"  id="Student_ID_#{item.classId}" />
+
+                                        <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax DisplayContext"></f:ajax>
+                                    </h:form>   
+                            </div>
+                        </c:forEach>
                         
-                        <div class="panel-body">
-                            <h:body>
-                                
-                                <h:form class="btn">
-                                    <h:outputText value="#{item.className}"  id="Student_ID_#{item.classId}" />
+                    </c:if>
+                </div>
+                    
 
-                                    <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax DisplayContext"></f:ajax>
-                                </h:form>   
-
-                            </h:body>
-                        </div>
-                    </c:forEach>
-                </c:if>
             
         </div>
     </div>
@@ -65,27 +68,33 @@ and open the template in the editor.
             
     <div class="panel-group Teacher">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading" data-toggle="collapse" data-target="#teacherPanel">
                 Teacher Classes 
             </div>
-            <c:if test="#{WebUserLoggedIn.teacherID.length() >0}">
+            
+            <div id="teacherPanel" class="collapse">
+                <c:if test="#{WebUserLoggedIn.teacherID.length() >0}">
+
+                    <c:forEach items="#{LoginPage1Bean.classesbyTeacherID}" var="item">
+
+                            <div class="panel-body">
+                                <h:body>
+
+                                    <h:form class="btn">
+                                        <h:outputText value="#{item.className}"  id="Teacher_ID_#{item.classId}" />
+
+                                        <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax DisplayContext"></f:ajax>
+                                    </h:form>   
+
+                                </h:body>
+                            </div>
+                        </c:forEach>
+
+                    </c:if>                
                 
-                <c:forEach items="#{LoginPage1Bean.classesbyTeacherID}" var="item">
-                        
-                        <div class="panel-body">
-                            <h:body>
-                                
-                                <h:form class="btn">
-                                    <h:outputText value="#{item.className}"  id="Teacher_ID_#{item.classId}" />
+                
+            </div>
 
-                                    <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax DisplayContext"></f:ajax>
-                                </h:form>   
-
-                            </h:body>
-                        </div>
-                    </c:forEach>
-
-                </c:if>
         </div>
     </div>
       </ui:composition>	

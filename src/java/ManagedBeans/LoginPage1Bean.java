@@ -5,16 +5,21 @@
  */
 package ManagedBeans;
 
+import com.Web.Ajax.WebAjaxStudents;
+import com.Web.Ajax.WebAjaxTeachers;
 import Hibernate.Classes;
+import Hibernate.Student;
+import Hibernate.Teacher;
+import com.Web.Ajax.WebAjaxSingleStudent;
+import com.Web.Ajax.WebAjaxSingleTeacher;
 import com.Web.WebCurrentPageEnum;
 import com.Web.WebClassService;
 import com.Web.WebCookieService;
-import com.Web.WebStudentService;
+import com.Web.WebStudentClassesService;
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -39,12 +44,20 @@ public class LoginPage1Bean implements Serializable {
     private  WebCookieService webCookieService;
     
     @ManagedProperty(value="#{WebClassService}")
-    private  WebClassService classService;    
+    private  WebClassService webclassService;    
     
-    @ManagedProperty(value="#{WebStudentService}")
-    private  WebStudentService studentService;    
+    @ManagedProperty(value="#{WebStudentClassesService}")
+    private  WebStudentClassesService webStudentClassesService;    
+    
+    /////
+    @ManagedProperty(value="#{WebAjaxTeachers}")
+    private  WebAjaxTeachers webAjaxTeachers;    
+    
+    @ManagedProperty(value="#{WebAjaxStudents}")
+    private  WebAjaxStudents webAjaxStudents;    
     
     
+    /////
     @ManagedProperty(value="#{Login}")
     private  Login login;    
     
@@ -66,7 +79,21 @@ public class LoginPage1Bean implements Serializable {
         this.CurentPage = CurentPage;
     }
 
-    
+    public WebAjaxTeachers getWebAjaxTeachers() {
+        return webAjaxTeachers;
+    }
+
+    public void setWebAjaxTeachers(WebAjaxTeachers webAjaxTeachers) {
+        this.webAjaxTeachers = webAjaxTeachers;
+    }
+
+    public WebAjaxStudents getWebAjaxStudents() {
+        return webAjaxStudents;
+    }
+
+    public void setWebAjaxStudents(WebAjaxStudents webAjaxStudents) {
+        this.webAjaxStudents = webAjaxStudents;
+    }
     
     public WebUserLoggedIn getWebUserLoggedIn() {
         return webUserLoggedIn;
@@ -84,20 +111,21 @@ public class LoginPage1Bean implements Serializable {
         this.webCookieService = webCookieService;
     }
 
-    public WebClassService getClassService() {
-        return classService;
+    public WebClassService getWebclassService() {
+        return webclassService;
     }
 
-    public void setClassService(WebClassService classService) {
-        this.classService = classService;
+    public void setWebclassService(WebClassService webclassService) {
+        this.webclassService = webclassService;
     }
 
-    public WebStudentService getStudentService() {
-        return studentService;
+
+    public WebStudentClassesService getWebStudentClassesService() {
+        return webStudentClassesService;
     }
 
-    public void setStudentService(WebStudentService studentService) {
-        this.studentService = studentService;
+    public void setWebStudentClassesService(WebStudentClassesService webStudentClassesService) {
+        this.webStudentClassesService = webStudentClassesService;
     }
 
     public Login getLogin() {
@@ -117,17 +145,17 @@ public class LoginPage1Bean implements Serializable {
     }
     public List<Classes> getClassesbyTeacherID()
     {
-        return classService.getClassByTeacher(this.webUserLoggedIn.getTeacherID());
+        return webclassService.getClassByTeacher(this.webUserLoggedIn.getTeacherID());
     }
     
     public List<Classes> getClassByStudentID()
     {
-        return studentService.getClassesByStudent(this.webUserLoggedIn.getStudentID());
+        return webStudentClassesService.getClassesByStudent(this.webUserLoggedIn.getStudentID());
     }
     
     public String LogOut()
     {
-        
+        this.CurentPage = null;
         webUserLoggedIn.logOut();
         webCookieService.removeUserFromUserCookieBank();
         return "Home.xhtml";
@@ -143,13 +171,37 @@ public class LoginPage1Bean implements Serializable {
        List<UIComponent> components = item.getChildren();
        HtmlOutputText text = (HtmlOutputText)components.get(0);
        String id = text.getId();
+       
+       
        if(id.contains("Student"))
        {
-        this.CurentPage = WebCurrentPageEnum.StudentPage.getPageName();
+           String classId = id.replace("Student_ID_","");
+           List<Student> students =  webStudentClassesService.getStudentByClassID(classId);
+           ArrayList<WebAjaxSingleStudent>  newAjax = new ArrayList<WebAjaxSingleStudent>();
+           
+           for(Student singleStudent: students)
+           {
+               newAjax.add( new WebAjaxSingleStudent(singleStudent.getFirstName(),singleStudent.getLastName(),String.valueOf(singleStudent.getDob())));
+           }
+           
+           this.webAjaxStudents.setStudent(newAjax);
+           this.CurentPage = WebCurrentPageEnum.StudentPage.getPageName();
        }
+       
+       
        if(id.contains("Teacher"))
        {
-        this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   
+           String classId = id.replace("webAjaxTeachers","");
+           List<Classes> classes = webclassService.getClassByTeacher(classId);
+           Teacher  teach = webclassService.getTeacherbyClassId(classId);
+           ArrayList<WebAjaxSingleTeacher>  newAjax = new ArrayList<WebAjaxSingleTeacher>();
+           
+           for(Classes singleClass : classes)
+           {
+               newAjax.add(new WebAjaxSingleTeacher());
+           }
+           this.webAjaxTeachers.setTeacher(newAjax);
+           this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   
        }
        
        
