@@ -44,17 +44,5 @@ public class WebClassService implements Serializable{
         this.classService = (ClassesService) sLocator.getService(ServiceEnumContext.ClassesService);
     }
     
-    public List<Classes> getClassByTeacher(String id)
-    {
-        List<Classes> classes;
-        classes = classService.listAllByID(id);
-        return classes;
-    }
-    
-    public Teacher getTeacherbyClassId(String classId)
-    {
-        return classService.findByID(classId).getTeacher();
-    };
-    
     
 }

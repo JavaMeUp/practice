@@ -8,9 +8,12 @@ package com.Web;
 import DAO.Services.ClassesService;
 import DAO.Services.IServiceLocator;
 import DAO.Services.ServiceEnumContext;
+import DAO.Services.TeacherClassesService;
 import Hibernate.Classes;
 import Hibernate.Teacher;
+import Hibernate.Teacherclasses;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -23,13 +26,13 @@ import javax.faces.bean.SessionScoped;
  *
  * @author wilson.li
  */
-@ManagedBean(name="WebClassService",eager=true)
+@ManagedBean(name="WebTeacherClassService",eager=true)
 @SessionScoped
 public class WebTeacherClassService implements Serializable{
 
    @EJB
    private IServiceLocator sLocator;
-   private ClassesService classService;
+   private TeacherClassesService teacherClassService;
     /**
      * Creates a new instance of ClassService
      */
@@ -41,20 +44,37 @@ public class WebTeacherClassService implements Serializable{
     @PostConstruct
     public void init()
     {
-        this.classService = (ClassesService) sLocator.getService(ServiceEnumContext.ClassesService);
+        this.teacherClassService = (TeacherClassesService) sLocator.getService(ServiceEnumContext.TeacherClassesService);
     }
     
     public List<Classes> getClassByTeacher(String id)
     {
-        List<Classes> classes;
-        classes = classService.listAllByID(id);
+        List<Classes> classes = new ArrayList <Classes>();
+        teacherClassService.listAll();
+        for(Teacherclasses singleTeacherClass:teacherClassService.listAll())
+        {
+            if(singleTeacherClass.getClasses().getTeacherId() == Integer.valueOf(id))
+            {
+                classes.add(singleTeacherClass.getClasses());
+            }
+        }
+        
         return classes;
     }
     
-    public Teacher getTeacherbyClassId(String classId)
+    public List<Teacher> getTeacherbyClassId(String classId)
     {
-        return classService.findByID(classId).getTeacher();
+        List<Teacher> classes = new ArrayList <Teacher>();
+        teacherClassService.listAll();
+        for(Teacherclasses singleTeacherClass:teacherClassService.listAll())
+        {
+            if(singleTeacherClass.getClasses().getClassId() == Integer.valueOf(classId))
+            {
+                classes.add(singleTeacherClass.getTeacher());
+            }
+        }
+        
+        return classes;
     };
-    
     
 }

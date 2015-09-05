@@ -38,7 +38,7 @@ public class WebStudentClassesService implements Serializable{
     public void init()
     {
         this.classesService = (ClassesService) sLocator.getService(ServiceEnumContext.ClassesService);
-        this.studentClassesService = (StudentClassesService) sLocator.getService(ServiceEnumContext.StudentEnrolledClassesService);
+        this.studentClassesService = (StudentClassesService) sLocator.getService(ServiceEnumContext.StudentClassesService);
     }
     
     public List<Classes> getClassesByStudent(String id)

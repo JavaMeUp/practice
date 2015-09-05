@@ -16,7 +16,8 @@ public enum ServiceEnumContext
     TeacherService(3),
     UsersService(4),
     VisitorsService(5),
-    StudentEnrolledClassesService(6);
+    StudentClassesService(6),
+    TeacherClassesService(7);
     
     
     private String ServiceName;
