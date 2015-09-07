@@ -81,9 +81,13 @@ public class ServiceCache implements IServiceCache
             {
                 services.add(new VisitorsService());
             }            
-            if(newService.getServiceName().equals("StudentEnrolledClassesService"))
+            if(newService.getServiceName().equals("StudentClassesService"))
             {
                 services.add( new StudentClassesService());
+            }
+            if(newService.getServiceName().equals("TeacherClassesService"))
+            {
+                services.add( new TeacherClassesService());
             }
         }
         

@@ -16,7 +16,8 @@ public enum ServiceEnumContext
     TeacherService(3),
     UsersService(4),
     VisitorsService(5),
-    StudentEnrolledClassesService(6);
+    StudentClassesService(6),
+    TeacherClassesService(7);
     
     
     private String ServiceName;
@@ -42,8 +43,10 @@ public enum ServiceEnumContext
                 this.ServiceName = "VisitorsService";
                 break;       
             case 6:
-                this.ServiceName = "StudentEnrolledClassesService";
+                this.ServiceName = "StudentClassesService";
                 break;
+            case 7:
+                this.ServiceName = "TeacherClassesService";
             default:
                 
                 

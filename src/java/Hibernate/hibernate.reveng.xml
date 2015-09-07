@@ -2,10 +2,11 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="practicesql"/>
-  <table-filter match-name="visitors"/>
-  <table-filter match-name="users"/>
-  <table-filter match-name="classes"/>
+  <table-filter match-name="studentclasses"/>
+  <table-filter match-name="teacherclasses"/>
   <table-filter match-name="teacher"/>
   <table-filter match-name="student"/>
-  <table-filter match-name="studentclasses"/>
+  <table-filter match-name="users"/>
+  <table-filter match-name="visitors"/>
+  <table-filter match-name="classes"/>
 </hibernate-reverse-engineering>

@@ -16,6 +16,7 @@ import com.Web.WebCurrentPageEnum;
 import com.Web.WebClassService;
 import com.Web.WebCookieService;
 import com.Web.WebStudentClassesService;
+import com.Web.WebTeacherClassService;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,15 +50,15 @@ public class LoginPage1Bean implements Serializable {
     @ManagedProperty(value="#{WebStudentClassesService}")
     private  WebStudentClassesService webStudentClassesService;    
     
-    /////
+    @ManagedProperty(value="#{WebTeacherClassService}")
+    private WebTeacherClassService webTeacherClassService;
+    
     @ManagedProperty(value="#{WebAjaxTeachers}")
     private  WebAjaxTeachers webAjaxTeachers;    
     
     @ManagedProperty(value="#{WebAjaxStudents}")
     private  WebAjaxStudents webAjaxStudents;    
-    
-    
-    /////
+
     @ManagedProperty(value="#{Login}")
     private  Login login;    
     
@@ -70,6 +71,14 @@ public class LoginPage1Bean implements Serializable {
     {
         
     }   
+
+    public WebTeacherClassService getWebTeacherClassService() {
+        return webTeacherClassService;
+    }
+
+    public void setWebTeacherClassService(WebTeacherClassService webTeacherClassService) {
+        this.webTeacherClassService = webTeacherClassService;
+    }
 
     public String getCurentPage() {
         return CurentPage;
@@ -145,7 +154,7 @@ public class LoginPage1Bean implements Serializable {
     }
     public List<Classes> getClassesbyTeacherID()
     {
-        return webclassService.getClassByTeacher(this.webUserLoggedIn.getTeacherID());
+        return webTeacherClassService.getClassByTeacher(this.webUserLoggedIn.getTeacherID());
     }
     
     public List<Classes> getClassByStudentID()
@@ -192,8 +201,8 @@ public class LoginPage1Bean implements Serializable {
        if(id.contains("Teacher"))
        {
            String classId = id.replace("webAjaxTeachers","");
-           List<Classes> classes = webclassService.getClassByTeacher(classId);
-           Teacher  teach = webclassService.getTeacherbyClassId(classId);
+           List<Classes> classes = webTeacherClassService.getClassByTeacher(classId);
+           List<Teacher>  teach = webTeacherClassService.getTeacherbyClassId(classId);
            ArrayList<WebAjaxSingleTeacher>  newAjax = new ArrayList<WebAjaxSingleTeacher>();
            
            for(Classes singleClass : classes)

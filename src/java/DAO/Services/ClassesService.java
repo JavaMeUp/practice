@@ -79,22 +79,6 @@ public class ClassesService implements IService <Classes,String,ClassesDAO>
         return listClasses;
     }
     
-    public List<Classes> listAllByID(String id)
-    {
-        List<Classes> listClasses = new ArrayList<Classes>();
-        classesDAO.openCurrentTransaction();
-        List<Classes> ClassesList = classesDAO.findAll();
-        classesDAO.closeCurrentTransaction();
-        
-        for( Classes singleClass : ClassesList)
-        {
-            if(String.valueOf(singleClass.getTeacher().getTeacherId()).equals(id))
-            {
-                listClasses.add(singleClass);
-            }
-        }
-        return listClasses;
-    }    
     
     @Override
     public ClassesDAO getClassesDAO()
