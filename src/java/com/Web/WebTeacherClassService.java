@@ -53,10 +53,12 @@ public class WebTeacherClassService implements Serializable{
         teacherClassService.listAll();
         for(Teacherclasses singleTeacherClass:teacherClassService.listAll())
         {
+            System.out.print(singleTeacherClass.getClasses().getTeacherId());
+            String i = String.valueOf(singleTeacherClass.getClasses().getTeacherId());
             if(singleTeacherClass.getClasses().getTeacherId() == Integer.valueOf(id))
             {
                 classes.add(singleTeacherClass.getClasses());
-            }
+            }   
         }
         
         return classes;
