@@ -10,10 +10,13 @@ and open the template in the editor.
    xmlns:ui="http://java.sun.com/jsf/facelets"
    xmlns:f="http://java.sun.com/jsf/core"
    xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <c:if test="#{WebAjaxTeachers.teacher.size()==0}">
+    <c:if test="#{WebAjaxStudents.student.size()==0}">
         <h:outputLabel value="No Teacher"></h:outputLabel>
     </c:if>
-    <c:forEach items="#{WebAjaxTeachers.teacher}" var="item">        
-        <h:outputLabel value="#{item}"></h:outputLabel>
+    <c:forEach items="#{WebAjaxStudents.student}" var="item">        
+        <h:outputLabel value="#{item.name}"></h:outputLabel>
+        <h:outputLabel value="#{item.studentID}"></h:outputLabel>
+        <h:outputLabel value="#{item.imageURL}"></h:outputLabel>
+        
     </c:forEach>
 </html>

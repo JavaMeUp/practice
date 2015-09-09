@@ -12,7 +12,9 @@ import DAO.Services.ServiceEnumContext;
 import DAO.Services.StudentClassesService;
 import Hibernate.Classes;
 import Hibernate.Student;
+import Hibernate.Studentclasses;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -44,13 +46,34 @@ public class WebStudentClassesService implements Serializable{
     public List<Classes> getClassesByStudent(String id)
     {
         //Need to get a list of the Studentenrolledclasses and then see what classeIds are present for the student and then query again to get the classes and return it.
-         List<Classes> studentClass = this.studentClassesService.findClassesByStudentID(id);
-        return studentClass;
+        List<Classes> studentClasses = new ArrayList<Classes>();
+        
+        for(Studentclasses singleClass : this.studentClassesService.listAll())
+        {
+            if(singleClass.getStudent().getStudentId() == Integer.parseInt(id))
+            {
+                studentClasses.add(singleClass.getClasses());
+            }
+        }
+        
+        return studentClasses;
     }
     
     public List<Student> getStudentByClassID(String id)
     {
-        return this.studentClassesService.findStudentsByClassID(id);
+        List<Student> students = new ArrayList<Student>();
+        
+        
+        for(Studentclasses singleStudentClasses : studentClassesService.listAll())
+        {
+            if(singleStudentClasses.getClasses().getClassId() == Integer.parseInt(id))
+            {
+                students.add(singleStudentClasses.getStudent());
+            }
+        }
+        
+        return students;
+        
         
     }
     

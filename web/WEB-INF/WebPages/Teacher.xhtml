@@ -11,11 +11,12 @@ and open the template in the editor.
    xmlns:f="http://java.sun.com/jsf/core"
    xmlns:c="http://java.sun.com/jsp/jstl/core">
     
-    <c:if test="#{WebAjaxStudents.student.size()==0}">
+    <c:if test="#{WebAjaxTeachers.teacher.size()==0}">
         <h:outputLabel value="No Teachers"></h:outputLabel>
     </c:if>
-    <c:forEach items="#{WebAjaxStudents.student}" var="item">
-        <h:outputLabel value="#{item}">
-        </h:outputLabel>
+    <c:forEach items="#{WebAjaxTeachers.teacher}" var="item">
+        <h:outputLabel value="#{item.teacherId}"></h:outputLabel>
+        <h:outputLabel value="#{item.teacherName}"></h:outputLabel>
+        <h:outputLabel value="#{item.specialistSubject}"></h:outputLabel>
     </c:forEach>
 </html>

@@ -91,20 +91,6 @@ public class StudentClassesService implements IService <Studentclasses,String,St
     }
     
     
-    public List<Classes> findClassesByStudentID(String id)
-    {
-        StudentClassesServiceDAO.openCurrentTransaction();
-        List<Classes> listEnrolledClass = StudentClassesServiceDAO.findClassesByStudentID(Integer.parseInt(id));
-        StudentClassesServiceDAO.closeCurrentTransaction();
-        return listEnrolledClass;
-    }
-    
-    public List<Student> findStudentsByClassID(String id)
-    {
-        StudentClassesServiceDAO.openCurrentTransaction();
-        List<Student> listStudents = StudentClassesServiceDAO.findStudentsbyClassID(Integer.parseInt(id));
-        StudentClassesServiceDAO.closeCurrentTransaction();
-        return listStudents;
-    }    
+     
     
 }

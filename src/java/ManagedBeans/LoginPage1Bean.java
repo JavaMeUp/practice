@@ -200,14 +200,13 @@ public class LoginPage1Bean implements Serializable {
        
        if(id.contains("Teacher"))
        {
-           String classId = id.replace("webAjaxTeachers","");
-           List<Classes> classes = webTeacherClassService.getClassByTeacher(classId);
-           List<Teacher>  teach = webTeacherClassService.getTeacherbyClassId(classId);
+           String classId = id.replace("Teacher_ID_","");
+           List<Teacher>  teachers = webTeacherClassService.getTeacherbyClassId(classId);
            ArrayList<WebAjaxSingleTeacher>  newAjax = new ArrayList<WebAjaxSingleTeacher>();
            
-           for(Classes singleClass : classes)
+           for(Teacher singleTeacher : teachers)
            {
-               newAjax.add(new WebAjaxSingleTeacher());
+               newAjax.add(new WebAjaxSingleTeacher(singleTeacher.getFirstName(),singleTeacher.getLastName(),singleTeacher.getSpecialSubject()));
            }
            this.webAjaxTeachers.setTeacher(newAjax);
            this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   

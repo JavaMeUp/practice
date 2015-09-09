@@ -11,5 +11,41 @@ package com.Web.Ajax;
  */
 public class WebAjaxSingleTeacher 
 {
+    private String teacherName;
+    private String teacherId;
+    private String specialistSubject;
+
+    public WebAjaxSingleTeacher(String teacherName, String teacherId, String specialistSubject) {
+        this.teacherName = teacherName;
+        this.teacherId = teacherId;
+        this.specialistSubject = specialistSubject;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public String getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public String getSpecialistSubject() {
+        return specialistSubject;
+    }
+
+    public void setSpecialistSubject(String specialistSubject) {
+        this.specialistSubject = specialistSubject;
+    }
+    
+    
+    
     
 }
