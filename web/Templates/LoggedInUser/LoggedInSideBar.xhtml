@@ -13,24 +13,47 @@ and open the template in the editor.
 
     <body>
         <ui:composition> 
+<div class="panel-group Teacher">
+        <div class="panel panel-default">
+            <div class="panel-heading" data-toggle="collapse" data-target="#teacherPanel">
+                Your Classes as a Teacher
+            </div>
+            
+            <div id="teacherPanel" class="collapse">
+                <c:if test="#{WebUserLoggedIn.teacherID.length() >0}">
+                    <c:forEach items="#{LoginPage1Bean.getClassByStudentID()}" var="item">
+                        <div class="panel-body">
+                            <h:body>
+                                <h:form class="btn">
+                                    <h:outputText value="#{item.className}"  id="Student_ID_#{item.classId}" />
 
+                                    <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax DisplayContext"></f:ajax>
+                                </h:form>   
+                            </h:body>
+                        </div>
+                    </c:forEach>
+                </c:if>                
+            </div>
+        </div>
+    </div>
+    
     <div class="panel-group Student">
         <div class="panel panel-default">
 
 
             
             <div class="panel-heading" data-toggle="collapse" data-target="#studentPanel">
-                Your Teacher Classes, Click to see Students
+                Your Classes as a Student
             </div>
                 <div id="studentPanel" class="collapse">
                     
                     <c:if test="#{WebUserLoggedIn.studentID.length() >0}">
-                        <c:forEach items="#{LoginPage1Bean.getClassByStudentID()}" var="item">
+                        <c:forEach items="#{LoginPage1Bean.getClassesbyTeacherID()}" var="item">
 
                             <div class="panel-body">
 
                                     <h:form class="btn">
-                                        <h:outputText value="#{item.className}"  id="Student_ID_#{item.classId}" />
+                                        <h:outputText value="#{item.className}"  id="Teacher_ID_#{item.classId}" />
 
                                         <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax DisplayContext"></f:ajax>
                                     </h:form>   
@@ -44,7 +67,6 @@ and open the template in the editor.
             
         </div>
     </div>
-            
     <h:form>
         <h:inputText id="inputName" value="#{WebUserLoggedIn.userName}"></h:inputText>
       
@@ -66,37 +88,7 @@ and open the template in the editor.
             </h:outputLabel>
             
             
-    <div class="panel-group Teacher">
-        <div class="panel panel-default">
-            <div class="panel-heading" data-toggle="collapse" data-target="#teacherPanel">
-                Your Classes Enrolled as Student click to see Teachers.
-            </div>
-            
-            <div id="teacherPanel" class="collapse">
-                <c:if test="#{WebUserLoggedIn.teacherID.length() >0}">
-
-                    <c:forEach items="#{LoginPage1Bean.classesbyTeacherID}" var="item">
-
-                            <div class="panel-body">
-                                <h:body>
-
-                                    <h:form class="btn">
-                                        <h:outputText value="#{item.className}"  id="Teacher_ID_#{item.classId}" />
-
-                                        <f:ajax listener="#{LoginPage1Bean.AJAX}"   event="click"   render="ajax DisplayContext"></f:ajax>
-                                    </h:form>   
-
-                                </h:body>
-                            </div>
-                        </c:forEach>
-
-                    </c:if>                
-                
-                
-            </div>
-
-        </div>
-    </div>
+    
       </ui:composition>	
     </body>
 </html>

@@ -210,17 +210,9 @@ public class LoginPage1Bean implements Serializable {
            }
            this.webAjaxTeachers.setTeacher(newAjax);
            this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   
-       }
-       
-       
-       
+       }       
        //HtmlOutputText text = (HtmlOutputText) item.getParent().getChildren().get(1);
-       
-       
-       
-       
-       this.webUserLoggedIn.setUserName(String.format("AJAX + %s", rand.nextInt()));
-           
+
     }
     
     public void AJAX()
