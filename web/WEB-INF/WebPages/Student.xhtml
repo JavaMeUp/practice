@@ -19,15 +19,20 @@ and open the template in the editor.
                 <ui:repeat  value="#{WebAjaxStudents.student}" var="item">        
                     <div class=" pull-left" style="padding: 10px 10px 10px 10px;">
                         <div class=" panel panel-primary pull-left" Style="padding: 10px 10px 10px 10px;">
+                            
+                            <div class="panel-primary panel" Style="padding: 10px 10px 10px 10px;">
+                                
+                                <h:graphicImage value="../../resources/ProfilePictures/1.jpg" />
+                                
+                            </div>                            
+                            
                             <div>
                                 <h:outputLabel value="#{item.name}"></h:outputLabel>
                             </div>
                             <div>
                                 <h:outputLabel value="#{item.studentID}"></h:outputLabel>
                             </div>
-                            <div>
-                                <h:outputLabel value="#{item.imageURL}"></h:outputLabel>
-                            </div>
+
                         </div>
                     </div>
                         
