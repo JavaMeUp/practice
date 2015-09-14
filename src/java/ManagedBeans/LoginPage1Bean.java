@@ -190,7 +190,7 @@ public class LoginPage1Bean implements Serializable {
            
            for(Student singleStudent: students)
            {
-               newAjax.add( new WebAjaxSingleStudent(singleStudent.getFirstName(),singleStudent.getLastName(),String.valueOf(singleStudent.getDob())));
+               newAjax.add( new WebAjaxSingleStudent(singleStudent.getFirstName(),String.valueOf(singleStudent.getStudentId())));
            }
            
            this.webAjaxStudents.setStudent(newAjax);
@@ -206,7 +206,7 @@ public class LoginPage1Bean implements Serializable {
            
            for(Teacher singleTeacher : teachers)
            {
-               newAjax.add(new WebAjaxSingleTeacher(singleTeacher.getFirstName(),singleTeacher.getLastName(),singleTeacher.getSpecialSubject()));
+               newAjax.add(new WebAjaxSingleTeacher(singleTeacher.getFirstName(),String.valueOf(singleTeacher.getTeacherId()),singleTeacher.getSpecialSubject()));
            }
            this.webAjaxTeachers.setTeacher(newAjax);
            this.CurentPage = WebCurrentPageEnum.TeacherPage.getPageName();   

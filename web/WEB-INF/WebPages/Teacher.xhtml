@@ -22,16 +22,16 @@ and open the template in the editor.
                     <div class=" pull-left" style="padding: 10px 10px 10px 10px;">
                         <div class=" pull-left panel panel-primary" Style="padding: 10px 10px 10px 10px;">
                             <div>
-                                <h:outputLabel value="#{item.teacherId}"></h:outputLabel>
+                                <h:graphicImage value="/resources/ProfilePictures/Teachers/#{item.teacherId.trim()}.jpg" />
                             </div>
-                            <div>
-                                <h:outputLabel value="#{item.teacherName}"></h:outputLabel>
+                            <div >
+                                <h:outputLabel value="#{item.teacherName}" ></h:outputLabel>
                             </div>
                             <div>
                                 <h:outputLabel value="#{item.specialistSubject}"></h:outputLabel>
                             </div>
                             <div>
-                                <textarea>
+                                <textarea style="width:100%">
                                     
                                 </textarea>
                             </div>

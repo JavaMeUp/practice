@@ -13,12 +13,11 @@ public class WebAjaxSingleStudent
 {
     private String Name;
     private String StudentID;
-    private String imageURL;
 
-    public WebAjaxSingleStudent(String Name, String StudentID, String imageURL) {
+
+    public WebAjaxSingleStudent(String Name, String StudentID) {
         this.Name = Name;
         this.StudentID = StudentID;
-        this.imageURL = imageURL;
     }
     
 
@@ -38,13 +37,6 @@ public class WebAjaxSingleStudent
         this.StudentID = StudentID;
     }
 
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
     
     
     

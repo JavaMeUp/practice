@@ -6,6 +6,12 @@
         <param-value>Development</param-value>
     </context-param>
     
+    <!-- Wl; Move the resources to the WEB-INF -->
+    <context-param>
+        <param-name>javax.faces.WEBAPP_RESOURCES_DIRECTORY</param-name>
+        <param-value>/WEB-INF/resources</param-value>
+    </context-param>    
+    
     <listener>
         <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
     </listener>
